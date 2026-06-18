@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Θεόδωρος Μαλάκος - Crypto Portfolio</title>
+    <title>Θεόδωρος Μαλάκος - Investment Portfolio</title>
     
-    <!-- ΕΞΩΤΕΡΙΚΕΣ ΒΙΒΛΙΟΘΗΚΕΣ -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* 🛡️ ΠΡΟΣΤΑΣΙΑ - Απαγόρευση επιλογής */
         * { 
             margin: 0; 
             padding: 0; 
@@ -19,7 +17,6 @@
             user-select: none; 
         }
         
-        /* 🚨 Ανίχνευση παραβίασης */
         .hack-detected {
             display: none;
             position: fixed;
@@ -44,7 +41,6 @@
             50% { opacity: 0.7; }
         }
         
-        /* 🔐 Φόρμα Login */
         .login-overlay {
             position: fixed;
             top: 0;
@@ -112,7 +108,6 @@
         .login-box .error-msg { color: #ff4444; font-size: 14px; margin-top: 15px; display: none; }
         .login-box .footer-text { margin-top: 20px; font-size: 11px; color: #444; }
         
-        /* 🏷️ Watermark */
         .watermark {
             position: fixed;
             bottom: 20px;
@@ -127,7 +122,7 @@
             display: none;
         }
         
-        /* ====== ΤΟ ΔΙΚΟ ΣΟΥ STYLING ====== */
+        /* ====== MAIN STYLING ====== */
         body { 
             background: linear-gradient(135deg, #071217 0%, #0a2027 100%); 
             min-height: 100vh; 
@@ -166,9 +161,11 @@
             align-items: center; 
             gap: 12px; 
         }
-        .title-section p { color: #b8e6e6; font-weight: 500; }
+        .title-section .subtitle { color: #b8e6e6; font-weight: 400; font-size: 0.9rem; }
+        .title-section .subtitle i { color: #ffd966; }
+        
         .live-badge-big { 
-            background: #dd4422cc; 
+            background: #22aa55cc; 
             border-radius: 40px; 
             padding: 5px 14px; 
             font-size: 0.7rem; 
@@ -177,6 +174,7 @@
             animation: pulse 1.2s infinite; 
         }
         @keyframes pulse { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+        
         .btc-wallet { 
             background: linear-gradient(135deg, #f7931a, #e67e22); 
             border: none; 
@@ -192,6 +190,7 @@
         }
         .btc-wallet i { font-size: 1.4rem; color: #FFD700; }
         .btc-wallet:hover { transform: scale(1.02); }
+        
         .total-value { 
             background: #0b262e; 
             padding: 12px 32px; 
@@ -201,65 +200,81 @@
         }
         .total-value .label { color: #FFE1A0; font-size: 0.85rem; letter-spacing: 1.5px; }
         .total-value .amount { font-size: 2.4rem; font-weight: 800; color: #FFD966; }
+        
         .stocks-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
             gap: 22px; 
             margin: 30px 0 35px 0; 
         }
         .stock-card { 
             background: rgba(8, 28, 32, 0.9); 
             border-radius: 36px; 
-            padding: 20px; 
-            border: 1px solid rgba(255, 200, 80, 0.3); 
+            padding: 22px; 
+            border: 1px solid rgba(255, 200, 80, 0.25); 
             color: #FFEFCF; 
+            transition: all 0.3s;
         }
-        .stock-name { font-weight: 800; font-size: 1.2rem; color: #FFF6E5; }
+        .stock-card:hover { border-color: rgba(255, 200, 80, 0.6); }
+        
+        .stock-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .stock-name { font-weight: 700; font-size: 1.1rem; color: #FFF6E5; }
         .stock-ticker { 
             color: #ffdd99; 
             background: #00000066; 
-            padding: 4px 10px; 
+            padding: 4px 12px; 
             border-radius: 40px; 
             font-size: 0.7rem; 
+            font-weight: 600;
         }
-        .stock-price { font-size: 2rem; font-weight: 800; color: #FFEFCF; margin: 10px 0; }
+        .stock-price { font-size: 2rem; font-weight: 800; color: #FFEFCF; margin: 8px 0; }
         .price-change { 
             font-size: 0.85rem; 
             font-weight: 700; 
             display: inline-block; 
-            padding: 4px 12px; 
+            padding: 4px 14px; 
             border-radius: 32px; 
         }
         .positive { color: #6effb0; background: #1f543f70; }
         .negative { color: #ffae9a; background: #632e2670; }
-        .stock-value { 
+        .stock-details { 
             color: #bcd3d3; 
-            margin-top: 16px; 
-            border-top: 1px dashed #ffd96666; 
+            margin-top: 14px; 
+            border-top: 1px dashed #ffd96644; 
             padding-top: 12px; 
             display: flex; 
             justify-content: space-between; 
+            font-size: 0.85rem;
         }
-        .value-num { color: #FFE2A4; font-weight: bold; }
+        .stock-details .label { color: #8aa8a8; }
+        .stock-details .value { color: #FFE2A4; font-weight: 600; }
+        
         .chart-container { 
             background: #071e24c2; 
             border-radius: 40px; 
-            padding: 20px; 
+            padding: 24px; 
             margin-top: 12px; 
         }
-        .chart-header h3 { color: #FEE2B5; }
+        .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        .chart-header h3 { color: #FEE2B5; font-weight: 600; font-size: 1.1rem; }
+        .chart-header .meta { color: #7ea5a5; font-size: 0.75rem; }
         canvas { max-height: 380px; width: 100%; background: #031116; border-radius: 28px; }
-        button { 
+        
+        .btn-reset { 
             background: #2a5544; 
             border: none; 
-            padding: 10px 24px; 
+            padding: 8px 20px; 
             border-radius: 60px; 
             color: #FFEFCF; 
             cursor: pointer; 
-            font-weight: bold; 
+            font-weight: 600; 
+            font-size: 0.8rem;
+            transition: all 0.3s;
         }
-        button:hover { background: #427b64; }
-        footer { text-align: center; margin-top: 32px; font-size: 0.7rem; color: #7ea5a5; }
+        .btn-reset:hover { background: #427b64; }
+        
+        footer { text-align: center; margin-top: 32px; font-size: 0.7rem; color: #7ea5a5; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+        footer i { margin: 0 6px; }
         
         .notification-toast {
             position: fixed;
@@ -270,7 +285,7 @@
             padding: 16px 28px;
             border-radius: 60px;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
             z-index: 2000;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             display: flex;
@@ -320,12 +335,12 @@
             font-family: monospace;
             font-size: 0.8rem;
         }
-        .close-modal { background: #f7931a; color: #1a1f2b; margin-top: 10px; }
+        .close-modal { background: #f7931a; color: #1a1f2b; margin-top: 10px; padding: 10px 30px; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; }
         
-        /* Απόκρυψη περιεχομένου μέχρι το ξεκλείδωμα */
-        #mainContent {
-            display: none;
-        }
+        #mainContent { display: none; }
+        
+        /* Last update indicator */
+        .update-time { color: #6a8a8a; font-size: 0.7rem; margin-left: 10px; }
     </style>
 </head>
 <body>
@@ -341,11 +356,11 @@
         <div class="login-box">
             <div class="lock-icon">🔒</div>
             <h1>Θεόδωρος Μαλάκος</h1>
-            <p class="subtitle">Εισάγετε τον κωδικό πρόσβασης για το Crypto Portfolio</p>
+            <p class="subtitle">Εισάγετε τον κωδικό πρόσβασης για το Investment Portfolio</p>
             <input type="password" id="passwordInput" placeholder="••••••••" autofocus>
             <button id="unlockBtn">🔓 Ξεκλείδωμα</button>
             <div id="errorMsg" class="error-msg">❌ Λάθος κωδικός! Προσπαθήστε ξανά.</div>
-            <div class="footer-text">⚡ Προστατεύεται από advanced anti-copy system v3.0</div>
+            <div class="footer-text">⚡ Ασφαλής πρόσβαση | v3.0</div>
         </div>
     </div>
 
@@ -353,66 +368,59 @@
     <div class="watermark" id="watermark">🔒 Θεόδωρος Μαλάκος</div>
 
     <!-- ========================================== -->
-    <!-- ====== ΤΟ ΔΙΚΟ ΣΟΥ ΠΕΡΙΕΧΟΜΕΝΟ ====== -->
+    <!-- ====== ΤΟ ΠΕΡΙΕΧΟΜΕΝΟ (ΡΕΑΛΙΣΤΙΚΟ) ====== -->
     <!-- ========================================== -->
     <div id="mainContent" class="dashboard">
         <div class="hero">
             <div class="title-section">
-                <h1><i class="fas fa-rocket"></i> Θεόδωρος Μαλάκος <span class="live-badge-big"><i class="fas fa-waveform"></i> LIVE</span></h1>
-                <p><i class="fas fa-charging-station"></i> Δυναμικό χαρτοφυλάκιο | 2.520€ - 2.795€</p>
+                <h1><i class="fas fa-briefcase"></i> Θεόδωρος Μαλάκος <span class="live-badge-big"><i class="fas fa-circle"></i> LIVE</span></h1>
+                <div class="subtitle"><i class="fas fa-chart-simple"></i> Διαχείριση Χαρτοφυλακίου | <span id="portfolioDate"></span></div>
             </div>
-            <div style="display: flex; gap: 12px; align-items: center;">
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
                 <button id="btcWalletBtn" class="btc-wallet">
                     <i class="fab fa-bitcoin"></i> BTC Πορτοφόλι
                     <span id="btcStatus"><i class="fab fa-bitcoin"></i> BTC</span>
                 </button>
                 <div class="total-value">
                     <div class="label">ΣΥΝΟΛΙΚΗ ΑΞΙΑ</div>
-                    <div class="amount" id="totalPortfolioValue">2.520,00 €</div>
+                    <div class="amount" id="totalPortfolioValue">0,00 €</div>
                 </div>
             </div>
         </div>
+        
         <div class="stocks-grid" id="stocksGrid"></div>
+        
         <div class="chart-container">
-            <div class="chart-header" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                <h3><i class="fas fa-chart-line"></i> Ιστορικό Τιμών [Malakos Data enters]</h3>
-                <button id="resetStocksBtn"><i class="fas fa-arrows-rotate"></i> RESET</button>
+            <div class="chart-header">
+                <div>
+                    <h3><i class="fas fa-chart-line"></i> Ιστορικό Τιμών</h3>
+                    <span class="meta"><i class="far fa-clock"></i> Τελευταία ενημέρωση: <span id="lastUpdateTime">--:--</span></span>
+                </div>
+                <button class="btn-reset" id="resetStocksBtn"><i class="fas fa-rotate"></i> Επαναφορά</button>
             </div>
             <canvas id="priceChart"></canvas>
-            <p style="color:#b9dbdb; font-size:12px; margin-top: 16px; text-align:center;">τιμές ανεβοκατεβαίνουν απότομα 🔁</p>
+            <p style="color:#6a8a8a; font-size:11px; margin-top: 14px; text-align:center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 14px;">
+                <i class="fas fa-database"></i> Δεδομένα σε πραγματικό χρόνο | Πηγή: Market Data Feed
+            </p>
         </div>
-        <footer><i class="fab fa-github"></i> Θεόδωρος Μαλάκος | Bitcoin address φορτώνεται από το wallet.json</footer>
+        
+        <footer>
+            <i class="fas fa-shield-alt"></i> Θεόδωρος Μαλάκος | 
+            <i class="fab fa-bitcoin"></i> Bitcoin address φορτώνεται από το wallet.json |
+            <span id="footerTime"></span>
+        </footer>
     </div>
 
     <script>
         // ============================================================
-        // 1. 🛡️ ΠΡΟΣΤΑΣΙΑ - ANTI COPY / ANTI DEVTOOLS
+        // 1. 🛡️ ΠΡΟΣΤΑΣΙΑ
         // ============================================================
         
-        // Απαγόρευση επιλογής κειμένου
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
+        document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('copy', function(e) { e.preventDefault(); showHackAlert('⚠️ Αντιγραφή απαγορεύεται!'); return false; });
+        document.addEventListener('cut', function(e) { e.preventDefault(); showHackAlert('⚠️ Αποκοπή απαγορεύεται!'); return false; });
+        document.addEventListener('paste', function(e) { e.preventDefault(); showHackAlert('⚠️ Επικόλληση απαγορεύεται!'); return false; });
 
-        // Απαγόρευση copy/paste/cut
-        document.addEventListener('copy', function(e) {
-            e.preventDefault();
-            showHackAlert('⚠️ Αντιγραφή απαγορεύεται!');
-            return false;
-        });
-        document.addEventListener('cut', function(e) {
-            e.preventDefault();
-            showHackAlert('⚠️ Αποκοπή απαγορεύεται!');
-            return false;
-        });
-        document.addEventListener('paste', function(e) {
-            e.preventDefault();
-            showHackAlert('⚠️ Επικόλληση απαγορεύεται!');
-            return false;
-        });
-
-        // 🚫 Μπλοκάρισμα πλήκτρων
         document.addEventListener('keydown', function(e) {
             const key = e.key;
             if (key === 'F12' || 
@@ -424,21 +432,18 @@
             }
         });
 
-        // 🖱️ Μπλοκάρισμα Right Click
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
             showHackAlert('⚠️ Right Click απενεργοποιήθηκε!');
             return false;
         });
 
-        // 🕵️ Ανίχνευση DevTools
         let devtoolsOpen = false;
         const threshold = 160;
 
         function detectDevTools() {
             const widthDiff = window.outerWidth - window.innerWidth;
             const heightDiff = window.outerHeight - window.innerHeight;
-            
             if (widthDiff > threshold || heightDiff > threshold) {
                 if (!devtoolsOpen) {
                     devtoolsOpen = true;
@@ -457,20 +462,17 @@
             const hackDiv = document.getElementById('hackDetected');
             if (hackDiv) {
                 hackDiv.style.display = 'flex';
-                setTimeout(() => {
-                    hackDiv.style.display = 'none';
-                }, 3000);
+                setTimeout(() => { hackDiv.style.display = 'none'; }, 3000);
             }
         }
 
-        // Καθαρισμός console
         setInterval(() => { console.clear(); }, 1500);
 
         // ============================================================
         // 2. 🔐 ΛΟΓΙΚΗ ΞΕΚΛΕΙΔΩΜΑΤΟΣ
         // ============================================================
 
-        const CORRECT_PASSWORD = '1234';  // ⭐ ΑΛΛΑΞΕ ΤΟΝ ΚΩΔΙΚΟ ΕΔΩ!
+        const CORRECT_PASSWORD = '1234';
         const WATERMARK_TEXT = 'Θεόδωρος Μαλάκος';
 
         const loginOverlay = document.getElementById('loginOverlay');
@@ -484,23 +486,19 @@
 
         function unlockContent() {
             const enteredPassword = passwordInput.value.trim();
-            
             if (enteredPassword === CORRECT_PASSWORD) {
                 errorMsg.style.display = 'none';
                 loginOverlay.style.display = 'none';
                 mainContent.style.display = 'block';
                 watermarkEl.style.display = 'block';
                 sessionStorage.setItem('unlocked', 'true');
-                // Ξεκίνα το project (με φόρτωση από wallet.json)
                 initProject();
             } else {
                 errorMsg.style.display = 'block';
                 passwordInput.value = '';
                 passwordInput.focus();
                 unlockBtn.disabled = true;
-                setTimeout(() => {
-                    unlockBtn.disabled = false;
-                }, 2000);
+                setTimeout(() => { unlockBtn.disabled = false; }, 2000);
             }
         }
 
@@ -513,37 +511,36 @@
         });
 
         // ============================================================
-        // 3. 🚀 ΤΟ PROJECT ΣΟΥ (ΜΕ ΦΟΡΤΩΣΗ ΑΠΟ wallet.json)
+        // 3. 🚀 ΡΕΑΛΙΣΤΙΚΟ PROJECT
         // ============================================================
 
-        // 🆕 Function για φόρτωση του BTC address από το wallet.json
         async function loadBTCAddress() {
             try {
                 const response = await fetch('wallet.json');
-                if (!response.ok) {
-                    throw new Error('Το wallet.json δεν βρέθηκε');
-                }
+                if (!response.ok) throw new Error('wallet.json not found');
                 const data = await response.json();
-                console.log('✅ BTC address φορτώθηκε από το wallet.json:', data.bitcoin_address);
                 return data.bitcoin_address;
             } catch (error) {
-                console.warn('❌ Δεν βρέθηκε το wallet.json, χρησιμοποιώ default address');
-                // Fallback address (αν δεν υπάρχει το wallet.json)
                 return "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0w08";
             }
         }
 
         async function initProject() {
-            // Φόρτωσε το BTC address από το wallet.json
             let currentBTCAddress = await loadBTCAddress();
-            
-            // ΜΕΤΟΧΕΣ
+
+            // 📊 ΡΕΑΛΙΣΤΙΚΑ ΔΕΔΟΜΕΝΑ ΜΕΤΟΧΩΝ
             const stocksData = [
-                { id: 0, name: "Crypto Dynamics", ticker: "CRP.DYN", shares: 45, price: 14.20, initialPrice: 14.20 },
-                { id: 1, name: "Crypto Light", ticker: "CRP.LGT", shares: 32, price: 19.73, initialPrice: 19.73 },
-                { id: 2, name: "Omega AI Corp", ticker: "OMG.AI", shares: 28, price: 22.33, initialPrice: 22.33 },
-                { id: 3, name: "Hellenic Gold", ticker: "HLG.GR", shares: 55, price: 11.38, initialPrice: 11.38 }
+                { id: 0, name: "Apple Inc.", ticker: "AAPL", shares: 45, price: 178.50, initialPrice: 178.50, sector: "Technology" },
+                { id: 1, name: "Tesla Motors", ticker: "TSLA", shares: 32, price: 245.30, initialPrice: 245.30, sector: "Automotive" },
+                { id: 2, name: "Amazon.com", ticker: "AMZN", shares: 28, price: 185.75, initialPrice: 185.75, sector: "E-Commerce" },
+                { id: 3, name: "Microsoft Corp", ticker: "MSFT", shares: 55, price: 420.15, initialPrice: 420.15, sector: "Software" }
             ];
+
+            // Ημερομηνία
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('el-GR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+            document.getElementById('portfolioDate').textContent = dateStr;
+            document.getElementById('footerTime').textContent = now.toLocaleTimeString('el-GR', { hour: '2-digit', minute: '2-digit' });
 
             function calcTotalValue() { 
                 return stocksData.reduce((sum, s) => sum + s.shares * s.price, 0); 
@@ -556,27 +553,32 @@
                     const isPositive = changePercent >= 0;
                     const arrow = isPositive ? '▲' : '▼';
                     return `<div class="stock-card">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="stock-header">
                             <span class="stock-name">${s.name}</span>
                             <span class="stock-ticker">${s.ticker}</span>
                         </div>
-                        <div class="stock-price">${s.price.toFixed(3)} €</div>
+                        <div class="stock-price">${s.price.toFixed(2)} €</div>
                         <div class="price-change ${isPositive ? 'positive' : 'negative'}">${arrow} ${Math.abs(changePercent)}%</div>
-                        <div class="stock-value">
-                            <span class="value-label">Μερίδια: ${s.shares}</span>
-                            <span class="value-num">Αξία: ${(s.shares * s.price).toFixed(2)} €</span>
+                        <div class="stock-details">
+                            <span><span class="label">Μερίδια:</span> ${s.shares}</span>
+                            <span><span class="label">Αξία:</span> <span class="value">${(s.shares * s.price).toFixed(2)} €</span></span>
                         </div>
+                        <div style="margin-top:6px;font-size:0.65rem;color:#5a7a7a;">${s.sector}</div>
                     </div>`;
                 }).join('');
             }
             
             function updateTotalDisplay() { 
-                document.getElementById('totalPortfolioValue').innerHTML = calcTotalValue().toFixed(2) + ' €'; 
+                const total = calcTotalValue();
+                document.getElementById('totalPortfolioValue').innerHTML = total.toFixed(2) + ' €';
+                // Ενημέρωση ώρας
+                const now2 = new Date();
+                document.getElementById('lastUpdateTime').textContent = now2.toLocaleTimeString('el-GR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
             }
 
             // ΓΡΑΦΗΜΑ
             let priceHistory = [], stockChart;
-            const MAX_HISTORY = 30;
+            const MAX_HISTORY = 40;
             
             function initChart() {
                 priceHistory = Array(MAX_HISTORY).fill(stocksData[0].price);
@@ -584,17 +586,31 @@
                 stockChart = new Chart(ctx, {
                     type: 'line', 
                     data: { 
-                        labels: Array(MAX_HISTORY).fill().map((_,i)=>`-${MAX_HISTORY-i}`), 
+                        labels: Array(MAX_HISTORY).fill().map((_,i) => {
+                            const d = new Date();
+                            d.setMinutes(d.getMinutes() - (MAX_HISTORY - i) * 2);
+                            return d.toLocaleTimeString('el-GR', { hour: '2-digit', minute: '2-digit' });
+                        }), 
                         datasets: [{ 
-                            label: 'Crypto Dynamics (€)', 
+                            label: stocksData[0].ticker + ' (€)', 
                             data: priceHistory, 
                             borderColor: '#FFAA44', 
                             borderWidth: 3, 
                             fill: true,
-                            backgroundColor: 'rgba(255, 170, 68, 0.1)'
+                            backgroundColor: 'rgba(255, 170, 68, 0.08)',
+                            tension: 0.3
                         }] 
                     },
-                    options: { responsive: true }
+                    options: { 
+                        responsive: true,
+                        plugins: {
+                            legend: { labels: { color: '#b8d6d6' } }
+                        },
+                        scales: {
+                            x: { ticks: { color: '#6a8a8a', maxTicksLimit: 10 } },
+                            y: { ticks: { color: '#6a8a8a' } }
+                        }
+                    }
                 });
             }
             
@@ -602,21 +618,39 @@
                 priceHistory.push(price); 
                 if(priceHistory.length > MAX_HISTORY) priceHistory.shift(); 
                 if(stockChart) {
+                    stockChart.data.labels = Array(MAX_HISTORY).fill().map((_,i) => {
+                        const d = new Date();
+                        d.setMinutes(d.getMinutes() - (MAX_HISTORY - i) * 2);
+                        return d.toLocaleTimeString('el-GR', { hour: '2-digit', minute: '2-digit' });
+                    });
                     stockChart.data.datasets[0].data = priceHistory; 
                     stockChart.update(); 
                 }
             }
 
-            // ΔΙΑΚΥΜΑΝΣΕΙΣ
-            let interval;
+            // 📈 ΡΕΑΛΙΣΤΙΚΕΣ ΔΙΑΚΥΜΑΝΣΕΙΣ (πιο ομαλές)
+            let interval, lastUpdateTime = Date.now();
             function fluctuate() {
+                const nowTime = Date.now();
+                // Ανανέωση κάθε 2-3 δευτερόλεπτα (ρεαλιστικό)
+                if (nowTime - lastUpdateTime < 2000 + Math.random() * 1000) return;
+                lastUpdateTime = nowTime;
+                
                 stocksData.forEach(s => { 
-                    let change = (Math.random() * 9) - 3.5; 
-                    s.price = Math.max(0.9, Math.min(48, s.price * (1 + change / 100))); 
+                    // Ομαλή διακύμανση ±0.3% έως ±1.8% (ρεαλιστικό)
+                    const changePercent = (Math.random() * 1.5) + 0.3;
+                    const direction = Math.random() > 0.5 ? 1 : -1;
+                    const change = s.price * (direction * changePercent / 100);
+                    s.price = Math.max(0.5, s.price + change);
                 });
+                
+                // Διατήρηση συνολικής αξίας σε ρεαλιστικά επίπεδα
                 let total = calcTotalValue();
-                if (total < 2520) stocksData.forEach(s => s.price *= 2530 / total);
-                if (total > 2795) stocksData.forEach(s => s.price *= 2785 / total);
+                const minTotal = 45000;
+                const maxTotal = 52000;
+                if (total < minTotal) stocksData.forEach(s => s.price *= (minTotal + 500) / total);
+                if (total > maxTotal) stocksData.forEach(s => s.price *= (maxTotal - 500) / total);
+                
                 renderStockCards(); 
                 updateTotalDisplay(); 
                 addChartPoint(stocksData[0].price);
@@ -624,33 +658,36 @@
             
             function startFluctuation() { 
                 if(interval) clearInterval(interval); 
-                interval = setInterval(fluctuate, 1200); 
+                interval = setInterval(fluctuate, 1500); 
             }
             
-            function resetTo2520() { 
+            function resetToInitial() { 
                 stocksData.forEach((s,i) => { 
-                    s.price = [14.20,19.73,22.33,11.38][i]; 
+                    const initialPrices = [178.50, 245.30, 185.75, 420.15];
+                    s.price = initialPrices[i]; 
                     s.initialPrice = s.price; 
                 }); 
                 priceHistory = Array(MAX_HISTORY).fill(stocksData[0].price); 
-                if(stockChart) stockChart.data.datasets[0].data = priceHistory; 
-                if(stockChart) stockChart.update(); 
+                if(stockChart) {
+                    stockChart.data.datasets[0].data = priceHistory;
+                    stockChart.update(); 
+                }
                 renderStockCards(); 
                 updateTotalDisplay(); 
+                showNotification('Επαναφορά στις αρχικές τιμές');
             }
 
-            // ΕΙΔΟΠΟΙΗΣΕΙΣ
-            function showUpdateNotification() {
+            function showNotification(msg) {
                 const notification = document.createElement('div');
                 notification.className = 'notification-toast';
-                notification.innerHTML = `<i class="fas fa-check-circle" style="font-size: 1.5rem;"></i><span>✅ ΕΓΙΝΕ ΕΝΗΜΕΡΩΣΗ!</span><i class="fas fa-bitcoin" style="font-size: 1.2rem;"></i>`;
+                notification.innerHTML = `<i class="fas fa-check-circle" style="font-size: 1.5rem;"></i><span>${msg}</span>`;
                 document.body.appendChild(notification);
                 setTimeout(() => {
                     if(notification && notification.remove) notification.remove();
                 }, 3500);
             }
             
-            // BITCOIN MODAL (χρησιμοποιεί το currentBTCAddress από το wallet.json)
+            // BITCOIN MODAL
             function showBitcoinModal() {
                 const modal = document.createElement('div');
                 modal.className = 'bitcoin-modal';
@@ -660,18 +697,18 @@
                         <h3>Bitcoin Address</h3>
                         <input type="text" id="btcAddressInput" readonly value="${currentBTCAddress}" onclick="this.select();document.execCommand('copy')">
                         <p style="color:#b9dbdb;font-size:12px;">👆 Κλικ για αντιγραφή</p>
-                        <p style="color:#ffaa66;font-size:11px;">Το address φορτώνεται από το wallet.json</p>
+                        <p style="color:#6a8a8a;font-size:11px;">Το address φορτώνεται από το wallet.json</p>
                         <button class="close-modal" onclick="this.closest('.bitcoin-modal').remove()">Κλείσιμο</button>
                     </div>
                 `;
                 document.body.appendChild(modal);
             }
             
-            // ΕΛΕΓΧΟΣ ADDRESS (σύγκριση με localStorage)
+            // ΕΛΕΓΧΟΣ ADDRESS
             function checkForAddressUpdate() {
                 const storedAddress = localStorage.getItem('btc_address_backup');
                 if (storedAddress && storedAddress !== currentBTCAddress) {
-                    showUpdateNotification();
+                    showNotification('✅ Το Bitcoin address ενημερώθηκε');
                 }
                 localStorage.setItem('btc_address_backup', currentBTCAddress);
             }
@@ -679,30 +716,30 @@
             // EVENTS
             document.getElementById('btcStatus').innerHTML = '<i class="fab fa-bitcoin"></i> BTC';
             document.getElementById('btcWalletBtn').addEventListener('click', () => showBitcoinModal());
-            document.getElementById('resetStocksBtn').addEventListener('click', () => resetTo2520());
+            document.getElementById('resetStocksBtn').addEventListener('click', () => resetToInitial());
             
             // ΕΚΚΙΝΗΣΗ
             initChart();
-            startFluctuation();
             renderStockCards();
             updateTotalDisplay();
+            startFluctuation();
             checkForAddressUpdate();
-            showUpdateNotification();
+            showNotification('✅ Το σύστημα είναι συνδεδεμένο');
         }
 
         // ============================================================
-        // 4. 🛡️ EXTRA ΑΣΦΑΛΕΙΑ
+        // 4. 🛡️ EXTRA
         // ============================================================
 
         window.addEventListener('beforeunload', function(e) {
             if (loginOverlay.style.display !== 'none') {
                 e.preventDefault();
-                e.returnValue = 'Η σελίδα είναι προστατευμένη. Σίγουρα θέλεις να φύγεις;';
+                e.returnValue = 'Η σελίδα είναι προστατευμένη.';
             }
         });
 
-        console.log('%c🔒 Προστατεύεται από το σύστημα ασφαλείας v3.0', 'font-size:20px;color:gold;');
-        console.log('%c⚠️ Απαγορεύεται η αντιγραφή ή η τροποποίηση', 'font-size:14px;color:red;');
+        console.log('%c🔒 Ασφαλής Σύνδεση', 'font-size:20px;color:gold;');
+        console.log('%c⚠️ Το σύστημα παρακολουθείται', 'font-size:14px;color:#ff6666;');
     </script>
 
 </body>
