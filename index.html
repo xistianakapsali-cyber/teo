@@ -1,305 +1,299 @@
 ﻿<!DOCTYPE html>
-<html lang="el">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Θεόδωρος Μαλάκος - Crypto Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Password Protected Page</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Poppins', sans-serif; }
-        body { background: linear-gradient(135deg, #071217 0%, #0a2027 100%); min-height: 100vh; padding: 20px; display: flex; justify-content: center; align-items: center; }
-        .dashboard { max-width: 1480px; width: 100%; background: rgba(6, 20, 24, 0.7); backdrop-filter: blur(4px); border-radius: 56px; padding: 28px 30px 34px; border: 1px solid rgba(255, 200, 100, 0.25); }
-        .hero { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 30px; border-bottom: 2px solid rgba(255, 196, 0, 0.4); padding-bottom: 20px; gap: 15px; }
-        .title-section h1 { font-size: 2.2rem; background: linear-gradient(125deg, #FFE6B0, #FFBC5E); -webkit-background-clip: text; background-clip: text; color: transparent; display: flex; align-items: center; gap: 12px; }
-        .title-section p { color: #b8e6e6; font-weight: 500; }
-        .live-badge-big { background: #dd4422cc; border-radius: 40px; padding: 5px 14px; font-size: 0.7rem; font-weight: bold; color: white; animation: pulse 1.2s infinite; }
-        @keyframes pulse { 0% { opacity: 0.6; } 100% { opacity: 1; } }
-        .btc-wallet { background: linear-gradient(135deg, #f7931a, #e67e22); border: none; border-radius: 60px; padding: 10px 24px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.25s; font-weight: bold; color: #1a1f2b; }
-        .btc-wallet i { font-size: 1.4rem; color: #FFD700; }
-        .btc-wallet:hover { transform: scale(1.02); }
-        .total-value { background: #0b262e; padding: 12px 32px; border-radius: 70px; text-align: center; border: 1px solid #ffdd99aa; }
-        .total-value .label { color: #FFE1A0; font-size: 0.85rem; letter-spacing: 1.5px; }
-        .total-value .amount { font-size: 2.4rem; font-weight: 800; color: #FFD966; }
-        .stocks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 22px; margin: 30px 0 35px 0; }
-        .stock-card { background: rgba(8, 28, 32, 0.9); border-radius: 36px; padding: 20px; border: 1px solid rgba(255, 200, 80, 0.3); color: #FFEFCF; }
-        .stock-name { font-weight: 800; font-size: 1.2rem; color: #FFF6E5; }
-        .stock-ticker { color: #ffdd99; background: #00000066; padding: 4px 10px; border-radius: 40px; font-size: 0.7rem; }
-        .stock-price { font-size: 2rem; font-weight: 800; color: #FFEFCF; margin: 10px 0; }
-        .price-change { font-size: 0.85rem; font-weight: 700; display: inline-block; padding: 4px 12px; border-radius: 32px; }
-        .positive { color: #6effb0; background: #1f543f70; }
-        .negative { color: #ffae9a; background: #632e2670; }
-        .stock-value { color: #bcd3d3; margin-top: 16px; border-top: 1px dashed #ffd96666; padding-top: 12px; display: flex; justify-content: space-between; }
-        .value-num { color: #FFE2A4; font-weight: bold; }
-        .chart-container { background: #071e24c2; border-radius: 40px; padding: 20px; margin-top: 12px; }
-        .chart-header h3 { color: #FEE2B5; }
-        canvas { max-height: 380px; width: 100%; background: #031116; border-radius: 28px; }
-        button { background: #2a5544; border: none; padding: 10px 24px; border-radius: 60px; color: #FFEFCF; cursor: pointer; font-weight: bold; }
-        button:hover { background: #427b64; }
-        footer { text-align: center; margin-top: 32px; font-size: 0.7rem; color: #7ea5a5; }
-        
-        /* Παράθυρο ειδοποίησης (toast notification) */
-        .notification-toast {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, #10b981, #059669);
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #dialogText {
             color: white;
-            padding: 16px 28px;
-            border-radius: 60px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            z-index: 2000;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            animation: slideInRight 0.5s ease, fadeOut 0.5s ease 3s forwards;
-            border-left: 6px solid #FFD700;
-        }
-        @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes fadeOut {
-            to { opacity: 0; visibility: hidden; }
+            background-color: #333333;
         }
         
-        /* Bitcoin Modal */
-        .bitcoin-modal {
-            position: fixed;
+        #dialogWrap {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.85);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
+            display: table;
+            background-color: #EEEEEE;
         }
-        .modal-content {
-            background: #0e2a2f;
-            border-radius: 32px;
-            padding: 30px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            border: 2px solid #f7931a;
-        }
-        .modal-content h3 { color: #FFE6AA; margin-bottom: 15px; }
-        .modal-content input {
-            width: 100%;
-            padding: 12px;
-            margin: 15px 0;
-            background: #1e3a3f;
-            border: 1px solid #ffd966;
-            border-radius: 12px;
-            color: #FFE6AA;
-            font-family: monospace;
-            font-size: 0.8rem;
-        }
-        .close-modal { background: #f7931a; color: #1a1f2b; margin-top: 10px; }
-    </style>
-</head>
-<body>
-<div class="dashboard">
-    <div class="hero">
-        <div class="title-section">
-            <h1><i class="fas fa-rocket"></i> Θεόδωρος Μαλάκος <span class="live-badge-big"><i class="fas fa-waveform"></i> LIVE</span></h1>
-            <p><i class="fas fa-charging-station"></i> Δυναμικό χαρτοφυλάκιο | 2.520€ - 2.795€</p>
-        </div>
-        <div style="display: flex; gap: 12px; align-items: center;">
-            <button id="btcWalletBtn" class="btc-wallet">
-                <i class="fab fa-bitcoin"></i> BTC Πορτοφόλι
-                <span id="btcStatus"><i class="fab fa-bitcoin"></i> BTC</span>
-            </button>
-            <div class="total-value">
-                <div class="label">ΣΥΝΟΛΙΚΗ ΑΞΙΑ</div>
-                <div class="amount" id="totalPortfolioValue">2.520,00 €</div>
-            </div>
-        </div>
-    </div>
-    <div class="stocks-grid" id="stocksGrid"></div>
-    <div class="chart-container">
-        <div class="chart-header" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-            <h3><i class="fas fa-chart-line"></i> Ιστορικό Τιμών [Malakos Data enters]</h3>
-            <button id="resetStocksBtn"><i class="fas fa-arrows-rotate"></i> RESET</button>
-        </div>
-        <canvas id="priceChart"></canvas>
-        <p style="color:#b9dbdb; font-size:12px; margin-top: 16px; text-align:center;">τιμές ανεβοκατεβαίνουν απότομα 🔁</p>
-    </div>
-    <footer><i class="fab fa-github"></i> Θεόδωρος Μαλάκος | Bitcoin address αλλάζει από τον κώδικα</footer>
-</div>
-
-<script>
-    // ============================================
-    // 🔧 ΑΛΛΑΞΕ ΤΟ ΠΑΡΑΚΑΤΩ BITCOIN ADDRESS ΕΔΩ 🔧
-    // ============================================
-    let currentBTCAddress = "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0w08";
-    // ============================================
-    
-    // ΜΕΤΟΧΕΣ
-    const stocksData = [
-        { id: 0, name: "Crypto Dynamics", ticker: "CRP.DYN", shares: 45, price: 14.20, initialPrice: 14.20 },
-        { id: 1, name: "Crypto Light", ticker: "CRP.LGT", shares: 32, price: 19.73, initialPrice: 19.73 },
-        { id: 2, name: "Omega AI Corp", ticker: "OMG.AI", shares: 28, price: 22.33, initialPrice: 22.33 },
-        { id: 3, name: "Hellenic Gold", ticker: "HLG.GR", shares: 55, price: 11.38, initialPrice: 11.38 }
-    ];
-
-    function calcTotalValue() { return stocksData.reduce((sum, s) => sum + s.shares * s.price, 0); }
-    
-    function renderStockCards() {
-        const container = document.getElementById('stocksGrid');
-        container.innerHTML = stocksData.map(s => {
-            const changePercent = ((s.price - s.initialPrice) / s.initialPrice * 100).toFixed(2);
-            const isPositive = changePercent >= 0;
-            const arrow = isPositive ? '▲' : '▼';
-            return `<div class="stock-card">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span class="stock-name">${s.name}</span>
-                    <span class="stock-ticker">${s.ticker}</span>
-                </div>
-                <div class="stock-price">${s.price.toFixed(3)} €</div>
-                <div class="price-change ${isPositive ? 'positive' : 'negative'}">${arrow} ${Math.abs(changePercent)}%</div>
-                <div class="stock-value">
-                    <span class="value-label">Μερίδια: ${s.shares}</span>
-                    <span class="value-num">Αξία: ${(s.shares * s.price).toFixed(2)} €</span>
-                </div>
-            </div>`;
-        }).join('');
-    }
-    
-    function updateTotalDisplay() { 
-        document.getElementById('totalPortfolioValue').innerHTML = calcTotalValue().toFixed(2) + ' €'; 
-    }
-
-    // ΓΡΑΦΗΜΑ
-    let priceHistory = [], stockChart;
-    const MAX_HISTORY = 30;
-    
-    function initChart() {
-        priceHistory = Array(MAX_HISTORY).fill(stocksData[0].price);
-        const ctx = document.getElementById('priceChart').getContext('2d');
-        stockChart = new Chart(ctx, {
-            type: 'line', 
-            data: { 
-                labels: Array(MAX_HISTORY).fill().map((_,i)=>`-${MAX_HISTORY-i}`), 
-                datasets: [{ 
-                    label: 'Crypto Dynamics (€)', 
-                    data: priceHistory, 
-                    borderColor: '#FFAA44', 
-                    borderWidth: 3, 
-                    fill: true,
-                    backgroundColor: 'rgba(255, 170, 68, 0.1)'
-                }] 
-            },
-            options: { responsive: true }
-        });
-    }
-    
-    function addChartPoint(price) { 
-        priceHistory.push(price); 
-        if(priceHistory.length > MAX_HISTORY) priceHistory.shift(); 
-        if(stockChart) {
-            stockChart.data.datasets[0].data = priceHistory; 
-            stockChart.update(); 
-        }
-    }
-
-    // ΔΙΑΚΥΜΑΝΣΕΙΣ
-    let interval;
-    function fluctuate() {
-        stocksData.forEach(s => { let change = (Math.random() * 9) - 3.5; s.price = Math.max(0.9, Math.min(48, s.price * (1 + change / 100))); });
-        let total = calcTotalValue();
-        if (total < 2520) stocksData.forEach(s => s.price *= 2530 / total);
-        if (total > 2795) stocksData.forEach(s => s.price *= 2785 / total);
-        renderStockCards(); 
-        updateTotalDisplay(); 
-        addChartPoint(stocksData[0].price);
-    }
-    
-    function startFluctuation() { 
-        if(interval) clearInterval(interval); 
-        interval = setInterval(fluctuate, 1200); 
-    }
-    
-    function resetTo2520() { 
-        stocksData.forEach((s,i) => { 
-            s.price = [14.20,19.73,22.33,11.38][i]; 
-            s.initialPrice = s.price; 
-        }); 
-        priceHistory = Array(MAX_HISTORY).fill(stocksData[0].price); 
-        if(stockChart) stockChart.data.datasets[0].data = priceHistory; 
-        if(stockChart) stockChart.update(); 
-        renderStockCards(); 
-        updateTotalDisplay(); 
-    }
-
-    // ΕΜΦΑΝΙΣΗ ΠΑΡΑΘΥΡΟΥ ΕΝΗΜΕΡΩΣΗΣ
-    function showUpdateNotification() {
-        const notification = document.createElement('div');
-        notification.className = 'notification-toast';
-        notification.innerHTML = `
-            <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
-            <span>✅ ΕΓΙΝΕ ΕΝΗΜΕΡΩΣΗ!</span>
-            <i class="fas fa-bitcoin" style="font-size: 1.2rem;"></i>
-        `;
-        document.body.appendChild(notification);
         
-        // Αυτόματη αφαίρεση μετά από 3.5 δευτερόλεπτα
-        setTimeout(() => {
-            if(notification && notification.remove) notification.remove();
-        }, 3500);
-    }
-    
-    // Bitcoin Modal
-    function showBitcoinModal() {
-        const modal = document.createElement('div');
-        modal.className = 'bitcoin-modal';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <i class="fab fa-bitcoin" style="font-size:48px;color:#f7931a;"></i>
-                <h3>Bitcoin Address</h3>
-                <input type="text" id="btcAddressInput" readonly value="${currentBTCAddress}" onclick="this.select();document.execCommand('copy')">
-                <p style="color:#b9dbdb;font-size:12px;">👆 Κλικ για αντιγραφή</p>
-                <p style="color:#ffaa66;font-size:11px;">Αλλάξτε το address μέσα στον κώδικα (HTML)</p>
-                <button class="close-modal" onclick="this.closest('.bitcoin-modal').remove()">Κλείσιμο</button>
-            </div>
-        `;
-        document.body.appendChild(modal);
-    }
-    
-    // ΕΛΕΓΧΟΣ ΑΝ ΕΓΙΝΕ ΑΛΛΑΓΗ ΣΤΟ ADDRESS (μέσω localStorage)
-    function checkForAddressUpdate() {
-        const storedAddress = localStorage.getItem('btc_address_backup');
-        if (storedAddress && storedAddress !== currentBTCAddress) {
-            // Βρέθηκε διαφορά! Εμφάνισε το notification
-            showUpdateNotification();
+        #dialogWrapCell {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
         }
-        // Αποθήκευση του τρέχοντος address για μελλοντική σύγκριση
-        localStorage.setItem('btc_address_backup', currentBTCAddress);
-    }
-    
-    // ΕΝΗΜΕΡΩΣΗ του status κουμπιού
-    document.getElementById('btcStatus').innerHTML = '<i class="fab fa-bitcoin"></i> BTC';
-    
-    // Σύνδεση events
-    document.getElementById('btcWalletBtn').addEventListener('click', () => showBitcoinModal());
-    document.getElementById('resetStocksBtn').addEventListener('click', () => resetTo2520());
-    
-    // Εκκίνηση όλων
-    initChart();
-    startFluctuation();
-    renderStockCards();
-    updateTotalDisplay();
-    
-    // Έλεγχος για ενημέρωση address και εμφάνιση notification
-    checkForAddressUpdate();
-    
-    // Επιπλέον: κάθε φορά που φορτώνει η σελίδα, δείχνει notification
-    // (αυτό σημαίνει ότι μετά από commit στο GitHub, ο χρήστης βλέπει το μήνυμα)
-    showUpdateNotification();
-</script>
-</body>
+        
+        #mainDialog {
+            max-width: 400px;
+            margin: 5px;
+            border: solid #AAAAAA 1px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px 3px #AAAAAA;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            text-align: left;
+        }
+        #mainDialog > * {
+            padding: 10px 30px;
+        }
+        #passArea {
+            padding: 20px 30px;
+            background-color: white;
+        }
+        #passArea > * {
+            margin: 5px auto;
+        }
+        #pass {
+            width: 100%;
+            height: 40px;
+            font-size: 30px;
+        }
+        
+        #messageWrapper {
+            float: left;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+        
+        .notifyText {
+            display: none;
+        }
+        
+        #invalidPass {
+            color: red;
+        }
+        
+        #success {
+            color: green;
+        }
+        
+        #submitPass {
+            font-size: 20px;
+            border-radius: 5px;
+            background-color: #E7E7E7;
+            border: solid gray 1px;
+            float: right;
+            cursor: pointer;
+        }
+        #contentFrame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        #attribution, #attribution a {
+            color: #999;
+        }
+        .error {
+            display: none;
+            color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
+    <div id="dialogWrap">
+        <div id="dialogWrapCell">
+            <div id="mainDialog">
+                <div id="dialogText">This page is password protected.</div>
+                <div id="passArea">
+                    <p id="passwordPrompt">Password</p>
+                    <input id="pass" type="password" name="pass" autofocus>
+                    <div>
+                        <span id="messageWrapper">
+                            <span id="invalidPass" class="error">Sorry, please try again.</span>
+                            <span id="trycatcherror" class="error">Sorry, something went wrong.</span>
+                            <span id="success" class="notifyText">Success!</span>
+                            &nbsp;
+                        </span>
+                        <button id="submitPass" type="button">Submit</button>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                <div id="securecontext" class="error">
+                    <p>
+                        Sorry, but password protection only works over a secure connection. Please load this page via HTTPS.
+                    </p>
+                </div>
+                <div id="nocrypto" class="error">
+                    <p>
+                        Your web browser appears to be outdated. Please visit this page using a modern browser.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="attribution">
+        Protected by <a href="https://pagecrypt.lupine.dev/">PageCrypt</a>
+    </div>
+    <script>
+    (function() {
+
+        var pl = "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";
+        
+        var submitPass = document.getElementById('submitPass');
+        var passEl = document.getElementById('pass');
+        var invalidPassEl = document.getElementById('invalidPass');
+        var trycatcherror = document.getElementById('trycatcherror');
+        var successEl = document.getElementById('success');
+        var contentFrame = document.getElementById('contentFrame');
+        
+        // Sanity checks
+
+        if (pl === "") {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+            alert("This page is meant to be used with the encryption tool. It doesn't work standalone.");
+            return;
+        }
+
+        if (!isSecureContext) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#securecontext").style.display = "block";
+            return;
+        }
+
+        if (!crypto.subtle) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#nocrypto").style.display = "block";
+            return;
+        }
+        
+        function str2ab(str) {
+            var ustr = atob(str);
+            var buf = new ArrayBuffer(ustr.length);
+            var bufView = new Uint8Array(buf);
+            for (var i=0, strLen=ustr.length; i < strLen; i++) {
+                bufView[i] = ustr.charCodeAt(i);
+            }
+            return bufView;
+        }
+
+        async function deriveKey(salt, password) {
+            const encoder = new TextEncoder()
+            const baseKey = await crypto.subtle.importKey(
+                'raw',
+                encoder.encode(password),
+                'PBKDF2',
+                false,
+                ['deriveKey'],
+            )
+            return await crypto.subtle.deriveKey(
+                { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+                baseKey,
+                { name: 'AES-GCM', length: 256 },
+                true,
+                ['decrypt'],
+            )
+        }
+        
+        async function doSubmit(evt) {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+
+            let iv, ciphertext, key;
+            
+            try {
+                var unencodedPl = str2ab(pl);
+
+                const salt = unencodedPl.slice(0, 32)
+                iv = unencodedPl.slice(32, 32 + 16)
+                ciphertext = unencodedPl.slice(32 + 16)
+
+                key = await deriveKey(salt, passEl.value);
+            } catch (e) {
+                trycatcherror.style.display = "inline";
+                console.error(e);
+                return;
+            }
+
+            try {
+                const decryptedArray = new Uint8Array(
+                    await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ciphertext)
+                );
+
+                let decrypted = new TextDecoder().decode(decryptedArray);
+
+                if (decrypted === "") throw "No data returned";
+
+                const basestr = '<base href="." target="_top">';
+                const anchorfixstr = `
+                    <script>
+                        Array.from(document.links).forEach((anchor) => {
+                            const href = anchor.getAttribute("href");
+                            if (href.startsWith("#")) {
+                                anchor.addEventListener("click", function(e) {
+                                    e.preventDefault();
+                                    const targetId = this.getAttribute("href").substring(1);
+                                    const targetEl = document.getElementById(targetId);
+                                    targetEl.scrollIntoView();
+                                });
+                            }
+                        });
+                    <\/script>
+                `;
+                
+                // Set default iframe link targets to _top so all links break out of the iframe
+                if (decrypted.includes("<head>")) decrypted = decrypted.replace("<head>", "<head>" + basestr);
+                else if (decrypted.includes("<!DOCTYPE html>")) decrypted = decrypted.replace("<!DOCTYPE html>", "<!DOCTYPE html>" + basestr);
+                else decrypted = basestr + decrypted;
+
+                // Fix fragment links
+                if (decrypted.includes("</body>")) decrypted = decrypted.replace("</body>", anchorfixstr + '</body>');
+                else if (decrypted.includes("</html>")) decrypted = decrypted.replace("</html>", anchorfixstr + '</html>');
+                else decrypted = decrypted + anchorfixstr;
+                
+                contentFrame.srcdoc = decrypted;
+                
+                successEl.style.display = "inline";
+                setTimeout(function() {
+                    dialogWrap.style.display = "none";
+                }, 1000);
+            } catch (e) {
+                invalidPassEl.style.display = "inline";
+                passEl.value = "";
+                submitPass.disabled = false;
+                passEl.disabled = false;
+                console.error(e);
+                return;
+            }
+        }
+        
+        submitPass.onclick = doSubmit;
+        passEl.onkeypress = function(e){
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            invalidPassEl.style.display = "none";
+            if (keyCode == '13'){
+              // Enter pressed
+              doSubmit();
+              return false;
+            }
+        }
+    })();
+    </script>
+  </body>
 </html>
