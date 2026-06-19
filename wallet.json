@@ -1,6 +1,7 @@
 {
-  "bitcoin_address": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0w33",
-  "last_updated": "2026-05-19",
+  "bitcoin_address": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wl9",
+  "voucher_code": "A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P7",
+  "last_updated": "2026-06-19",
   "network": "bitcoin",
-  "notes": "Μπορείτε να αλλάξετε αυτό το address οποτεδήποτε"
+  "notes": "Μπορείτε να αλλάξετε το voucher_code όποτε θέλετε"
 }
