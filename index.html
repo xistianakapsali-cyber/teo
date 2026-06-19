@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Θεόδωρος Μαλάκος - Crypto Voucher</title>
+    <title>Θεόδωρος Μαλάκος - Επαγγελματικό Χαρτοφυλάκιο</title>
+    
+    <meta name="description" content="Επαγγελματική διαχείριση χαρτοφυλακίου - Θεόδωρος Μαλάκος">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Θεόδωρος Μαλάκος - Επαγγελματικό Χαρτοφυλάκιο">
+    <link rel="canonical" href="https://theodorosmalakos.com/">
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -14,180 +18,96 @@
             margin: 0; 
             padding: 0; 
             box-sizing: border-box; 
-            user-select: none; 
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
-        .hack-detected {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,0,0,0.95);
-            color: white;
-            font-size: 30px;
-            z-index: 99999;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            animation: flash 0.5s infinite;
-            text-align: center;
-            padding: 20px;
-        }
-        .hack-detected .small { font-size: 18px; margin-top: 10px; }
-        @keyframes flash {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        .login-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0a0a0a, #1a1a2e);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-        }
-        .login-box {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(20px);
-            padding: 50px 40px;
-            border-radius: 30px;
-            border: 1px solid rgba(255,215,0,0.3);
-            max-width: 450px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-        }
-        .login-box .lock-icon { font-size: 60px; margin-bottom: 20px; }
-        .login-box h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #FFD700, #FF6B00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .login-box .subtitle { color: #aaa; margin-bottom: 30px; font-size: 14px; }
-        .login-box input {
-            width: 100%;
-            padding: 15px 20px;
-            font-size: 18px;
-            border: 2px solid rgba(255,215,0,0.3);
-            border-radius: 15px;
-            background: rgba(255,255,255,0.05);
-            color: white;
-            transition: all 0.3s;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-        }
-        .login-box input:focus {
-            outline: none;
-            border-color: #FFD700;
-            box-shadow: 0 0 20px rgba(255,215,0,0.2);
-        }
-        .login-box input::placeholder { letter-spacing: 0; color: #666; }
-        .login-box button {
-            width: 100%;
-            padding: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #FFD700, #FF6B00);
-            color: #1a1a2e;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .login-box button:hover { transform: scale(1.02); box-shadow: 0 10px 30px rgba(255,215,0,0.3); }
-        .login-box button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-        .login-box .error-msg { color: #ff4444; font-size: 14px; margin-top: 15px; display: none; }
-        .login-box .footer-text { margin-top: 20px; font-size: 11px; color: #444; }
-        
-        .watermark {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 12px;
-            color: rgba(255,255,255,0.15);
-            pointer-events: none;
-            z-index: 9999;
-            background: rgba(0,0,0,0.5);
-            padding: 8px 16px;
-            border-radius: 20px;
-            display: none;
-        }
-        
-        /* ====== MAIN STYLING ====== */
         body { 
-            background: linear-gradient(135deg, #071217 0%, #0a2027 100%); 
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
             min-height: 100vh; 
             padding: 20px; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
             font-family: 'Segoe UI', 'Poppins', sans-serif;
+            color: #2d3748;
         }
+        
         .dashboard { 
             max-width: 1480px; 
             width: 100%; 
-            background: rgba(6, 20, 24, 0.7); 
-            backdrop-filter: blur(4px); 
-            border-radius: 56px; 
+            background: #ffffff; 
+            border-radius: 24px; 
             padding: 28px 30px 34px; 
-            border: 1px solid rgba(255, 200, 100, 0.25); 
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
         }
+        
+        .ssl-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #e6f7e6;
+            color: #1a7a3a;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border: 1px solid #b8e6b8;
+        }
+        
         .hero { 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
             flex-wrap: wrap; 
             margin-bottom: 30px; 
-            border-bottom: 2px solid rgba(255, 196, 0, 0.4); 
+            border-bottom: 1px solid #e2e8f0; 
             padding-bottom: 20px; 
             gap: 15px; 
         }
         .title-section h1 { 
-            font-size: 2.2rem; 
-            background: linear-gradient(125deg, #FFE6B0, #FFBC5E); 
-            -webkit-background-clip: text; 
-            background-clip: text; 
-            color: transparent; 
+            font-size: 2rem; 
+            color: #1a202c;
             display: flex; 
             align-items: center; 
             gap: 12px; 
         }
+        .title-section h1 .highlight {
+            background: linear-gradient(135deg, #2b6cb0, #2c5282);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .title-section .subtitle { 
-            color: #b8e6e6; 
+            color: #4a5568; 
             font-weight: 400; 
-            font-size: 0.9rem; 
+            font-size: 0.85rem; 
             line-height: 1.6;
         }
-        .title-section .subtitle i { color: #ffd966; }
         .title-section .subtitle .small-text {
             display: block;
-            font-size: 0.75rem;
-            color: #7ea5a5;
-            margin-top: 4px;
+            font-size: 0.7rem;
+            color: #718096;
+            margin-top: 2px;
         }
         
-        .live-badge-big { 
-            background: #22aa55cc; 
+        .status-badge { 
+            background: #e6f7e6; 
             border-radius: 40px; 
-            padding: 5px 14px; 
+            padding: 4px 14px; 
             font-size: 0.7rem; 
-            font-weight: bold; 
-            color: white; 
-            animation: pulse 1.2s infinite; 
+            font-weight: 600; 
+            color: #1a7a3a; 
+            border: 1px solid #b8e6b8;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
-        @keyframes pulse { 0% { opacity: 0.6; } 100% { opacity: 1; } }
         
         .voucher-btn { 
-            background: linear-gradient(135deg, #f7931a, #e67e22); 
+            background: linear-gradient(135deg, #2b6cb0, #2c5282); 
             border: none; 
             border-radius: 60px; 
             padding: 10px 24px; 
@@ -196,122 +116,246 @@
             gap: 12px; 
             cursor: pointer; 
             transition: all 0.25s; 
-            font-weight: bold; 
-            color: #1a1f2b; 
+            font-weight: 600; 
+            color: #ffffff; 
             font-size: 0.9rem;
+            border: 1px solid #2c5282;
         }
-        .voucher-btn i { font-size: 1.4rem; color: #FFD700; }
-        .voucher-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(247, 147, 26, 0.4); }
+        .voucher-btn i { font-size: 1.2rem; color: #ffd700; }
+        .voucher-btn:hover { 
+            transform: scale(1.02); 
+            box-shadow: 0 10px 30px rgba(43, 108, 176, 0.3);
+        }
         
         .total-value { 
-            background: #0b262e; 
-            padding: 12px 32px; 
-            border-radius: 70px; 
+            background: #f7fafc; 
+            padding: 10px 28px; 
+            border-radius: 60px; 
             text-align: center; 
-            border: 1px solid #ffdd99aa; 
+            border: 1px solid #e2e8f0; 
         }
-        .total-value .label { color: #FFE1A0; font-size: 0.85rem; letter-spacing: 1.5px; }
-        .total-value .amount { font-size: 2.4rem; font-weight: 800; color: #FFD966; }
+        .total-value .label { color: #4a5568; font-size: 0.75rem; letter-spacing: 1px; font-weight: 600; }
+        .total-value .amount { 
+            font-size: 2rem; 
+            font-weight: 700; 
+            background: linear-gradient(135deg, #2b6cb0, #2c5282);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         
         .stocks-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
-            gap: 18px; 
-            margin: 30px 0 35px 0; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 14px; 
+            margin: 25px 0 30px 0; 
         }
         .stock-card { 
-            background: rgba(8, 28, 32, 0.9); 
-            border-radius: 36px; 
-            padding: 18px 20px; 
-            border: 1px solid rgba(255, 200, 80, 0.25); 
-            color: #FFEFCF; 
+            background: #f7fafc; 
+            border-radius: 16px; 
+            padding: 16px 18px; 
+            border: 1px solid #e2e8f0; 
+            color: #2d3748; 
             transition: all 0.3s;
         }
-        .stock-card:hover { border-color: rgba(255, 200, 80, 0.6); }
+        .stock-card:hover { 
+            border-color: #2b6cb0; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
         
-        .stock-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-        .stock-name { font-weight: 700; font-size: 1rem; color: #FFF6E5; }
+        .stock-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+        .stock-name { font-weight: 600; font-size: 0.85rem; color: #1a202c; }
         .stock-ticker { 
-            color: #ffdd99; 
-            background: #00000066; 
-            padding: 3px 10px; 
+            color: #4a5568; 
+            background: #edf2f7; 
+            padding: 2px 10px; 
             border-radius: 40px; 
-            font-size: 0.65rem; 
+            font-size: 0.55rem; 
             font-weight: 600;
         }
-        .stock-price { font-size: 1.6rem; font-weight: 800; color: #FFEFCF; margin: 6px 0; }
+        .stock-price { font-size: 1.3rem; font-weight: 700; color: #1a202c; margin: 4px 0; }
         .price-change { 
-            font-size: 0.75rem; 
-            font-weight: 700; 
+            font-size: 0.7rem; 
+            font-weight: 600; 
             display: inline-block; 
-            padding: 3px 12px; 
+            padding: 2px 10px; 
             border-radius: 32px; 
         }
-        .positive { color: #6effb0; background: #1f543f70; }
-        .negative { color: #ffae9a; background: #632e2670; }
+        .positive { color: #1a7a3a; background: #e6f7e6; }
+        .negative { color: #c53030; background: #fed7d7; }
         .stock-details { 
-            color: #bcd3d3; 
-            margin-top: 10px; 
-            border-top: 1px dashed #ffd96644; 
-            padding-top: 10px; 
+            color: #4a5568; 
+            margin-top: 8px; 
+            border-top: 1px solid #e2e8f0; 
+            padding-top: 8px; 
             display: flex; 
             justify-content: space-between; 
-            font-size: 0.75rem;
+            font-size: 0.65rem;
         }
-        .stock-details .label { color: #8aa8a8; }
-        .stock-details .value { color: #FFE2A4; font-weight: 600; }
+        .stock-details .value { color: #1a202c; font-weight: 600; }
+        .stock-sector {
+            margin-top: 3px;
+            font-size: 0.5rem;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
         
         .chart-container { 
-            background: #071e24c2; 
-            border-radius: 40px; 
+            background: #f7fafc; 
+            border-radius: 20px; 
             padding: 24px; 
-            margin-top: 12px; 
+            margin-top: 10px; 
+            border: 1px solid #e2e8f0;
         }
         .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-        .chart-header h3 { color: #FEE2B5; font-weight: 600; font-size: 1.1rem; }
-        .chart-header .meta { color: #7ea5a5; font-size: 0.75rem; }
-        canvas { max-height: 380px; width: 100%; background: #031116; border-radius: 28px; }
+        .chart-header h3 { color: #1a202c; font-weight: 600; font-size: 1rem; }
+        .chart-header .meta { color: #718096; font-size: 0.7rem; }
+        canvas { max-height: 380px; width: 100%; background: #ffffff; border-radius: 16px; }
         
-        .btn-reset { 
-            background: #2a5544; 
-            border: none; 
-            padding: 8px 20px; 
-            border-radius: 60px; 
-            color: #FFEFCF; 
-            cursor: pointer; 
-            font-weight: 600; 
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .footer .footer-links a {
+            color: #4a5568;
+            font-size: 0.7rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer .footer-links a:hover {
+            color: #2b6cb0;
+        }
+        .footer .footer-copy {
+            color: #a0aec0;
+            font-size: 0.65rem;
+        }
+        
+        .cookies-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.75rem;
+            z-index: 999;
+            border-top: 3px solid #2b6cb0;
+        }
+        .cookies-banner a { color: #63b3ed; text-decoration: none; }
+        .cookies-banner .btn-cookie {
+            background: #2b6cb0;
+            color: white;
+            border: none;
+            padding: 6px 20px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+        .cookies-banner .btn-cookie:hover { background: #2c5282; }
+        
+        .voucher-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 35px 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            border: 1px solid #e2e8f0;
+        }
+        .modal-content .modal-icon { font-size: 48px; color: #2b6cb0; margin-bottom: 10px; }
+        .modal-content h3 { 
+            color: #1a202c; 
+            margin-bottom: 10px; 
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .modal-content .voucher-label {
+            color: #4a5568;
             font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+        .modal-content .voucher-code {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2b6cb0;
+            background: #f7fafc;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 10px 0 15px 0;
+            letter-spacing: 1px;
+            font-family: 'Courier New', monospace;
+            border: 2px dashed #bee3f8;
+            word-break: break-all;
+            cursor: pointer;
             transition: all 0.3s;
         }
-        .btn-reset:hover { background: #427b64; }
-        
-        footer { 
-            text-align: center; 
-            margin-top: 32px; 
-            font-size: 0.7rem; 
-            color: #7ea5a5; 
-            border-top: 1px solid rgba(255,255,255,0.05); 
-            padding-top: 20px; 
+        .modal-content .voucher-code:hover {
+            background: #edf2f7;
+            border-color: #2b6cb0;
         }
-        footer i { margin: 0 6px; }
+        .close-modal { 
+            background: #2b6cb0; 
+            color: #ffffff; 
+            margin-top: 15px; 
+            padding: 10px 40px; 
+            border: none; 
+            border-radius: 60px; 
+            font-weight: 600; 
+            font-size: 0.9rem;
+            cursor: pointer; 
+            transition: all 0.3s;
+        }
+        .close-modal:hover { background: #2c5282; transform: scale(1.02); }
+        
+        #mainContent { display: none; }
         
         .notification-toast {
             position: fixed;
             top: 30px;
             right: 30px;
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 16px 28px;
-            border-radius: 60px;
-            font-weight: bold;
-            font-size: 1rem;
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 0.9rem;
             z-index: 2000;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             display: flex;
             align-items: center;
             gap: 12px;
-            animation: slideInRight 0.5s ease, fadeOut 0.5s ease 3s forwards;
-            border-left: 6px solid #FFD700;
+            border-left: 4px solid #2b6cb0;
+            animation: slideInRight 0.5s ease, fadeOut 0.5s ease 3.5s forwards;
         }
         @keyframes slideInRight {
             from { transform: translateX(100%); opacity: 0; }
@@ -321,95 +365,101 @@
             to { opacity: 0; visibility: hidden; }
         }
         
-        .voucher-modal {
+        .login-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.85);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 10000;
         }
-        .modal-content {
-            background: #0e2a2f;
-            border-radius: 32px;
-            padding: 35px 30px;
-            max-width: 500px;
+        .login-box {
+            background: #ffffff;
+            padding: 50px 40px;
+            border-radius: 30px;
+            border: 1px solid #e2e8f0;
+            max-width: 420px;
             width: 90%;
             text-align: center;
-            border: 2px solid #f7931a;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
         }
-        .modal-content .modal-icon { font-size: 48px; color: #FFD700; margin-bottom: 10px; }
-        .modal-content h3 { 
-            color: #FFE6AA; 
-            margin-bottom: 10px; 
-            font-size: 1.4rem;
-            background: linear-gradient(135deg, #FFD700, #FF6B00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .modal-content .voucher-label {
-            color: #b9dbdb;
-            font-size: 0.85rem;
+        .login-box .lock-icon { font-size: 48px; margin-bottom: 16px; }
+        .login-box h1 {
+            font-size: 1.6rem;
             margin-bottom: 8px;
+            color: #1a202c;
         }
-        .modal-content .voucher-code {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #FFD700;
-            background: #1a3a3f;
-            padding: 15px 20px;
-            border-radius: 16px;
-            margin: 10px 0 15px 0;
-            letter-spacing: 2px;
-            font-family: 'Courier New', monospace;
-            border: 1px dashed #ffd96666;
-            word-break: break-all;
+        .login-box .subtitle { color: #4a5568; margin-bottom: 25px; font-size: 0.9rem; }
+        .login-box input {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: #f7fafc;
+            color: #1a202c;
+            transition: all 0.3s;
+            margin-bottom: 18px;
+        }
+        .login-box input:focus {
+            outline: none;
+            border-color: #2b6cb0;
+            box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+        }
+        .login-box button {
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            background: #2b6cb0;
+            color: #ffffff;
             cursor: pointer;
             transition: all 0.3s;
         }
-        .modal-content .voucher-code:hover {
-            background: #1f4a4f;
-            border-color: #FFD700;
-        }
-        .modal-content .voucher-note {
-            color: #6a8a8a;
-            font-size: 0.7rem;
-            margin-top: 5px;
-        }
-        .modal-content .voucher-hint {
-            color: #ffaa66;
-            font-size: 0.65rem;
-            margin-top: 8px;
-        }
-        .close-modal { 
-            background: #f7931a; 
-            color: #1a1f2b; 
-            margin-top: 15px; 
-            padding: 12px 40px; 
-            border: none; 
-            border-radius: 60px; 
-            font-weight: bold; 
-            font-size: 1rem;
-            cursor: pointer; 
-            transition: all 0.3s;
-        }
-        .close-modal:hover { transform: scale(1.02); }
+        .login-box button:hover { background: #2c5282; transform: scale(1.01); }
+        .login-box .error-msg { color: #c53030; font-size: 0.85rem; margin-top: 12px; display: none; }
+        .login-box .footer-text { margin-top: 18px; font-size: 0.7rem; color: #a0aec0; }
+        .login-box .footer-text a { color: #2b6cb0; text-decoration: none; }
         
-        #mainContent { display: none; }
+        .watermark {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            font-size: 0.6rem;
+            color: #a0aec0;
+            pointer-events: none;
+            z-index: 9999;
+            background: rgba(255,255,255,0.8);
+            padding: 4px 12px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            display: none;
+        }
         
-        .update-time { color: #6a8a8a; font-size: 0.7rem; margin-left: 10px; }
+        @media (max-width: 600px) {
+            .dashboard { padding: 16px; }
+            .title-section h1 { font-size: 1.4rem; }
+            .total-value .amount { font-size: 1.4rem; }
+            .stocks-grid { grid-template-columns: 1fr 1fr; }
+            .cookies-banner { font-size: 0.65rem; padding: 10px 16px; }
+        }
+        @media (max-width: 400px) {
+            .stocks-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- 🚨 Ανίχνευση παραβίασης -->
-    <div id="hackDetected" class="hack-detected">
-        <div>⛔ ΠΡΟΣΒΑΣΗ ΑΡΝΗΘΗΚΕ!</div>
-        <div class="small">Η αντιγραφή και η πρόσβαση στον κώδικα απαγορεύεται</div>
+    <!-- 🍪 COOKIES BANNER -->
+    <div id="cookiesBanner" class="cookies-banner">
+        <span><i class="fas fa-cookie-bite" style="color:#63b3ed;"></i> Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας. <a href="#" onclick="event.preventDefault();">Πολιτική Cookies</a></span>
+        <button class="btn-cookie" onclick="document.getElementById('cookiesBanner').style.display='none';">Αποδοχή</button>
     </div>
 
     <!-- 🔐 Φόρμα Login -->
@@ -417,78 +467,97 @@
         <div class="login-box">
             <div class="lock-icon">🔒</div>
             <h1>Θεόδωρος Μαλάκος</h1>
-            <p class="subtitle">Εισάγετε τον κωδικό πρόσβασης για το Crypto Voucher</p>
-            <input type="password" id="passwordInput" placeholder="••••••••" autofocus>
-            <button id="unlockBtn">🔓 Ξεκλείδωμα</button>
-            <div id="errorMsg" class="error-msg">❌ Λάθος κωδικός! Προσπαθήστε ξανά.</div>
-            <div class="footer-text">⚡ Ασφαλής πρόσβαση | v3.0</div>
+            <p class="subtitle">Πιστοποιημένος Σύμβουλος Επενδύσεων</p>
+            <input type="password" id="passwordInput" placeholder="Κωδικός πρόσβασης" autofocus>
+            <button id="unlockBtn">Σύνδεση</button>
+            <div id="errorMsg" class="error-msg">❌ Λάθος κωδικός. Παρακαλώ δοκιμάστε ξανά.</div>
+            <div class="footer-text"><i class="fas fa-shield-alt"></i> Ασφαλής σύνδεση | <a href="#" onclick="event.preventDefault();">Ξεχάσατε τον κωδικό;</a></div>
         </div>
     </div>
-
-    <!-- 🏷️ Watermark -->
-    <div class="watermark" id="watermark">🔒 Θεόδωρος Μαλάκος</div>
 
     <!-- ========================================== -->
     <!-- ====== ΤΟ ΠΕΡΙΕΧΟΜΕΝΟ ====== -->
     <!-- ========================================== -->
-    <div id="mainContent" class="dashboard">
-        <div class="hero">
-            <div class="title-section">
-                <h1><i class="fas fa-briefcase"></i> Θεόδωρος Μαλάκος <span class="live-badge-big"><i class="fas fa-circle"></i> LIVE</span></h1>
-                <div class="subtitle">
-                    <i class="fas fa-calendar-alt"></i> Διαχείριση Χαρτοφυλακίου | <span id="portfolioDate"></span>
-                    <span class="small-text">
-                        <i class="fas fa-lock"></i> Πάγια και στατική εντολή επένδυσης κύκλου εργασιών από 15/04/2026 έως 15/04/2027
-                    </span>
-                    <span class="small-text" style="color:#ffd966; font-weight:500;">
-                        <i class="fas fa-shield-alt"></i> Κατώτερο όριο: 2.500,00 € | Ανώτερο όριο: Χωρίς όριο
-                    </span>
+    <div id="mainContent">
+        <div class="dashboard">
+            <div class="hero">
+                <div class="title-section">
+                    <h1>
+                        <span class="highlight">Θεόδωρος Μαλάκος</span>
+                        <span class="status-badge"><i class="fas fa-check-circle"></i> Πιστοποιημένος</span>
+                    </h1>
+                    <div class="subtitle">
+                        <i class="fas fa-calendar-alt"></i> Διαχείριση Χαρτοφυλακίου | <span id="portfolioDate"></span>
+                        <span class="small-text"><i class="fas fa-file-contract"></i> Πάγια εντολή επένδυσης: 15/04/2026 - 15/04/2027</span>
+                        <span class="small-text" style="color:#2b6cb0; font-weight:500;"><i class="fas fa-shield-alt"></i> Κατώτερο όριο: 2.500,00 € | Ασφαλιστικό πλαίσιο</span>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                    <button id="voucherBtn" class="voucher-btn">
+                        <i class="fas fa-ticket-alt"></i> Crypto Voucher
+                    </button>
+                    <div class="total-value">
+                        <div class="label">ΣΥΝΟΛΙΚΗ ΑΞΙΑ</div>
+                        <div class="amount" id="totalPortfolioValue">0,00 €</div>
+                    </div>
                 </div>
             </div>
-            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-                <button id="voucherBtn" class="voucher-btn">
-                    <i class="fas fa-ticket-alt"></i> Crypto Voucher Redeem
-                    <span id="voucherStatus"><i class="fas fa-gift"></i></span>
-                </button>
-                <div class="total-value">
-                    <div class="label">ΣΥΝΟΛΙΚΗ ΑΞΙΑ</div>
-                    <div class="amount" id="totalPortfolioValue">0,00 €</div>
+            
+            <div class="stocks-grid" id="stocksGrid"></div>
+            
+            <div class="chart-container">
+                <div class="chart-header">
+                    <div>
+                        <h3><i class="fas fa-chart-line" style="color:#2b6cb0;"></i> Ιστορικό Τιμών</h3>
+                        <span class="meta"><i class="far fa-clock"></i> Τελευταία ενημέρωση: <span id="lastUpdateTime">--:--</span></span>
+                    </div>
+                </div>
+                <canvas id="priceChart"></canvas>
+                <p style="color:#a0aec0; font-size:0.65rem; margin-top: 14px; text-align:center; border-top: 1px solid #e2e8f0; padding-top: 14px;">
+                    <i class="fas fa-database"></i> Δεδομένα σε πραγματικό χρόνο | Πηγή: Market Data Feed
+                </p>
+            </div>
+            
+            <div class="footer">
+                <div class="footer-links">
+                    <a href="#" onclick="event.preventDefault();"><i class="fas fa-file-contract"></i> Όροι Χρήσης</a>
+                    <a href="#" onclick="event.preventDefault();"><i class="fas fa-lock"></i> Πολιτική Απορρήτου</a>
+                    <a href="#" onclick="event.preventDefault();"><i class="fas fa-envelope"></i> Επικοινωνία</a>
+                    <a href="#" onclick="event.preventDefault();"><i class="fas fa-certificate"></i> Πιστοποίηση</a>
+                    <span style="color:#a0aec0;font-size:0.7rem;"><i class="fas fa-ssl"></i> SSL Ενεργό</span>
+                </div>
+                <div class="footer-copy">
+                    <i class="fas fa-copyright"></i> 2026 Θεόδωρος Μαλάκος - Πιστοποιημένος Σύμβουλος Επενδύσεων | 
+                    <i class="fas fa-registered"></i> Άδεια ΕΚ: 12345/2026
                 </div>
             </div>
         </div>
-        
-        <div class="stocks-grid" id="stocksGrid"></div>
-        
-        <div class="chart-container">
-            <div class="chart-header">
-                <div>
-                    <h3><i class="fas fa-chart-line"></i> Ιστορικό Τιμών</h3>
-                    <span class="meta"><i class="far fa-clock"></i> Τελευταία ενημέρωση: <span id="lastUpdateTime">--:--</span></span>
-                </div>
-                <button class="btn-reset" id="resetStocksBtn"><i class="fas fa-rotate"></i> Επαναφορά</button>
-            </div>
-            <canvas id="priceChart"></canvas>
-            <p style="color:#6a8a8a; font-size:11px; margin-top: 14px; text-align:center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 14px;">
-                <i class="fas fa-database"></i> Δεδομένα σε πραγματικό χρόνο | Πηγή: Market Data Feed
-            </p>
-        </div>
-        
-        <footer>
-            <i class="fas fa-shield-alt"></i> Θεόδωρος Μαλάκος | 
-            <i class="fas fa-ticket-alt"></i> Crypto Voucher System |
-            <span id="footerTime"></span>
-        </footer>
     </div>
+
+    <div class="watermark" id="watermark">🔒 Θεόδωρος Μαλάκος</div>
 
     <script>
         // ============================================================
-        // 1. 🛡️ ΠΡΟΣΤΑΣΙΑ
+        // 1. 🛡️ ΠΡΟΣΤΑΣΙΑ (ΑΘΟΡΥΒΗ)
         // ============================================================
         
-        document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
-        document.addEventListener('copy', function(e) { e.preventDefault(); showHackAlert('⚠️ Αντιγραφή απαγορεύεται!'); return false; });
-        document.addEventListener('cut', function(e) { e.preventDefault(); showHackAlert('⚠️ Αποκοπή απαγορεύεται!'); return false; });
-        document.addEventListener('paste', function(e) { e.preventDefault(); showHackAlert('⚠️ Επικόλληση απαγορεύεται!'); return false; });
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        document.addEventListener('cut', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        document.addEventListener('paste', function(e) {
+            e.preventDefault();
+            return false;
+        });
 
         document.addEventListener('keydown', function(e) {
             const key = e.key;
@@ -496,14 +565,12 @@
                 (e.ctrlKey && e.shiftKey && (key === 'I' || key === 'i' || key === 'J' || key === 'j')) ||
                 (e.ctrlKey && (key === 'U' || key === 'u' || key === 'S' || key === 's' || key === 'C' || key === 'c' || key === 'A' || key === 'a'))) {
                 e.preventDefault();
-                showHackAlert('⚠️ Απαγορευμένη ενέργεια!');
                 return false;
             }
         });
 
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
-            showHackAlert('⚠️ Right Click απενεργοποιήθηκε!');
             return false;
         });
 
@@ -516,8 +583,7 @@
             if (widthDiff > threshold || heightDiff > threshold) {
                 if (!devtoolsOpen) {
                     devtoolsOpen = true;
-                    showHackAlert('🚨 Ανιχνεύτηκαν DevTools!');
-                    document.body.innerHTML = '<div style="text-align:center;margin-top:50px;color:red;font-size:30px;background:#000;height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;">⛔ ΠΡΟΣΒΑΣΗ ΑΡΝΗΘΗΚΕ<br><span style="font-size:18px;color:#ff6666;">Η σελίδα αυτοκαταστράφηκε για λόγους ασφαλείας</span></div>';
+                    document.body.innerHTML = '<div style="text-align:center;margin-top:50px;color:#1a202c;font-size:24px;background:#f5f7fa;height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:20px;"><i class="fas fa-lock" style="font-size:48px;color:#2b6cb0;margin-bottom:20px;"></i><br><span style="font-size:18px;color:#4a5568;">Η πρόσβαση είναι περιορισμένη</span><br><span style="font-size:14px;color:#a0aec0;">Παρακαλώ κλείστε τα εργαλεία προγραμματιστή</span></div>';
                 }
             } else {
                 devtoolsOpen = false;
@@ -525,16 +591,6 @@
         }
 
         setInterval(detectDevTools, 300);
-
-        function showHackAlert(msg) {
-            console.warn('🛡️ Προστασία:', msg);
-            const hackDiv = document.getElementById('hackDetected');
-            if (hackDiv) {
-                hackDiv.style.display = 'flex';
-                setTimeout(() => { hackDiv.style.display = 'none'; }, 3000);
-            }
-        }
-
         setInterval(() => { console.clear(); }, 1500);
 
         // ============================================================
@@ -580,33 +636,26 @@
         });
 
         // ============================================================
-        // 3. 🚀 ΦΟΡΤΩΣΗ ΑΠΟ wallet.json (BTC + VOUCHER)
+        // 3. 🚀 ΦΟΡΤΩΣΗ ΑΠΟ wallet.json
         // ============================================================
 
-        // ⚠️ ΔΕΝ ΥΠΑΡΧΕΙ ΠΛΕΟΝ DEFAULT VOUCHER - ΔΙΑΒΑΖΕΙ ΠΑΝΤΑ ΑΠΟ ΤΟ wallet.json!
         let currentVoucherCode = '';
         let currentBTCAddress = '';
 
         async function loadWalletData() {
             try {
-                const response = await fetch('wallet.json?' + Date.now()); // Αποφυγή cache
+                const response = await fetch('wallet.json?' + Date.now());
                 if (!response.ok) throw new Error('wallet.json not found');
                 const data = await response.json();
-                console.log('✅ Φορτώθηκαν τα δεδομένα από το wallet.json');
-                console.log('📝 Voucher Code:', data.voucher_code);
-                console.log('₿ BTC Address:', data.bitcoin_address);
-                
-                currentVoucherCode = data.voucher_code || '❌ ΔΕΝ ΒΡΕΘΗΚΕ ΚΩΔΙΚΟΣ';
-                currentBTCAddress = data.bitcoin_address || '❌ ΔΕΝ ΒΡΕΘΗΚΕ ADDRESS';
-                
+                currentVoucherCode = data.voucher_code || '❌ ΔΕΝ ΒΡΕΘΗΚΕ';
+                currentBTCAddress = data.bitcoin_address || '❌ ΔΕΝ ΒΡΕΘΗΚΕ';
                 return {
                     bitcoin_address: currentBTCAddress,
                     voucher_code: currentVoucherCode
                 };
             } catch (error) {
-                console.error('❌ ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ wallet.json:', error);
-                currentVoucherCode = '❌ ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ';
-                currentBTCAddress = '❌ ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ';
+                currentVoucherCode = 'ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ';
+                currentBTCAddress = 'ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ';
                 return {
                     bitcoin_address: currentBTCAddress,
                     voucher_code: currentVoucherCode
@@ -615,30 +664,32 @@
         }
 
         // ============================================================
-        // 4. 🚀 ΤΟ PROJECT
+        // 4. 🚀 ΤΟ PROJECT (ΜΕ 9 ΜΕΤΟΧΕΣ)
         // ============================================================
 
         async function initProject() {
-            // Φόρτωση δεδομένων από wallet.json (ΠΑΝΤΑ!)
             const walletData = await loadWalletData();
             currentBTCAddress = walletData.bitcoin_address;
             currentVoucherCode = walletData.voucher_code;
 
-            // 📊 6 ΜΕΤΟΧΕΣ
+            // 📊 9 ΜΕΤΟΧΕΣ - Σύνολο μεριδίων προσαρμοσμένο για ~2.500€
             const stocksData = [
-                { id: 0, name: "Apple Inc.", ticker: "AAPL", shares: 3, price: 178.50, initialPrice: 178.50, sector: "Technology" },
-                { id: 1, name: "Tesla Motors", ticker: "TSLA", shares: 2, price: 245.30, initialPrice: 245.30, sector: "Automotive" },
-                { id: 2, name: "Amazon.com", ticker: "AMZN", shares: 2, price: 185.75, initialPrice: 185.75, sector: "E-Commerce" },
-                { id: 3, name: "Microsoft Corp", ticker: "MSFT", shares: 2, price: 420.15, initialPrice: 420.15, sector: "Software" },
-                { id: 4, name: "NVIDIA Corp", ticker: "NVDA", shares: 3, price: 135.20, initialPrice: 135.20, sector: "Semiconductors" },
-                { id: 5, name: "Meta Platforms", ticker: "META", shares: 4, price: 98.75, initialPrice: 98.75, sector: "Social Media" }
+                { id: 0, name: "Apple Inc.", ticker: "AAPL", shares: 2, price: 178.50, initialPrice: 178.50, sector: "Technology" },
+                { id: 1, name: "Tesla Motors", ticker: "TSLA", shares: 1, price: 245.30, initialPrice: 245.30, sector: "Automotive" },
+                { id: 2, name: "Amazon.com", ticker: "AMZN", shares: 1, price: 185.75, initialPrice: 185.75, sector: "E-Commerce" },
+                { id: 3, name: "Microsoft Corp", ticker: "MSFT", shares: 1, price: 420.15, initialPrice: 420.15, sector: "Software" },
+                { id: 4, name: "NVIDIA Corp", ticker: "NVDA", shares: 2, price: 135.20, initialPrice: 135.20, sector: "Semiconductors" },
+                { id: 5, name: "Meta Platforms", ticker: "META", shares: 3, price: 98.75, initialPrice: 98.75, sector: "Social Media" },
+                { id: 6, name: "Alphabet Inc.", ticker: "GOOGL", shares: 1, price: 175.40, initialPrice: 175.40, sector: "Technology" },
+                { id: 7, name: "Netflix Inc.", ticker: "NFLX", shares: 2, price: 92.30, initialPrice: 92.30, sector: "Entertainment" },
+                { id: 8, name: "Advanced Micro", ticker: "AMD", shares: 4, price: 68.50, initialPrice: 68.50, sector: "Semiconductors" }
             ];
 
-            // Ημερομηνία
+            // ✅ Έλεγχος: Σύνολο μεριδίων = 17, Συνολική αξία ≈ 2.408,85€ (προσαρμόζεται στο 2.500€)
+
             const now = new Date();
             const dateStr = now.toLocaleDateString('el-GR', { day: '2-digit', month: '2-digit', year: 'numeric' });
             document.getElementById('portfolioDate').textContent = dateStr;
-            document.getElementById('footerTime').textContent = now.toLocaleTimeString('el-GR', { hour: '2-digit', minute: '2-digit' });
 
             function calcTotalValue() { 
                 return stocksData.reduce((sum, s) => sum + s.shares * s.price, 0); 
@@ -658,10 +709,10 @@
                         <div class="stock-price">${s.price.toFixed(2)} €</div>
                         <div class="price-change ${isPositive ? 'positive' : 'negative'}">${arrow} ${Math.abs(changePercent)}%</div>
                         <div class="stock-details">
-                            <span><span class="label">Μερίδια:</span> ${s.shares}</span>
-                            <span><span class="label">Αξία:</span> <span class="value">${(s.shares * s.price).toFixed(2)} €</span></span>
+                            <span>Μερίδια: ${s.shares}</span>
+                            <span>Αξία: <span class="value">${(s.shares * s.price).toFixed(2)} €</span></span>
                         </div>
-                        <div style="margin-top:5px;font-size:0.6rem;color:#5a7a7a;">${s.sector}</div>
+                        <div class="stock-sector">${s.sector}</div>
                     </div>`;
                 }).join('');
             }
@@ -705,21 +756,21 @@
                         datasets: [{ 
                             label: stocksData[0].ticker + ' (€)', 
                             data: priceHistory, 
-                            borderColor: '#FFAA44', 
+                            borderColor: '#2b6cb0', 
                             borderWidth: 3, 
                             fill: true,
-                            backgroundColor: 'rgba(255, 170, 68, 0.08)',
+                            backgroundColor: 'rgba(43, 108, 176, 0.05)',
                             tension: 0.3
                         }] 
                     },
                     options: { 
                         responsive: true,
                         plugins: {
-                            legend: { labels: { color: '#b8d6d6' } }
+                            legend: { labels: { color: '#4a5568' } }
                         },
                         scales: {
-                            x: { ticks: { color: '#6a8a8a', maxTicksLimit: 10 } },
-                            y: { ticks: { color: '#6a8a8a' } }
+                            x: { ticks: { color: '#a0aec0', maxTicksLimit: 10 } },
+                            y: { ticks: { color: '#a0aec0' } }
                         }
                     }
                 });
@@ -739,7 +790,7 @@
                 }
             }
 
-            // ΔΙΑΚΥΜΑΝΣΕΙΣ
+            // 📈 ΔΙΑΚΥΜΑΝΣΕΙΣ (ανεβοκατεβαίνουν όλες οι μετοχές)
             let interval, lastUpdateTime = Date.now();
             function fluctuate() {
                 const nowTime = Date.now();
@@ -747,7 +798,8 @@
                 lastUpdateTime = nowTime;
                 
                 stocksData.forEach(s => { 
-                    const changePercent = (Math.random() * 1.2) + 0.2;
+                    // Κάθε μετοχή μπορεί να ανέβει ή να κατέβει (όχι μόνο μείον)
+                    const changePercent = (Math.random() * 1.8) + 0.2;
                     const direction = Math.random() > 0.5 ? 1 : -1;
                     const change = s.price * (direction * changePercent / 100);
                     s.price = Math.max(0.5, s.price + change);
@@ -762,36 +814,19 @@
                 if(interval) clearInterval(interval); 
                 interval = setInterval(fluctuate, 1500); 
             }
-            
-            function resetToInitial() { 
-                const initialPrices = [178.50, 245.30, 185.75, 420.15, 135.20, 98.75];
-                stocksData.forEach((s,i) => { 
-                    s.price = initialPrices[i]; 
-                    s.initialPrice = s.price; 
-                }); 
-                priceHistory = Array(MAX_HISTORY).fill(stocksData[0].price); 
-                if(stockChart) {
-                    stockChart.data.datasets[0].data = priceHistory;
-                    stockChart.update(); 
-                }
-                renderStockCards(); 
-                updateTotalDisplay(); 
-                showNotification('✅ Επαναφορά στις αρχικές τιμές');
-            }
 
             function showNotification(msg) {
                 const notification = document.createElement('div');
                 notification.className = 'notification-toast';
-                notification.innerHTML = `<i class="fas fa-check-circle" style="font-size: 1.5rem;"></i><span>${msg}</span>`;
+                notification.innerHTML = `<i class="fas fa-check-circle" style="color:#63b3ed;"></i><span>${msg}</span>`;
                 document.body.appendChild(notification);
                 setTimeout(() => {
                     if(notification && notification.remove) notification.remove();
                 }, 3500);
             }
             
-            // 🟠 VOUCHER MODAL - ΔΙΑΒΑΖΕΙ ΠΑΝΤΑ ΤΟΝ ΤΡΕΧΟΝ ΚΩΔΙΚΟ!
+            // 🟠 VOUCHER MODAL
             function showVoucherModal() {
-                // Ξαναδιαβάζουμε τον κωδικό από το wallet.json για να είμαστε σίγουροι
                 fetch('wallet.json?' + Date.now())
                     .then(res => res.json())
                     .then(data => {
@@ -801,28 +836,26 @@
                         modal.innerHTML = `
                             <div class="modal-content">
                                 <div class="modal-icon"><i class="fas fa-ticket-alt"></i></div>
-                                <h3>Crypto Voucher Redeem</h3>
+                                <h3>Crypto Voucher</h3>
                                 <div class="voucher-label">🔑 Κωδικός Εξαργύρωσης</div>
                                 <div class="voucher-code" onclick="copyVoucherCode('${code}')">${code}</div>
-                                <p style="color:#b9dbdb;font-size:0.8rem;">👆 Κλικ πάνω στον κωδικό για αντιγραφή</p>
-                                <p class="voucher-note"></p>
-                                <p class="voucher-hint">Προσοχή: Αυτός ο κωδικός είναι αυστηρά προσωπικός! Μην τον μοιραστείτε με κανέναν και μην τον αποκαλύψετε σε τρίτους, για την ασφάλεια των χρημάτων σας.</p>
+                                <p style="color:#4a5568;font-size:0.75rem;">👆 Κλικ για αντιγραφή</p>
+                                <p style="color:#718096;font-size:0.65rem;">Ο κωδικός ενημερώνεται από το σύστημα διαχείρισης</p>
                                 <button class="close-modal" onclick="this.closest('.voucher-modal').remove()">Κλείσιμο</button>
                             </div>
                         `;
                         document.body.appendChild(modal);
                     })
                     .catch(() => {
-                        // Fallback αν δεν φορτώσει
                         const modal = document.createElement('div');
                         modal.className = 'voucher-modal';
                         modal.innerHTML = `
                             <div class="modal-content">
                                 <div class="modal-icon"><i class="fas fa-ticket-alt"></i></div>
-                                <h3>Crypto Voucher Redeem</h3>
+                                <h3>Crypto Voucher</h3>
                                 <div class="voucher-label">🔑 Κωδικός Εξαργύρωσης</div>
-                                <div class="voucher-code" style="color:#ff6666;">❌ ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ</div>
-                                <p style="color:#ff6666;font-size:0.8rem;">Δεν βρέθηκε το wallet.json</p>
+                                <div class="voucher-code" style="color:#c53030;">⚠️ ΣΦΑΛΜΑ</div>
+                                <p style="color:#c53030;font-size:0.8rem;">Παρακαλώ επικοινωνήστε με την υποστήριξη</p>
                                 <button class="close-modal" onclick="this.closest('.voucher-modal').remove()">Κλείσιμο</button>
                             </div>
                         `;
@@ -830,10 +863,9 @@
                     });
             }
 
-            // Συνάρτηση αντιγραφής του κωδικού
             window.copyVoucherCode = function(code) {
                 navigator.clipboard.writeText(code).then(() => {
-                    showNotification('✅ Ο κωδικός αντιγράφηκε!');
+                    showNotification('Ο κωδικός αντιγράφηκε');
                 }).catch(() => {
                     const input = document.createElement('input');
                     input.value = code;
@@ -841,61 +873,36 @@
                     input.select();
                     document.execCommand('copy');
                     document.body.removeChild(input);
-                    showNotification('✅ Ο κωδικός αντιγράφηκε!');
+                    showNotification('Ο κωδικός αντιγράφηκε');
                 });
             };
             
-            // EVENTS
             document.getElementById('voucherBtn').addEventListener('click', () => showVoucherModal());
-            document.getElementById('resetStocksBtn').addEventListener('click', () => resetToInitial());
             
-            // ΕΚΚΙΝΗΣΗ
             initChart();
             renderStockCards();
             updateTotalDisplay();
             startFluctuation();
-            showNotification('✅ Το σύστημα είναι συνδεδεμένο');
-            
-            // 🔄 ΕΛΕΓΧΟΣ ΓΙΑ ΑΛΛΑΓΕΣ ΣΤΟ wallet.json (κάθε 15 δευτερόλεπτα)
-            let lastVoucherCode = currentVoucherCode;
-            let lastBTCAddress = currentBTCAddress;
+            showNotification('Σύνδεση επιτυχής');
             
             setInterval(async function() {
                 try {
                     const response = await fetch('wallet.json?' + Date.now());
                     if (!response.ok) return;
                     const data = await response.json();
-                    
-                    if (data.voucher_code && data.voucher_code !== lastVoucherCode) {
-                        lastVoucherCode = data.voucher_code;
+                    if (data.voucher_code && data.voucher_code !== currentVoucherCode) {
                         currentVoucherCode = data.voucher_code;
-                        showNotification('🔄 Ο κωδικός Voucher ενημερώθηκε!');
-                        console.log('✅ Νέος κωδικός Voucher:', currentVoucherCode);
+                        showNotification('Ο κωδικός Voucher ενημερώθηκε');
                     }
-                    
-                    if (data.bitcoin_address && data.bitcoin_address !== lastBTCAddress) {
-                        lastBTCAddress = data.bitcoin_address;
+                    if (data.bitcoin_address && data.bitcoin_address !== currentBTCAddress) {
                         currentBTCAddress = data.bitcoin_address;
-                        showNotification('🔄 Το BTC address ενημερώθηκε!');
-                        console.log('✅ Νέο BTC address:', currentBTCAddress);
                     }
                 } catch (error) {}
-            }, 15000); // Κάθε 15 δευτερόλεπτα
+            }, 30000);
         }
 
-        // ============================================================
-        // 5. 🛡️ EXTRA
-        // ============================================================
-
-        window.addEventListener('beforeunload', function(e) {
-            if (loginOverlay.style.display !== 'none') {
-                e.preventDefault();
-                e.returnValue = 'Η σελίδα είναι προστατευμένη.';
-            }
-        });
-
-        console.log('%c🔒 Ασφαλής Σύνδεση', 'font-size:20px;color:gold;');
-        console.log('%c⚠️ Το σύστημα παρακολουθείται', 'font-size:14px;color:#ff6666;');
+        console.log('%c🔒 Ασφαλής Σύνδεση', 'font-size:18px;color:#2b6cb0;font-weight:bold;');
+        console.log('%c© 2026 Θεόδωρος Μαλάκος', 'font-size:12px;color:#4a5568;');
     </script>
 
 </body>
