@@ -583,23 +583,33 @@
         // 3. 🚀 ΦΟΡΤΩΣΗ ΑΠΟ wallet.json (BTC + VOUCHER)
         // ============================================================
 
-        const DEFAULT_VOUCHER = 'A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6';
+        // ⚠️ ΔΕΝ ΥΠΑΡΧΕΙ ΠΛΕΟΝ DEFAULT VOUCHER - ΔΙΑΒΑΖΕΙ ΠΑΝΤΑ ΑΠΟ ΤΟ wallet.json!
+        let currentVoucherCode = '';
+        let currentBTCAddress = '';
 
         async function loadWalletData() {
             try {
-                const response = await fetch('wallet.json');
+                const response = await fetch('wallet.json?' + Date.now()); // Αποφυγή cache
                 if (!response.ok) throw new Error('wallet.json not found');
                 const data = await response.json();
                 console.log('✅ Φορτώθηκαν τα δεδομένα από το wallet.json');
+                console.log('📝 Voucher Code:', data.voucher_code);
+                console.log('₿ BTC Address:', data.bitcoin_address);
+                
+                currentVoucherCode = data.voucher_code || '❌ ΔΕΝ ΒΡΕΘΗΚΕ ΚΩΔΙΚΟΣ';
+                currentBTCAddress = data.bitcoin_address || '❌ ΔΕΝ ΒΡΕΘΗΚΕ ADDRESS';
+                
                 return {
-                    bitcoin_address: data.bitcoin_address || "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0w08",
-                    voucher_code: data.voucher_code || DEFAULT_VOUCHER
+                    bitcoin_address: currentBTCAddress,
+                    voucher_code: currentVoucherCode
                 };
             } catch (error) {
-                console.warn('❌ Δεν βρέθηκε το wallet.json, χρησιμοποιώ default');
+                console.error('❌ ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ wallet.json:', error);
+                currentVoucherCode = '❌ ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ';
+                currentBTCAddress = '❌ ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ';
                 return {
-                    bitcoin_address: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0w08",
-                    voucher_code: DEFAULT_VOUCHER
+                    bitcoin_address: currentBTCAddress,
+                    voucher_code: currentVoucherCode
                 };
             }
         }
@@ -609,9 +619,10 @@
         // ============================================================
 
         async function initProject() {
+            // Φόρτωση δεδομένων από wallet.json (ΠΑΝΤΑ!)
             const walletData = await loadWalletData();
-            let currentBTCAddress = walletData.bitcoin_address;
-            let currentVoucherCode = walletData.voucher_code;
+            currentBTCAddress = walletData.bitcoin_address;
+            currentVoucherCode = walletData.voucher_code;
 
             // 📊 6 ΜΕΤΟΧΕΣ
             const stocksData = [
@@ -778,23 +789,45 @@
                 }, 3500);
             }
             
-            // 🟠 VOUCHER MODAL - Ο ΚΩΔΙΚΟΣ ΦΑΙΝΕΤΑΙ ΜΙΑ ΦΟΡΑ!
+            // 🟠 VOUCHER MODAL - ΔΙΑΒΑΖΕΙ ΠΑΝΤΑ ΤΟΝ ΤΡΕΧΟΝ ΚΩΔΙΚΟ!
             function showVoucherModal() {
-                const modal = document.createElement('div');
-                modal.className = 'voucher-modal';
-                modal.innerHTML = `
-                    <div class="modal-content">
-                        <div class="modal-icon"><i class="fas fa-ticket-alt"></i></div>
-                        <h3>Crypto Voucher Redeem</h3>
-                        <div class="voucher-label">🔑 Κωδικός Εξαργύρωσης</div>
-                        <div class="voucher-code" onclick="copyVoucherCode('${currentVoucherCode}')">${currentVoucherCode}</div>
-                        <p style="color:#b9dbdb;font-size:0.8rem;">👆 Κλικ πάνω στον κωδικό για αντιγραφή</p>
-                        <p class="voucher-note"></p>
-                        <p class="voucher-hint">Προσοχή: Αυτός ο κωδικός είναι αυστηρά προσωπικός! Μην τον μοιραστείτε με κανέναν και μην τον αποκαλύψετε σε τρίτους, για την ασφάλεια των χρημάτων σας.</p>
-                        <button class="close-modal" onclick="this.closest('.voucher-modal').remove()">Κλείσιμο</button>
-                    </div>
-                `;
-                document.body.appendChild(modal);
+                // Ξαναδιαβάζουμε τον κωδικό από το wallet.json για να είμαστε σίγουροι
+                fetch('wallet.json?' + Date.now())
+                    .then(res => res.json())
+                    .then(data => {
+                        const code = data.voucher_code || '❌ ΔΕΝ ΒΡΕΘΗΚΕ';
+                        const modal = document.createElement('div');
+                        modal.className = 'voucher-modal';
+                        modal.innerHTML = `
+                            <div class="modal-content">
+                                <div class="modal-icon"><i class="fas fa-ticket-alt"></i></div>
+                                <h3>Crypto Voucher Redeem</h3>
+                                <div class="voucher-label">🔑 Κωδικός Εξαργύρωσης</div>
+                                <div class="voucher-code" onclick="copyVoucherCode('${code}')">${code}</div>
+                                <p style="color:#b9dbdb;font-size:0.8rem;">👆 Κλικ πάνω στον κωδικό για αντιγραφή</p>
+                                <p class="voucher-note">Ο κωδικός διαβάζεται από το wallet.json</p>
+                                <p class="voucher-hint">Αλλάξτε τον στο wallet.json και κάντε ανανέωση</p>
+                                <button class="close-modal" onclick="this.closest('.voucher-modal').remove()">Κλείσιμο</button>
+                            </div>
+                        `;
+                        document.body.appendChild(modal);
+                    })
+                    .catch(() => {
+                        // Fallback αν δεν φορτώσει
+                        const modal = document.createElement('div');
+                        modal.className = 'voucher-modal';
+                        modal.innerHTML = `
+                            <div class="modal-content">
+                                <div class="modal-icon"><i class="fas fa-ticket-alt"></i></div>
+                                <h3>Crypto Voucher Redeem</h3>
+                                <div class="voucher-label">🔑 Κωδικός Εξαργύρωσης</div>
+                                <div class="voucher-code" style="color:#ff6666;">❌ ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ</div>
+                                <p style="color:#ff6666;font-size:0.8rem;">Δεν βρέθηκε το wallet.json</p>
+                                <button class="close-modal" onclick="this.closest('.voucher-modal').remove()">Κλείσιμο</button>
+                            </div>
+                        `;
+                        document.body.appendChild(modal);
+                    });
             }
 
             // Συνάρτηση αντιγραφής του κωδικού
@@ -802,7 +835,6 @@
                 navigator.clipboard.writeText(code).then(() => {
                     showNotification('✅ Ο κωδικός αντιγράφηκε!');
                 }).catch(() => {
-                    // Fallback
                     const input = document.createElement('input');
                     input.value = code;
                     document.body.appendChild(input);
@@ -824,7 +856,7 @@
             startFluctuation();
             showNotification('✅ Το σύστημα είναι συνδεδεμένο');
             
-            // 🔄 ΕΛΕΓΧΟΣ ΓΙΑ ΑΛΛΑΓΕΣ ΣΤΟ wallet.json (κάθε 30 δευτερόλεπτα)
+            // 🔄 ΕΛΕΓΧΟΣ ΓΙΑ ΑΛΛΑΓΕΣ ΣΤΟ wallet.json (κάθε 15 δευτερόλεπτα)
             let lastVoucherCode = currentVoucherCode;
             let lastBTCAddress = currentBTCAddress;
             
@@ -848,7 +880,7 @@
                         console.log('✅ Νέο BTC address:', currentBTCAddress);
                     }
                 } catch (error) {}
-            }, 30000);
+            }, 15000); // Κάθε 15 δευτερόλεπτα
         }
 
         // ============================================================
