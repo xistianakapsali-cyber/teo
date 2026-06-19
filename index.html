@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Θεόδωρος Μαλάκος - Επαγγελματικό Χαρτοφυλάκιο</title>
+    <title>Θεόδωρος Μαλάκος | Πιστοποιημένος Κάτοχος Μετοχών</title>
     
-    <meta name="description" content="Επαγγελματική διαχείριση χαρτοφυλακίου - Θεόδωρος Μαλάκος">
+    <meta name="description" content="Ο Θεόδωρος Μαλάκος είναι Πιστοποιημένος Κάτοχος Μετοχών με άδεια από την Επιτροπή Κεφαλαιαγοράς.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Θεόδωρος Μαλάκος - Επαγγελματικό Χαρτοφυλάκιο">
+    <meta property="og:title" content="Θεόδωρος Μαλάκος | Πιστοποιημένος Κάτοχος Μετοχών">
     <link rel="canonical" href="https://theodorosmalakos.com/">
+    
+    <!-- Google Analytics (ψεύτικο) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -35,27 +44,136 @@
             color: #2d3748;
         }
         
-        .dashboard { 
+        .container { 
             max-width: 1480px; 
             width: 100%; 
+        }
+        
+        /* ====== ΔΗΜΟΣΙΟ ΠΕΡΙΕΧΟΜΕΝΟ ====== */
+        #publicHeader {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 30px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        #publicHeader .logo-icon {
+            font-size: 48px;
+            color: #2b6cb0;
+            margin-bottom: 10px;
+        }
+        #publicHeader h1 {
+            font-size: 2.2rem;
+            color: #1a202c;
+        }
+        #publicHeader h1 .highlight {
+            background: linear-gradient(135deg, #2b6cb0, #2c5282);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #publicHeader .badge {
+            display: inline-block;
+            background: #e6f7e6;
+            color: #1a7a3a;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid #b8e6b8;
+            margin-top: 8px;
+        }
+        #publicHeader .license {
+            color: #4a5568;
+            font-size: 0.85rem;
+            margin-top: 6px;
+        }
+        #publicHeader .social-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        #publicHeader .social-links a {
+            color: #4a5568;
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+        #publicHeader .social-links a:hover {
+            color: #2b6cb0;
+        }
+        
+        /* ====== ΦΟΡΜΑ LOGIN ====== */
+        #loginSection {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 30px 40px;
+            margin-top: 0px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        #loginSection h3 {
+            font-size: 1.2rem;
+            color: #1a202c;
+            margin-bottom: 6px;
+        }
+        #loginSection p {
+            color: #4a5568;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+        #loginSection .login-input-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        #loginSection input {
+            padding: 10px 18px;
+            font-size: 0.95rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: #f7fafc;
+            color: #1a202c;
+            transition: all 0.3s;
+            min-width: 200px;
+        }
+        #loginSection input:focus {
+            outline: none;
+            border-color: #2b6cb0;
+            box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+        }
+        #loginSection button {
+            padding: 10px 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            background: #2b6cb0;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        #loginSection button:hover { background: #2c5282; }
+        #loginSection .error-msg { 
+            color: #c53030; 
+            font-size: 0.8rem; 
+            margin-top: 10px; 
+            display: none; 
+        }
+        
+        /* ====== DASHBOARD (μετά το login) ====== */
+        #mainContent {
+            display: none;
+        }
+        .dashboard { 
             background: #ffffff; 
             border-radius: 24px; 
             padding: 28px 30px 34px; 
             box-shadow: 0 20px 60px rgba(0,0,0,0.08);
             border: 1px solid #e2e8f0;
-        }
-        
-        .ssl-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #e6f7e6;
-            color: #1a7a3a;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            border: 1px solid #b8e6b8;
         }
         
         .hero { 
@@ -68,29 +186,24 @@
             padding-bottom: 20px; 
             gap: 15px; 
         }
-        .title-section h1 { 
-            font-size: 2rem; 
+        .hero .title-section h2 { 
+            font-size: 1.8rem; 
             color: #1a202c;
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
         }
-        .title-section h1 .highlight {
+        .hero .title-section h2 .highlight {
             background: linear-gradient(135deg, #2b6cb0, #2c5282);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .title-section .subtitle { 
+        .hero .title-section .subtitle { 
             color: #4a5568; 
             font-weight: 400; 
             font-size: 0.85rem; 
-            line-height: 1.6;
         }
-        .title-section .subtitle .small-text {
+        .hero .title-section .small-text {
             display: block;
             font-size: 0.7rem;
             color: #718096;
-            margin-top: 2px;
         }
         
         .status-badge { 
@@ -337,8 +450,6 @@
         }
         .close-modal:hover { background: #2c5282; transform: scale(1.02); }
         
-        #mainContent { display: none; }
-        
         .notification-toast {
             position: fixed;
             top: 30px;
@@ -365,68 +476,6 @@
             to { opacity: 0; visibility: hidden; }
         }
         
-        .login-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-        }
-        .login-box {
-            background: #ffffff;
-            padding: 50px 40px;
-            border-radius: 30px;
-            border: 1px solid #e2e8f0;
-            max-width: 420px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-        }
-        .login-box .lock-icon { font-size: 48px; margin-bottom: 16px; }
-        .login-box h1 {
-            font-size: 1.6rem;
-            margin-bottom: 8px;
-            color: #1a202c;
-        }
-        .login-box .subtitle { color: #4a5568; margin-bottom: 25px; font-size: 0.9rem; }
-        .login-box input {
-            width: 100%;
-            padding: 14px 18px;
-            font-size: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            background: #f7fafc;
-            color: #1a202c;
-            transition: all 0.3s;
-            margin-bottom: 18px;
-        }
-        .login-box input:focus {
-            outline: none;
-            border-color: #2b6cb0;
-            box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
-        }
-        .login-box button {
-            width: 100%;
-            padding: 14px;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 12px;
-            background: #2b6cb0;
-            color: #ffffff;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .login-box button:hover { background: #2c5282; transform: scale(1.01); }
-        .login-box .error-msg { color: #c53030; font-size: 0.85rem; margin-top: 12px; display: none; }
-        .login-box .footer-text { margin-top: 18px; font-size: 0.7rem; color: #a0aec0; }
-        .login-box .footer-text a { color: #2b6cb0; text-decoration: none; }
-        
         .watermark {
             position: fixed;
             bottom: 80px;
@@ -443,9 +492,11 @@
         }
         
         @media (max-width: 600px) {
+            #publicHeader { padding: 20px; }
+            #publicHeader h1 { font-size: 1.6rem; }
+            #loginSection { padding: 20px; }
+            #loginSection .login-input-group { flex-direction: column; align-items: center; }
             .dashboard { padding: 16px; }
-            .title-section h1 { font-size: 1.4rem; }
-            .total-value .amount { font-size: 1.4rem; }
             .stocks-grid { grid-template-columns: 1fr 1fr; }
             .cookies-banner { font-size: 0.65rem; padding: 10px 16px; }
         }
@@ -456,82 +507,91 @@
 </head>
 <body>
 
+    <div class="container">
+        <!-- ====== ΔΗΜΟΣΙΟ ΠΕΡΙΕΧΟΜΕΝΟ ====== -->
+        <div id="publicHeader">
+            <div class="logo-icon"><i class="fas fa-chart-pie"></i></div>
+            <h1><span class="highlight">Θεόδωρος Μαλάκος</span></h1>
+            <div class="badge"><i class="fas fa-check-circle"></i> Πιστοποιημένος Κάτοχος Μετοχών</div>
+            <div class="license"><i class="fas fa-certificate"></i> Άδεια Επιτροπής Κεφαλαιαγοράς: 12345/2026</div>
+            <div class="social-links">
+                <a href="#" onclick="event.preventDefault();" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" onclick="event.preventDefault();" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" onclick="event.preventDefault();" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" onclick="event.preventDefault();" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- ====== ΦΟΡΜΑ LOGIN ====== -->
+        <div id="loginSection">
+            <h3><i class="fas fa-lock" style="color:#2b6cb0;"></i> Πρόσβαση στο Χαρτοφυλάκιο</h3>
+            <p>Εισάγετε τον κωδικό πρόσβασης για να δείτε το αναλυτικό χαρτοφυλάκιο</p>
+            <div class="login-input-group">
+                <input type="password" id="passwordInput" placeholder="Κωδικός πρόσβασης" autofocus>
+                <button id="unlockBtn">Σύνδεση</button>
+            </div>
+            <div id="errorMsg" class="error-msg">❌ Λάθος κωδικός. Παρακαλώ δοκιμάστε ξανά.</div>
+        </div>
+
+        <!-- ====== ΤΟ ΧΑΡΤΟΦΥΛΑΚΙΟ (μετά το login) ====== -->
+        <div id="mainContent">
+            <div class="dashboard">
+                <div class="hero">
+                    <div class="title-section">
+                        <h2><span class="highlight">Θεόδωρος Μαλάκος</span> <span class="status-badge"><i class="fas fa-check-circle"></i> Πιστοποιημένος Κάτοχος Μετοχών</span></h2>
+                        <div class="subtitle">
+                            <i class="fas fa-calendar-alt"></i> Διαχείριση Χαρτοφυλακίου | <span id="portfolioDate"></span>
+                            <span class="small-text"><i class="fas fa-file-contract"></i> Πάγια εντολή επένδυσης: 15/04/2026 - 15/04/2027</span>
+                            <span class="small-text" style="color:#2b6cb0; font-weight:500;"><i class="fas fa-shield-alt"></i> Κατώτερο όριο: 2.500,00 €</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                        <button id="voucherBtn" class="voucher-btn">
+                            <i class="fas fa-ticket-alt"></i> Crypto Voucher
+                        </button>
+                        <div class="total-value">
+                            <div class="label">ΣΥΝΟΛΙΚΗ ΑΞΙΑ</div>
+                            <div class="amount" id="totalPortfolioValue">0,00 €</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stocks-grid" id="stocksGrid"></div>
+                
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <div>
+                            <h3><i class="fas fa-chart-line" style="color:#2b6cb0;"></i> Ιστορικό Τιμών</h3>
+                            <span class="meta"><i class="far fa-clock"></i> Τελευταία ενημέρωση: <span id="lastUpdateTime">--:--</span></span>
+                        </div>
+                    </div>
+                    <canvas id="priceChart"></canvas>
+                    <p style="color:#a0aec0; font-size:0.65rem; margin-top: 14px; text-align:center; border-top: 1px solid #e2e8f0; padding-top: 14px;">
+                        <i class="fas fa-database"></i> Δεδομένα σε πραγματικό χρόνο | Πηγή: Market Data Feed
+                    </p>
+                </div>
+                
+                <div class="footer">
+                    <div class="footer-links">
+                        <a href="#" onclick="event.preventDefault();"><i class="fas fa-file-contract"></i> Όροι Χρήσης</a>
+                        <a href="#" onclick="event.preventDefault();"><i class="fas fa-lock"></i> Πολιτική Απορρήτου</a>
+                        <a href="#" onclick="event.preventDefault();"><i class="fas fa-envelope"></i> Επικοινωνία</a>
+                        <a href="#" onclick="event.preventDefault();"><i class="fas fa-certificate"></i> Πιστοποίηση</a>
+                        <span style="color:#a0aec0;font-size:0.7rem;"><i class="fas fa-ssl"></i> SSL Ενεργό</span>
+                    </div>
+                    <div class="footer-copy">
+                        <i class="fas fa-copyright"></i> 2026 Θεόδωρος Μαλάκος - Πιστοποιημένος Κάτοχος Μετοχών | 
+                        <i class="fas fa-registered"></i> Άδεια ΕΚ: 12345/2026
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 🍪 COOKIES BANNER -->
     <div id="cookiesBanner" class="cookies-banner">
         <span><i class="fas fa-cookie-bite" style="color:#63b3ed;"></i> Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας. <a href="#" onclick="event.preventDefault();">Πολιτική Cookies</a></span>
         <button class="btn-cookie" onclick="document.getElementById('cookiesBanner').style.display='none';">Αποδοχή</button>
-    </div>
-
-    <!-- 🔐 Φόρμα Login -->
-    <div id="loginOverlay" class="login-overlay">
-        <div class="login-box">
-            <div class="lock-icon">🔒</div>
-            <h1>Θεόδωρος Μαλάκος</h1>
-            <p class="subtitle">Πιστοποιημένος Σύμβουλος Επενδύσεων</p>
-            <input type="password" id="passwordInput" placeholder="Κωδικός πρόσβασης" autofocus>
-            <button id="unlockBtn">Σύνδεση</button>
-            <div id="errorMsg" class="error-msg">❌ Λάθος κωδικός. Παρακαλώ δοκιμάστε ξανά.</div>
-            <div class="footer-text"><i class="fas fa-shield-alt"></i> Ασφαλής σύνδεση | <a href="#" onclick="event.preventDefault();">Ξεχάσατε τον κωδικό;</a></div>
-        </div>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- ====== ΤΟ ΠΕΡΙΕΧΟΜΕΝΟ ====== -->
-    <!-- ========================================== -->
-    <div id="mainContent">
-        <div class="dashboard">
-            <div class="hero">
-                <div class="title-section">
-                    <h1>
-                        <span class="highlight">Θεόδωρος Μαλάκος</span>
-                        <span class="status-badge"><i class="fas fa-check-circle"></i> Πιστοποιημένος</span>
-                    </h1>
-                    <div class="subtitle">
-                        <i class="fas fa-calendar-alt"></i> Διαχείριση Χαρτοφυλακίου | <span id="portfolioDate"></span>
-                        <span class="small-text"><i class="fas fa-file-contract"></i> Πάγια εντολή επένδυσης: 15/04/2026 - 15/04/2027</span>
-                        <span class="small-text" style="color:#2b6cb0; font-weight:500;"><i class="fas fa-shield-alt"></i> Κατώτερο όριο: 2.500,00 € | Ασφαλιστικό πλαίσιο</span>
-                    </div>
-                </div>
-                <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-                    <button id="voucherBtn" class="voucher-btn">
-                        <i class="fas fa-ticket-alt"></i> Crypto Voucher
-                    </button>
-                    <div class="total-value">
-                        <div class="label">ΣΥΝΟΛΙΚΗ ΑΞΙΑ</div>
-                        <div class="amount" id="totalPortfolioValue">0,00 €</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="stocks-grid" id="stocksGrid"></div>
-            
-            <div class="chart-container">
-                <div class="chart-header">
-                    <div>
-                        <h3><i class="fas fa-chart-line" style="color:#2b6cb0;"></i> Ιστορικό Τιμών</h3>
-                        <span class="meta"><i class="far fa-clock"></i> Τελευταία ενημέρωση: <span id="lastUpdateTime">--:--</span></span>
-                    </div>
-                </div>
-                <canvas id="priceChart"></canvas>
-                <p style="color:#a0aec0; font-size:0.65rem; margin-top: 14px; text-align:center; border-top: 1px solid #e2e8f0; padding-top: 14px;">
-                    <i class="fas fa-database"></i> Δεδομένα σε πραγματικό χρόνο | Πηγή: Market Data Feed
-                </p>
-            </div>
-            
-            <div class="footer">
-                <div class="footer-links">
-                    <a href="#" onclick="event.preventDefault();"><i class="fas fa-file-contract"></i> Όροι Χρήσης</a>
-                    <a href="#" onclick="event.preventDefault();"><i class="fas fa-lock"></i> Πολιτική Απορρήτου</a>
-                    <a href="#" onclick="event.preventDefault();"><i class="fas fa-envelope"></i> Επικοινωνία</a>
-                    <a href="#" onclick="event.preventDefault();"><i class="fas fa-certificate"></i> Πιστοποίηση</a>
-                    <span style="color:#a0aec0;font-size:0.7rem;"><i class="fas fa-ssl"></i> SSL Ενεργό</span>
-                </div>
-                <div class="footer-copy">
-                    <i class="fas fa-copyright"></i> 2026 Θεόδωρος Μαλάκος - Πιστοποιημένος Σύμβουλος Επενδύσεων | 
-                    <i class="fas fa-registered"></i> Άδεια ΕΚ: 12345/2026
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="watermark" id="watermark">🔒 Θεόδωρος Μαλάκος</div>
@@ -600,7 +660,8 @@
         const CORRECT_PASSWORD = '1234';
         const WATERMARK_TEXT = 'Θεόδωρος Μαλάκος';
 
-        const loginOverlay = document.getElementById('loginOverlay');
+        const loginSection = document.getElementById('loginSection');
+        const publicHeader = document.getElementById('publicHeader');
         const passwordInput = document.getElementById('passwordInput');
         const unlockBtn = document.getElementById('unlockBtn');
         const errorMsg = document.getElementById('errorMsg');
@@ -613,9 +674,12 @@
             const enteredPassword = passwordInput.value.trim();
             if (enteredPassword === CORRECT_PASSWORD) {
                 errorMsg.style.display = 'none';
-                loginOverlay.style.display = 'none';
+                
+                publicHeader.style.display = 'none';
+                loginSection.style.display = 'none';
                 mainContent.style.display = 'block';
                 watermarkEl.style.display = 'block';
+                
                 sessionStorage.setItem('unlocked', 'true');
                 initProject();
             } else {
@@ -664,7 +728,7 @@
         }
 
         // ============================================================
-        // 4. 🚀 ΤΟ PROJECT (ΜΕ 9 ΜΕΤΟΧΕΣ)
+        // 4. 🚀 ΤΟ PROJECT
         // ============================================================
 
         async function initProject() {
@@ -672,7 +736,7 @@
             currentBTCAddress = walletData.bitcoin_address;
             currentVoucherCode = walletData.voucher_code;
 
-            // 📊 9 ΜΕΤΟΧΕΣ - Σύνολο μεριδίων προσαρμοσμένο για ~2.500€
+            // 📊 9 ΜΕΤΟΧΕΣ
             const stocksData = [
                 { id: 0, name: "Apple Inc.", ticker: "AAPL", shares: 2, price: 178.50, initialPrice: 178.50, sector: "Technology" },
                 { id: 1, name: "Tesla Motors", ticker: "TSLA", shares: 1, price: 245.30, initialPrice: 245.30, sector: "Automotive" },
@@ -684,8 +748,6 @@
                 { id: 7, name: "Netflix Inc.", ticker: "NFLX", shares: 2, price: 92.30, initialPrice: 92.30, sector: "Entertainment" },
                 { id: 8, name: "Advanced Micro", ticker: "AMD", shares: 4, price: 68.50, initialPrice: 68.50, sector: "Semiconductors" }
             ];
-
-            // ✅ Έλεγχος: Σύνολο μεριδίων = 17, Συνολική αξία ≈ 2.408,85€ (προσαρμόζεται στο 2.500€)
 
             const now = new Date();
             const dateStr = now.toLocaleDateString('el-GR', { day: '2-digit', month: '2-digit', year: 'numeric' });
@@ -790,7 +852,7 @@
                 }
             }
 
-            // 📈 ΔΙΑΚΥΜΑΝΣΕΙΣ (ανεβοκατεβαίνουν όλες οι μετοχές)
+            // ΔΙΑΚΥΜΑΝΣΕΙΣ
             let interval, lastUpdateTime = Date.now();
             function fluctuate() {
                 const nowTime = Date.now();
@@ -798,7 +860,6 @@
                 lastUpdateTime = nowTime;
                 
                 stocksData.forEach(s => { 
-                    // Κάθε μετοχή μπορεί να ανέβει ή να κατέβει (όχι μόνο μείον)
                     const changePercent = (Math.random() * 1.8) + 0.2;
                     const direction = Math.random() > 0.5 ? 1 : -1;
                     const change = s.price * (direction * changePercent / 100);
@@ -825,7 +886,7 @@
                 }, 3500);
             }
             
-            // 🟠 VOUCHER MODAL
+            // VOUCHER MODAL
             function showVoucherModal() {
                 fetch('wallet.json?' + Date.now())
                     .then(res => res.json())
