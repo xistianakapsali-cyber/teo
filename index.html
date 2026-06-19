@@ -3,21 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Θεόδωρος Μαλάκος | Ιδιωτικό Χαρτοφυλάκιο Κρυπτονομισμάτων</title>
+    <title>Θεόδωρος Μαλάκος · Ιδιωτικό Χαρτοφυλάκιο</title>
     
-    <meta name="description" content="Αποκλειστικά ιδιωτική σελίδα παρακολούθησης κρυπτονομισμάτων του Θεόδωρου Μαλάκου. Δεν προσφέρονται επενδυτικές συμβουλές.">
+    <meta name="description" content="Ιδιωτική σελίδα παρακολούθησης κρυπτονομισμάτων.">
     <meta name="robots" content="noindex, nofollow">
-    <meta property="og:title" content="Θεόδωρος Μαλάκος | Ιδιωτικό Χαρτοφυλάκιο">
-    <link rel="canonical" href="https://theodorosmalakos.com/">
-    
-    <!-- Google Analytics (ψεύτικο) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -34,14 +23,14 @@
         }
         
         body { 
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            background: #0f1219;
             min-height: 100vh; 
             padding: 20px; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
             font-family: 'Segoe UI', 'Poppins', sans-serif;
-            color: #2d3748;
+            color: #eaeef2;
         }
         
         .container { 
@@ -51,97 +40,75 @@
         
         /* ====== ΔΗΜΟΣΙΟ ΠΕΡΙΕΧΟΜΕΝΟ ====== */
         #publicHeader {
-            background: #ffffff;
+            background: #1a202a;
             border-radius: 24px;
             padding: 30px 40px;
             margin-bottom: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 1px solid #2a323f;
             text-align: center;
         }
         #publicHeader .logo-icon {
             font-size: 48px;
-            color: #2b6cb0;
+            color: #63b3ed;
             margin-bottom: 10px;
         }
         #publicHeader h1 {
             font-size: 2.2rem;
-            color: #1a202c;
+            color: #eaeef2;
         }
         #publicHeader h1 .highlight {
-            background: linear-gradient(135deg, #2b6cb0, #2c5282);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #63b3ed;
         }
         #publicHeader .badge {
             display: inline-block;
-            background: #e6f7e6;
-            color: #1a7a3a;
+            background: #1f2937;
+            color: #9ca3af;
             padding: 4px 16px;
             border-radius: 40px;
             font-size: 0.75rem;
             font-weight: 600;
-            border: 1px solid #b8e6b8;
+            border: 1px solid #374151;
             margin-top: 8px;
         }
         
         /* ====== ΝΟΜΙΜΗ ΔΙΕΥΚΡΙΝΙΣΗ ====== */
         .legal-notice {
-            background: #ebf8ff;
-            border: 1px solid #bee3f8;
+            background: #1f2937;
+            border: 1px solid #374151;
             border-radius: 16px;
             padding: 16px 24px;
             margin: 12px 0 20px 0;
             text-align: center;
             font-size: 0.85rem;
-            color: #2a4365;
+            color: #d1d5db;
         }
         .legal-notice i {
-            color: #2b6cb0;
+            color: #63b3ed;
             margin-right: 8px;
         }
         .legal-notice .highlight-text {
             font-weight: 700;
-            color: #2b6cb0;
-        }
-        
-        #publicHeader .license {
-            color: #4a5568;
-            font-size: 0.85rem;
-            margin-top: 6px;
-        }
-        #publicHeader .social-links {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        #publicHeader .social-links a {
-            color: #4a5568;
-            font-size: 1.3rem;
-            transition: color 0.3s;
-        }
-        #publicHeader .social-links a:hover {
-            color: #2b6cb0;
+            color: #63b3ed;
         }
         
         /* ====== ΦΟΡΜΑ LOGIN ====== */
         #loginSection {
-            background: #ffffff;
+            background: #1a202a;
             border-radius: 24px;
             padding: 30px 40px;
             margin-top: 0px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 1px solid #2a323f;
             text-align: center;
         }
         #loginSection h3 {
             font-size: 1.2rem;
-            color: #1a202c;
+            color: #eaeef2;
             margin-bottom: 6px;
         }
         #loginSection p {
-            color: #4a5568;
+            color: #9ca3af;
             font-size: 0.85rem;
             margin-bottom: 15px;
         }
@@ -154,17 +121,20 @@
         #loginSection input {
             padding: 10px 18px;
             font-size: 0.95rem;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #374151;
             border-radius: 12px;
-            background: #f7fafc;
-            color: #1a202c;
+            background: #0f1219;
+            color: #eaeef2;
             transition: all 0.3s;
             min-width: 200px;
         }
         #loginSection input:focus {
             outline: none;
-            border-color: #2b6cb0;
-            box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+            border-color: #63b3ed;
+            box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.1);
+        }
+        #loginSection input::placeholder {
+            color: #6b7280;
         }
         #loginSection button {
             padding: 10px 30px;
@@ -172,14 +142,14 @@
             font-weight: 600;
             border: none;
             border-radius: 12px;
-            background: #2b6cb0;
-            color: #ffffff;
+            background: #63b3ed;
+            color: #0f1219;
             cursor: pointer;
             transition: all 0.3s;
         }
-        #loginSection button:hover { background: #2c5282; }
+        #loginSection button:hover { background: #4a8ec7; }
         #loginSection .error-msg { 
-            color: #c53030; 
+            color: #f87171; 
             font-size: 0.8rem; 
             margin-top: 10px; 
             display: none; 
@@ -190,11 +160,11 @@
             display: none;
         }
         .dashboard { 
-            background: #ffffff; 
+            background: #1a202a; 
             border-radius: 24px; 
             padding: 28px 30px 34px; 
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 1px solid #2a323f;
         }
         
         .hero { 
@@ -203,56 +173,54 @@
             align-items: center; 
             flex-wrap: wrap; 
             margin-bottom: 30px; 
-            border-bottom: 1px solid #e2e8f0; 
+            border-bottom: 1px solid #2a323f; 
             padding-bottom: 20px; 
             gap: 15px; 
         }
         .hero .title-section h2 { 
             font-size: 1.8rem; 
-            color: #1a202c;
+            color: #eaeef2;
         }
         .hero .title-section h2 .highlight {
-            background: linear-gradient(135deg, #2b6cb0, #2c5282);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #63b3ed;
         }
         .hero .title-section .subtitle { 
-            color: #4a5568; 
+            color: #9ca3af; 
             font-weight: 400; 
             font-size: 0.85rem; 
         }
         .hero .title-section .small-text {
             display: block;
             font-size: 0.7rem;
-            color: #718096;
+            color: #6b7280;
         }
         .hero .title-section .private-badge {
             display: inline-block;
-            background: #fefcbf;
-            color: #975a16;
+            background: #1f2937;
+            color: #9ca3af;
             padding: 2px 14px;
             border-radius: 40px;
             font-size: 0.6rem;
             font-weight: 700;
-            border: 1px solid #f6e05e;
+            border: 1px solid #374151;
             margin-top: 4px;
         }
         
         .status-badge { 
-            background: #e6f7e6; 
+            background: #1f2937; 
             border-radius: 40px; 
             padding: 4px 14px; 
             font-size: 0.7rem; 
             font-weight: 600; 
-            color: #1a7a3a; 
-            border: 1px solid #b8e6b8;
+            color: #9ca3af; 
+            border: 1px solid #374151;
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
         
         .voucher-btn { 
-            background: linear-gradient(135deg, #2b6cb0, #2c5282); 
+            background: #2d3748; 
             border: none; 
             border-radius: 60px; 
             padding: 10px 24px; 
@@ -262,30 +230,28 @@
             cursor: pointer; 
             transition: all 0.25s; 
             font-weight: 600; 
-            color: #ffffff; 
+            color: #eaeef2; 
             font-size: 0.9rem;
-            border: 1px solid #2c5282;
+            border: 1px solid #4a5568;
         }
-        .voucher-btn i { font-size: 1.2rem; color: #ffd700; }
+        .voucher-btn i { font-size: 1.2rem; color: #fbbf24; }
         .voucher-btn:hover { 
             transform: scale(1.02); 
-            box-shadow: 0 10px 30px rgba(43, 108, 176, 0.3);
+            background: #374151;
         }
         
         .total-value { 
-            background: #f7fafc; 
+            background: #0f1219; 
             padding: 10px 28px; 
             border-radius: 60px; 
             text-align: center; 
-            border: 1px solid #e2e8f0; 
+            border: 1px solid #2a323f; 
         }
-        .total-value .label { color: #4a5568; font-size: 0.75rem; letter-spacing: 1px; font-weight: 600; }
+        .total-value .label { color: #9ca3af; font-size: 0.75rem; letter-spacing: 1px; font-weight: 600; }
         .total-value .amount { 
             font-size: 2rem; 
             font-weight: 700; 
-            background: linear-gradient(135deg, #2b6cb0, #2c5282);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #63b3ed;
         }
         
         .crypto-grid { 
@@ -295,30 +261,30 @@
             margin: 25px 0 30px 0; 
         }
         .crypto-card { 
-            background: #f7fafc; 
+            background: #0f1219; 
             border-radius: 16px; 
             padding: 14px 16px; 
-            border: 1px solid #e2e8f0; 
-            color: #2d3748; 
+            border: 1px solid #2a323f; 
+            color: #eaeef2; 
             transition: all 0.3s;
         }
         .crypto-card:hover { 
-            border-color: #2b6cb0; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border-color: #4a5568; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
         
         .crypto-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
-        .crypto-name { font-weight: 600; font-size: 0.8rem; color: #1a202c; }
+        .crypto-name { font-weight: 600; font-size: 0.8rem; color: #eaeef2; }
         .crypto-symbol { 
-            color: #4a5568; 
-            background: #edf2f7; 
+            color: #9ca3af; 
+            background: #1f2937; 
             padding: 0 10px; 
             border-radius: 40px; 
             font-size: 0.5rem; 
             font-weight: 700;
             text-transform: uppercase;
         }
-        .crypto-price { font-size: 1.1rem; font-weight: 700; color: #1a202c; margin: 2px 0; }
+        .crypto-price { font-size: 1.1rem; font-weight: 700; color: #eaeef2; margin: 2px 0; }
         .price-change { 
             font-size: 0.65rem; 
             font-weight: 600; 
@@ -326,94 +292,48 @@
             padding: 1px 10px; 
             border-radius: 32px; 
         }
-        .positive { color: #1a7a3a; background: #e6f7e6; }
-        .negative { color: #c53030; background: #fed7d7; }
+        .positive { color: #34d399; background: #064e3b; }
+        .negative { color: #f87171; background: #7f1d1d; }
         .crypto-details { 
-            color: #4a5568; 
+            color: #9ca3af; 
             margin-top: 6px; 
-            border-top: 1px solid #e2e8f0; 
+            border-top: 1px solid #2a323f; 
             padding-top: 6px; 
             display: flex; 
             justify-content: space-between; 
             font-size: 0.6rem;
         }
-        .crypto-details .value { color: #1a202c; font-weight: 600; }
+        .crypto-details .value { color: #eaeef2; font-weight: 600; }
         .crypto-category {
             margin-top: 3px;
             font-size: 0.45rem;
-            color: #a0aec0;
+            color: #6b7280;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         
         .chart-container { 
-            background: #f7fafc; 
+            background: #0f1219; 
             border-radius: 20px; 
             padding: 24px; 
             margin-top: 10px; 
-            border: 1px solid #e2e8f0;
+            border: 1px solid #2a323f;
         }
         .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-        .chart-header h3 { color: #1a202c; font-weight: 600; font-size: 1rem; }
-        .chart-header .meta { color: #718096; font-size: 0.7rem; }
-        canvas { max-height: 380px; width: 100%; background: #ffffff; border-radius: 16px; }
+        .chart-header h3 { color: #eaeef2; font-weight: 600; font-size: 1rem; }
+        .chart-header .meta { color: #6b7280; font-size: 0.7rem; }
+        canvas { max-height: 380px; width: 100%; background: #0f1219; border-radius: 16px; }
         
         .footer {
             text-align: center;
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
-        }
-        .footer .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
-        .footer .footer-links a {
-            color: #4a5568;
-            font-size: 0.7rem;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer .footer-links a:hover {
-            color: #2b6cb0;
+            border-top: 1px solid #2a323f;
         }
         .footer .footer-copy {
-            color: #a0aec0;
+            color: #6b7280;
             font-size: 0.65rem;
         }
-        
-        .cookies-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #1a202c;
-            color: #e2e8f0;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 0.75rem;
-            z-index: 999;
-            border-top: 3px solid #2b6cb0;
-        }
-        .cookies-banner a { color: #63b3ed; text-decoration: none; }
-        .cookies-banner .btn-cookie {
-            background: #2b6cb0;
-            color: white;
-            border: none;
-            padding: 6px 20px;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 0.75rem;
-            cursor: pointer;
-        }
-        .cookies-banner .btn-cookie:hover { background: #2c5282; }
         
         .voucher-modal {
             position: fixed;
@@ -421,7 +341,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.7);
             backdrop-filter: blur(4px);
             display: flex;
             justify-content: center;
@@ -429,49 +349,49 @@
             z-index: 1000;
         }
         .modal-content {
-            background: #ffffff;
+            background: #1a202a;
             border-radius: 24px;
             padding: 35px 30px;
             max-width: 500px;
             width: 90%;
             text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-            border: 1px solid #e2e8f0;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            border: 1px solid #2a323f;
         }
-        .modal-content .modal-icon { font-size: 48px; color: #2b6cb0; margin-bottom: 10px; }
+        .modal-content .modal-icon { font-size: 48px; color: #63b3ed; margin-bottom: 10px; }
         .modal-content h3 { 
-            color: #1a202c; 
+            color: #eaeef2; 
             margin-bottom: 10px; 
             font-size: 1.3rem;
             font-weight: 700;
         }
         .modal-content .voucher-label {
-            color: #4a5568;
+            color: #9ca3af;
             font-size: 0.8rem;
             margin-bottom: 8px;
         }
         .modal-content .voucher-code {
             font-size: 1.2rem;
             font-weight: 700;
-            color: #2b6cb0;
-            background: #f7fafc;
+            color: #63b3ed;
+            background: #0f1219;
             padding: 15px 20px;
             border-radius: 12px;
             margin: 10px 0 15px 0;
             letter-spacing: 1px;
             font-family: 'Courier New', monospace;
-            border: 2px dashed #bee3f8;
+            border: 2px dashed #2a323f;
             word-break: break-all;
             cursor: pointer;
             transition: all 0.3s;
         }
         .modal-content .voucher-code:hover {
-            background: #edf2f7;
-            border-color: #2b6cb0;
+            background: #1f2937;
+            border-color: #4a5568;
         }
         .close-modal { 
-            background: #2b6cb0; 
-            color: #ffffff; 
+            background: #2d3748; 
+            color: #eaeef2; 
             margin-top: 15px; 
             padding: 10px 40px; 
             border: none; 
@@ -480,25 +400,26 @@
             font-size: 0.9rem;
             cursor: pointer; 
             transition: all 0.3s;
+            border: 1px solid #4a5568;
         }
-        .close-modal:hover { background: #2c5282; transform: scale(1.02); }
+        .close-modal:hover { background: #374151; }
         
         .notification-toast {
             position: fixed;
             top: 30px;
             right: 30px;
-            background: #1a202c;
-            color: #e2e8f0;
+            background: #1a202a;
+            color: #eaeef2;
             padding: 14px 24px;
             border-radius: 12px;
             font-weight: 500;
             font-size: 0.9rem;
             z-index: 2000;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             gap: 12px;
-            border-left: 4px solid #2b6cb0;
+            border-left: 4px solid #63b3ed;
             animation: slideInRight 0.5s ease, fadeOut 0.5s ease 3.5s forwards;
         }
         @keyframes slideInRight {
@@ -514,13 +435,13 @@
             bottom: 80px;
             right: 20px;
             font-size: 0.6rem;
-            color: #a0aec0;
+            color: #4a5568;
             pointer-events: none;
             z-index: 9999;
-            background: rgba(255,255,255,0.8);
+            background: rgba(15,18,25,0.9);
             padding: 4px 12px;
             border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #2a323f;
             display: none;
         }
         
@@ -531,7 +452,6 @@
             #loginSection .login-input-group { flex-direction: column; align-items: center; }
             .dashboard { padding: 16px; }
             .crypto-grid { grid-template-columns: 1fr 1fr; }
-            .cookies-banner { font-size: 0.65rem; padding: 10px 16px; }
         }
         @media (max-width: 400px) {
             .crypto-grid { grid-template-columns: 1fr; }
@@ -550,29 +470,20 @@
             <!-- ====== ΝΟΜΙΜΗ ΔΙΕΥΚΡΙΝΙΣΗ ====== -->
             <div class="legal-notice">
                 <i class="fas fa-shield-alt"></i>
-                <strong>ΝΟΜΙΜΗ ΔΙΕΥΚΡΙΝΙΣΗ:</strong> 
+                <strong>ΔΙΕΥΚΡΙΝΙΣΗ:</strong> 
                 Αυτή η σελίδα είναι <span class="highlight-text">αποκλειστικά ιδιωτική</span> και ανήκει στον 
                 <span class="highlight-text">Θεόδωρο Μαλάκο</span>. 
-                <br>Παρακολουθεί <strong>ΜΟΝΟ</strong> τα δικά του κρυπτονομίσματα και τη δική του επένδυση των 2.500€. 
-                <br><span class="highlight-text">Δεν παρέχει επενδυτικές συμβουλές</span>, δεν προσελκύει πελάτες, 
+                Παρακολουθεί <strong>ΜΟΝΟ</strong> τα δικά του κρυπτονομίσματα και τη δική του επένδυση. 
+                <span class="highlight-text">Δεν παρέχει επενδυτικές συμβουλές</span>, δεν προσελκύει πελάτες, 
                 δεν προτρέπει σε αγορά ή πώληση και <span class="highlight-text">δεν στοχεύει στο ευρύ κοινό</span>. 
-                <br><i class="fas fa-check-circle" style="color:#2b6cb0;"></i> Είναι πλήρως νόμιμη, καθώς λειτουργεί ως 
-                <strong>προσωπικό εργαλείο παρακολούθησης</strong> ενός και μόνο χρήστη.
-            </div>
-            
-            <div class="license"><i class="fas fa-certificate"></i> Άδεια Επιτροπής Κεφαλαιαγοράς: 12345/2026</div>
-            <div class="social-links">
-                <a href="#" onclick="event.preventDefault();" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" onclick="event.preventDefault();" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" onclick="event.preventDefault();" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" onclick="event.preventDefault();" title="YouTube"><i class="fab fa-youtube"></i></a>
+                Λειτουργεί ως <strong>προσωπικό εργαλείο παρακολούθησης</strong> ενός και μόνο χρήστη.
             </div>
         </div>
 
         <!-- ====== ΦΟΡΜΑ LOGIN ====== -->
         <div id="loginSection">
-            <h3><i class="fas fa-lock" style="color:#2b6cb0;"></i> Πρόσβαση στο Ιδιωτικό Χαρτοφυλάκιο</h3>
-            <p>Εισάγετε τον κωδικό πρόσβασης για να δείτε το αναλυτικό χαρτοφυλάκιο κρυπτονομισμάτων</p>
+            <h3><i class="fas fa-lock" style="color:#63b3ed;"></i> Πρόσβαση στο Ιδιωτικό Χαρτοφυλάκιο</h3>
+            <p>Εισάγετε τον κωδικό πρόσβασης για να δείτε το χαρτοφυλάκιο κρυπτονομισμάτων</p>
             <div class="login-input-group">
                 <input type="password" id="passwordInput" placeholder="Κωδικός πρόσβασης" autofocus>
                 <button id="unlockBtn">Σύνδεση</button>
@@ -585,17 +496,16 @@
             <div class="dashboard">
                 <div class="hero">
                     <div class="title-section">
-                        <h2><span class="highlight">Θεόδωρος Μαλάκος</span> <span class="status-badge"><i class="fas fa-check-circle"></i> Ιδιωτικό Χαρτοφυλάκιο</span></h2>
+                        <h2><span class="highlight">Θεόδωρος Μαλάκος</span> <span class="status-badge"><i class="fas fa-check-circle"></i> Ιδιωτικό</span></h2>
                         <div class="subtitle">
-                            <i class="fas fa-calendar-alt"></i> Διαχείριση Κρυπτονομισμάτων | <span id="portfolioDate"></span>
+                            <i class="fas fa-calendar-alt"></i> Χαρτοφυλάκιο Κρυπτονομισμάτων | <span id="portfolioDate"></span>
                             <span class="small-text"><i class="fas fa-user-secret"></i> Αποκλειστικά για τον Θεόδωρο Μαλάκο</span>
-                            <span class="small-text" style="color:#2b6cb0; font-weight:500;"><i class="fas fa-shield-alt"></i> Κατώτερο όριο: 2.500,00 €</span>
                             <span class="private-badge"><i class="fas fa-lock"></i> ΙΔΙΩΤΙΚΟ · ΜΟΝΟ ΓΙΑ ΕΜΕΝΑ</span>
                         </div>
                     </div>
                     <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
                         <button id="voucherBtn" class="voucher-btn">
-                            <i class="fas fa-ticket-alt"></i> Crypto Voucher
+                            <i class="fas fa-ticket-alt"></i> Voucher
                         </button>
                         <div class="total-value">
                             <div class="label">ΣΥΝΟΛΙΚΗ ΑΞΙΑ</div>
@@ -609,44 +519,30 @@
                 <div class="chart-container">
                     <div class="chart-header">
                         <div>
-                            <h3><i class="fas fa-chart-line" style="color:#2b6cb0;"></i> Ιστορικό Τιμών (BTC ως δείκτης)</h3>
+                            <h3><i class="fas fa-chart-line" style="color:#63b3ed;"></i> Ιστορικό Τιμών</h3>
                             <span class="meta"><i class="far fa-clock"></i> Τελευταία ενημέρωση: <span id="lastUpdateTime">--:--</span></span>
                         </div>
                     </div>
                     <canvas id="priceChart"></canvas>
-                    <p style="color:#a0aec0; font-size:0.65rem; margin-top: 14px; text-align:center; border-top: 1px solid #e2e8f0; padding-top: 14px;">
-                        <i class="fas fa-database"></i> Δεδομένα σε πραγματικό χρόνο | Πηγή: Market Data Feed
+                    <p style="color:#6b7280; font-size:0.65rem; margin-top: 14px; text-align:center; border-top: 1px solid #2a323f; padding-top: 14px;">
+                        <i class="fas fa-database"></i> Δεδομένα σε πραγματικό χρόνο
                     </p>
                 </div>
                 
                 <div class="footer">
-                    <div class="footer-links">
-                        <a href="#" onclick="event.preventDefault();"><i class="fas fa-file-contract"></i> Όροι Χρήσης</a>
-                        <a href="#" onclick="event.preventDefault();"><i class="fas fa-lock"></i> Πολιτική Απορρήτου</a>
-                        <a href="#" onclick="event.preventDefault();"><i class="fas fa-user-shield"></i> Ιδιωτικό Χαρτοφυλάκιο</a>
-                        <a href="#" onclick="event.preventDefault();"><i class="fas fa-certificate"></i> Πιστοποίηση</a>
-                        <span style="color:#a0aec0;font-size:0.7rem;"><i class="fas fa-ssl"></i> SSL Ενεργό</span>
-                    </div>
                     <div class="footer-copy">
-                        <i class="fas fa-copyright"></i> 2026 Θεόδωρος Μαλάκος - Αποκλειστικά Ιδιωτικό Χαρτοφυλάκιο | 
-                        <i class="fas fa-registered"></i> Άδεια ΕΚ: 12345/2026
+                        <i class="fas fa-copyright"></i> 2026 Θεόδωρος Μαλάκος · Αποκλειστικά Ιδιωτικό Χαρτοφυλάκιο
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 🍪 COOKIES BANNER -->
-    <div id="cookiesBanner" class="cookies-banner">
-        <span><i class="fas fa-cookie-bite" style="color:#63b3ed;"></i> Χρησιμοποιούμε cookies για τη λειτουργία της ιδιωτικής σελίδας. <a href="#" onclick="event.preventDefault();">Πολιτική Cookies</a></span>
-        <button class="btn-cookie" onclick="document.getElementById('cookiesBanner').style.display='none';">Αποδοχή</button>
-    </div>
-
     <div class="watermark" id="watermark">🔒 Θεόδωρος Μαλάκος · Ιδιωτικό</div>
 
     <script>
         // ============================================================
-        // 1. 🛡️ ΠΡΟΣΤΑΣΙΑ (ΑΘΟΡΥΒΗ)
+        // 1. 🛡️ ΠΡΟΣΤΑΣΙΑ
         // ============================================================
         
         document.addEventListener('selectstart', function(e) {
@@ -691,7 +587,7 @@
             if (widthDiff > threshold || heightDiff > threshold) {
                 if (!devtoolsOpen) {
                     devtoolsOpen = true;
-                    document.body.innerHTML = '<div style="text-align:center;margin-top:50px;color:#1a202c;font-size:24px;background:#f5f7fa;height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:20px;"><i class="fas fa-lock" style="font-size:48px;color:#2b6cb0;margin-bottom:20px;"></i><br><span style="font-size:18px;color:#4a5568;">Η πρόσβαση είναι περιορισμένη</span><br><span style="font-size:14px;color:#a0aec0;">Παρακαλώ κλείστε τα εργαλεία προγραμματιστή</span></div>';
+                    document.body.innerHTML = '<div style="text-align:center;margin-top:50px;color:#eaeef2;font-size:24px;background:#0f1219;height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:20px;"><i class="fas fa-lock" style="font-size:48px;color:#63b3ed;margin-bottom:20px;"></i><br><span style="font-size:18px;color:#9ca3af;">Η πρόσβαση είναι περιορισμένη</span><br><span style="font-size:14px;color:#6b7280;">Παρακαλώ κλείστε τα εργαλεία προγραμματιστή</span></div>';
                 }
             } else {
                 devtoolsOpen = false;
@@ -752,7 +648,6 @@
         // ============================================================
 
         let currentVoucherCode = '';
-        let currentBTCAddress = '';
 
         async function loadWalletData() {
             try {
@@ -760,18 +655,10 @@
                 if (!response.ok) throw new Error('wallet.json not found');
                 const data = await response.json();
                 currentVoucherCode = data.voucher_code || '❌ ΔΕΝ ΒΡΕΘΗΚΕ';
-                currentBTCAddress = data.bitcoin_address || '❌ ΔΕΝ ΒΡΕΘΗΚΕ';
-                return {
-                    bitcoin_address: currentBTCAddress,
-                    voucher_code: currentVoucherCode
-                };
+                return { voucher_code: currentVoucherCode };
             } catch (error) {
                 currentVoucherCode = 'ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ';
-                currentBTCAddress = 'ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ';
-                return {
-                    bitcoin_address: currentBTCAddress,
-                    voucher_code: currentVoucherCode
-                };
+                return { voucher_code: currentVoucherCode };
             }
         }
 
@@ -781,10 +668,9 @@
 
         async function initProject() {
             const walletData = await loadWalletData();
-            currentBTCAddress = walletData.bitcoin_address;
             currentVoucherCode = walletData.voucher_code;
 
-            // ===== 50 ΚΡΥΠΤΟΝΟΜΙΣΜΑΤΑ (γνωστά + λιγότερο γνωστά) =====
+            // ===== 50 ΚΡΥΠΤΟΝΟΜΙΣΜΑΤΑ =====
             const cryptosData = [
                 // Top 10
                 { id: 0, name: "Bitcoin", symbol: "BTC", shares: 0.035, price: 42000, initialPrice: 42000, category: "Store of Value" },
@@ -911,21 +797,21 @@
                         datasets: [{ 
                             label: cryptosData[0].symbol + ' (€)', 
                             data: priceHistory, 
-                            borderColor: '#2b6cb0', 
+                            borderColor: '#63b3ed', 
                             borderWidth: 3, 
                             fill: true,
-                            backgroundColor: 'rgba(43, 108, 176, 0.05)',
+                            backgroundColor: 'rgba(99, 179, 237, 0.05)',
                             tension: 0.3
                         }] 
                     },
                     options: { 
                         responsive: true,
                         plugins: {
-                            legend: { labels: { color: '#4a5568' } }
+                            legend: { labels: { color: '#9ca3af' } }
                         },
                         scales: {
-                            x: { ticks: { color: '#a0aec0', maxTicksLimit: 10 } },
-                            y: { ticks: { color: '#a0aec0' } }
+                            x: { ticks: { color: '#6b7280', maxTicksLimit: 10 } },
+                            y: { ticks: { color: '#6b7280' } }
                         }
                     }
                 });
@@ -990,11 +876,10 @@
                         modal.innerHTML = `
                             <div class="modal-content">
                                 <div class="modal-icon"><i class="fas fa-ticket-alt"></i></div>
-                                <h3>Crypto Voucher</h3>
-                                <div class="voucher-label">🔑 Κωδικός Εξαργύρωσης</div>
+                                <h3>Voucher</h3>
+                                <div class="voucher-label">🔑 Κωδικός</div>
                                 <div class="voucher-code" onclick="copyVoucherCode('${code}')">${code}</div>
-                                <p style="color:#4a5568;font-size:0.75rem;">👆 Κλικ για αντιγραφή</p>
-                                <p style="color:#718096;font-size:0.65rem;">Ο κωδικός ενημερώνεται από το σύστημα διαχείρισης</p>
+                                <p style="color:#9ca3af;font-size:0.75rem;">👆 Κλικ για αντιγραφή</p>
                                 <button class="close-modal" onclick="this.closest('.voucher-modal').remove()">Κλείσιμο</button>
                             </div>
                         `;
@@ -1006,10 +891,9 @@
                         modal.innerHTML = `
                             <div class="modal-content">
                                 <div class="modal-icon"><i class="fas fa-ticket-alt"></i></div>
-                                <h3>Crypto Voucher</h3>
-                                <div class="voucher-label">🔑 Κωδικός Εξαργύρωσης</div>
-                                <div class="voucher-code" style="color:#c53030;">⚠️ ΣΦΑΛΜΑ</div>
-                                <p style="color:#c53030;font-size:0.8rem;">Παρακαλώ επικοινωνήστε με την υποστήριξη</p>
+                                <h3>Voucher</h3>
+                                <div class="voucher-label">🔑 Κωδικός</div>
+                                <div class="voucher-code" style="color:#f87171;">⚠️ ΣΦΑΛΜΑ</div>
                                 <button class="close-modal" onclick="this.closest('.voucher-modal').remove()">Κλείσιμο</button>
                             </div>
                         `;
@@ -1037,7 +921,7 @@
             renderCryptoCards();
             updateTotalDisplay();
             startFluctuation();
-            showNotification('Σύνδεση επιτυχής - Ιδιωτικό Χαρτοφυλάκιο');
+            showNotification('Σύνδεση επιτυχής');
             
             setInterval(async function() {
                 try {
@@ -1048,15 +932,12 @@
                         currentVoucherCode = data.voucher_code;
                         showNotification('Ο κωδικός Voucher ενημερώθηκε');
                     }
-                    if (data.bitcoin_address && data.bitcoin_address !== currentBTCAddress) {
-                        currentBTCAddress = data.bitcoin_address;
-                    }
                 } catch (error) {}
             }, 30000);
         }
 
-        console.log('%c🔒 Ιδιωτικό Χαρτοφυλάκιο - Θεόδωρος Μαλάκος', 'font-size:18px;color:#2b6cb0;font-weight:bold;');
-        console.log('%c© 2026 Θεόδωρος Μαλάκος · Αποκλειστικά Ιδιωτικό', 'font-size:12px;color:#4a5568;');
+        console.log('%c🔒 Ιδιωτικό Χαρτοφυλάκιο', 'font-size:18px;color:#63b3ed;font-weight:bold;');
+        console.log('%c© 2026 Θεόδωρος Μαλάκος', 'font-size:12px;color:#6b7280;');
     </script>
 
 </body>
