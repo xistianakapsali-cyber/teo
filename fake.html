@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live 50 Κρυπτονομίσματα - Local</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0d1117;
+            color: #e6edf3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #f7931a, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .status-bar {
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 8px;
+            background: #161b22;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            font-size: 0.9rem;
+            color: #8b949e;
+        }
+        .status-bar .online {
+            color: #3fb950;
+        }
+        .status-bar .offline {
+            color: #f85149;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .card {
+            background: #161b22;
+            border-radius: 12px;
+            padding: 12px;
+            border: 1px solid #30363d;
+            transition: 0.2s;
+        }
+        .card:hover {
+            border-color: #58a6ff;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+        .name {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .symbol {
+            color: #8b949e;
+            font-size: 0.7rem;
+            margin-left: 4px;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2px 0 6px 0;
+        }
+        .price {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .change {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 20px;
+            background: #21262d;
+        }
+        .positive {
+            color: #3fb950;
+        }
+        .negative {
+            color: #f85149;
+        }
+        .chart-container {
+            height: 70px;
+            position: relative;
+        }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.7rem;
+            color: #484f58;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-left: 6px;
+        }
+        .badge-live {
+            background: #1a3a2a;
+            color: #3fb950;
+        }
+        .badge-mock {
+            background: #3a2a1a;
+            color: #f0883e;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🚀 Live 50 Κρυπτονομίσματα</h1>
+    <div id="statusBar" class="status-bar">⏳ Φόρτωση...</div>
+    <div id="grid" class="grid"></div>
+    <div class="footer">Ανανέωση κάθε 5 δευτερόλεπτα · CORS Proxy: corsproxy.io</div>
+
+    <script>
+        // ===== ΡΥΘΜΙΣΕΙΣ =====
+        const MAX_POINTS = 20;
+        const UPDATE_INTERVAL = 5000;
+
+        // ===== ΑΠΟΘΗΚΗ =====
+        const charts = {};
+        let currentData = [];
+        let isLive = false;
+
+        // ===== MOCK DATA (50 νομίσματα) =====
+        const MOCK_DATA = [
+            { id: 'bitcoin', name: 'Bitcoin', symbol: 'BTC', price: 63282, change: 0.10 },
+            { id: 'ethereum', name: 'Ethereum', symbol: 'ETH', price: 3456, change: -1.20 },
+            { id: 'tether', name: 'Tether', symbol: 'USDT', price: 1.00, change: 0.01 },
+            { id: 'bnb', name: 'BNB', symbol: 'BNB', price: 598, change: 2.30 },
+            { id: 'solana', name: 'Solana', symbol: 'SOL', price: 172, change: 5.60 },
+            { id: 'xrp', name: 'XRP', symbol: 'XRP', price: 0.62, change: -0.50 },
+            { id: 'cardano', name: 'Cardano', symbol: 'ADA', price: 0.46, change: 1.10 },
+            { id: 'dogecoin', name: 'Dogecoin', symbol: 'DOGE', price: 0.15, change: 3.20 },
+            { id: 'polkadot', name: 'Polkadot', symbol: 'DOT', price: 7.20, change: -2.10 },
+            { id: 'chainlink', name: 'Chainlink', symbol: 'LINK', price: 14.50, change: 0.80 },
+            { id: 'avalanche', name: 'Avalanche', symbol: 'AVAX', price: 38.20, change: 4.50 },
+            { id: 'shiba-inu', name: 'Shiba Inu', symbol: 'SHIB', price: 0.000023, change: -1.80 },
+            { id: 'matic', name: 'Polygon', symbol: 'MATIC', price: 0.72, change: 0.30 },
+            { id: 'uniswap', name: 'Uniswap', symbol: 'UNI', price: 7.80, change: -0.90 },
+            { id: 'litecoin', name: 'Litecoin', symbol: 'LTC', price: 74.50, change: 1.40 },
+            { id: 'bitcoin-cash', name: 'Bitcoin Cash', symbol: 'BCH', price: 378, change: 2.10 },
+            { id: 'algorand', name: 'Algorand', symbol: 'ALGO', price: 0.19, change: -0.30 },
+            { id: 'stellar', name: 'Stellar', symbol: 'XLM', price: 0.11, change: 0.60 },
+            { id: 'cosmos', name: 'Cosmos', symbol: 'ATOM', price: 8.90, change: -1.50 },
+            { id: 'vechain', name: 'VeChain', symbol: 'VET', price: 0.034, change: 2.80 },
+            { id: 'filecoin', name: 'Filecoin', symbol: 'FIL', price: 6.80, change: -0.40 },
+            { id: 'theta', name: 'Theta', symbol: 'THETA', price: 2.10, change: 1.20 },
+            { id: 'eos', name: 'EOS', symbol: 'EOS', price: 0.82, change: -0.70 },
+            { id: 'tezos', name: 'Tezos', symbol: 'XTZ', price: 1.05, change: 0.90 },
+            { id: 'aave', name: 'Aave', symbol: 'AAVE', price: 98.50, change: 3.10 },
+            { id: 'maker', name: 'Maker', symbol: 'MKR', price: 1670, change: -2.30 },
+            { id: 'crypto-com', name: 'Cronos', symbol: 'CRO', price: 0.12, change: 0.40 },
+            { id: 'neo', name: 'Neo', symbol: 'NEO', price: 12.30, change: 1.80 },
+            { id: 'dash', name: 'Dash', symbol: 'DASH', price: 30.20, change: -1.10 },
+            { id: 'zcash', name: 'Zcash', symbol: 'ZEC', price: 28.70, change: 0.50 },
+            { id: 'ethereum-classic', name: 'Ethereum Classic', symbol: 'ETC', price: 24.80, change: 2.00 },
+            { id: 'monero', name: 'Monero', symbol: 'XMR', price: 155, change: -0.80 },
+            { id: 'iota', name: 'IOTA', symbol: 'IOTA', price: 0.23, change: 1.50 },
+            { id: 'quant', name: 'Quant', symbol: 'QNT', price: 87.20, change: -0.30 },
+            { id: 'hedera', name: 'Hedera', symbol: 'HBAR', price: 0.078, change: 2.40 },
+            { id: 'near', name: 'NEAR', symbol: 'NEAR', price: 5.60, change: -1.70 },
+            { id: 'flow', name: 'Flow', symbol: 'FLOW', price: 0.68, change: 0.20 },
+            { id: 'gala', name: 'Gala', symbol: 'GALA', price: 0.038, change: 3.80 },
+            { id: 'elrond', name: 'MultiversX', symbol: 'EGLD', price: 42.10, change: -0.60 },
+            { id: 'harmony', name: 'Harmony', symbol: 'ONE', price: 0.018, change: 1.10 },
+            { id: 'kava', name: 'Kava', symbol: 'KAVA', price: 0.82, change: 0.70 },
+            { id: 'pancakeswap', name: 'PancakeSwap', symbol: 'CAKE', price: 2.45, change: -0.40 },
+            { id: 'thorchain', name: 'THORChain', symbol: 'RUNE', price: 4.20, change: 2.90 },
+            { id: 'enjin', name: 'Enjin', symbol: 'ENJ', price: 0.28, change: 1.60 },
+            { id: 'zilliqa', name: 'Zilliqa', symbol: 'ZIL', price: 0.025, change: -0.20 },
+            { id: 'ontology', name: 'Ontology', symbol: 'ONT', price: 0.22, change: 0.90 },
+            { id: 'iota', name: 'IOTA', symbol: 'IOTA', price: 0.23, change: 1.50 },
+            { id: 'decentraland', name: 'Decentraland', symbol: 'MANA', price: 0.38, change: -1.30 },
+            { id: 'axie-infinity', name: 'Axie Infinity', symbol: 'AXS', price: 6.50, change: 2.20 },
+            { id: 'the-sandbox', name: 'The Sandbox', symbol: 'SAND', price: 0.42, change: 0.80 },
+        ];
+
+        // ===== ΒΟΗΘΗΤΙΚΕΣ =====
+        function formatPrice(price) {
+            if (!price || price === 0) return '$0.00';
+            if (price >= 1000) return '$' + price.toFixed(2);
+            if (price >= 1) return '$' + price.toFixed(4);
+            if (price >= 0.001) return '$' + price.toFixed(6);
+            return '$' + price.toFixed(8);
+        }
+
+        function getRandomChange() {
+            return (Math.random() - 0.5) * 0.02;
+        }
+
+        // ===== ΔΗΜΙΟΥΡΓΙΑ CHART =====
+        function createChart(canvasId, label, initialPrice) {
+            const ctx = document.getElementById(canvasId);
+            if (!ctx) return null;
+
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: label,
+                        data: [],
+                        borderColor: '#f7931a',
+                        backgroundColor: 'rgba(247, 147, 26, 0.08)',
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        tension: 0.3,
+                        fill: true,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: { duration: 200 },
+                    scales: {
+                        x: { display: false, grid: { display: false } },
+                        y: {
+                            display: true,
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: {
+                                color: '#8b949e',
+                                font: { size: 7 },
+                                maxTicksLimit: 3,
+                                callback: (value) => {
+                                    if (value >= 1000) return '$' + value.toFixed(0);
+                                    if (value >= 1) return '$' + value.toFixed(2);
+                                    return '$' + value.toFixed(4);
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (ctx) => ctx.dataset.label + ': ' + formatPrice(ctx.parsed.y)
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Αρχικά σημεία
+            const now = Date.now();
+            for (let i = 0; i < 5; i++) {
+                const variation = (Math.random() - 0.5) * initialPrice * 0.015;
+                chart.data.datasets[0].data.push({
+                    x: now - (5 - i) * UPDATE_INTERVAL,
+                    y: initialPrice + variation
+                });
+            }
+            chart.update('none');
+            return chart;
+        }
+
+        // ===== ΕΝΗΜΕΡΩΣΗ CHARTS =====
+        function updateCharts(data) {
+            data.forEach(crypto => {
+                const id = crypto.id;
+                if (!charts[id]) return;
+
+                const chart = charts[id];
+                const dataset = chart.data.datasets[0];
+                const price = crypto.current_price || crypto.price || 0;
+
+                if (!price) return;
+
+                const now = Date.now();
+                dataset.data.push({ x: now, y: price });
+
+                if (dataset.data.length > MAX_POINTS) {
+                    dataset.data.shift();
+                }
+
+                chart.update('none');
+            });
+        }
+
+        // ===== ΕΝΗΜΕΡΩΣΗ ΚΑΡΤΩΝ =====
+        function updateCards(data) {
+            data.forEach(crypto => {
+                const card = document.getElementById('card-' + crypto.id);
+                if (!card) return;
+
+                const priceEl = card.querySelector('.price');
+                const changeEl = card.querySelector('.change');
+                const changeVal = crypto.price_change_percentage_24h !== undefined ?
+                    crypto.price_change_percentage_24h :
+                    (crypto.change || 0);
+                const price = crypto.current_price || crypto.price || 0;
+
+                if (priceEl) priceEl.textContent = formatPrice(price);
+                if (changeEl) {
+                    const val = typeof changeVal === 'number' ? changeVal : parseFloat(changeVal) || 0;
+                    changeEl.textContent = (val >= 0 ? '+' : '') + val.toFixed(2) + '%';
+                    changeEl.className = 'change ' + (val >= 0 ? 'positive' : 'negative');
+                }
+            });
+        }
+
+        // ===== ΛΗΨΗ ΑΠΟ COINGECKO ΜΕ CORS PROXY =====
+        async function fetchFromCoinGecko() {
+            try {
+                // Χρήση CORS proxy για localhost
+                const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=24h';
+                const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
+
+                const res = await fetch(proxyUrl, {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                return data;
+            } catch (e) {
+                console.warn('API error:', e.message);
+                return null;
+            }
+        }
+
+        // ===== ΔΗΜΙΟΥΡΓΙΑ GRID =====
+        function buildGrid(data) {
+            const grid = document.getElementById('grid');
+            grid.innerHTML = '';
+
+            data.forEach((crypto) => {
+                const id = crypto.id;
+                const cardId = 'card-' + id;
+                const canvasId = 'chart-' + id;
+                const price = crypto.current_price || crypto.price || 0;
+                const changeVal = crypto.price_change_percentage_24h !== undefined ?
+                    crypto.price_change_percentage_24h :
+                    (crypto.change || 0);
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.id = cardId;
+                card.innerHTML = `
+                    <div class="header">
+                        <span class="name">${crypto.name} <span class="symbol">${(crypto.symbol || '').toUpperCase()}</span></span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">${formatPrice(price)}</span>
+                        <span class="change ${changeVal >= 0 ? 'positive' : 'negative'}">${(changeVal >= 0 ? '+' : '')}${typeof changeVal === 'number' ? changeVal.toFixed(2) : '0.00'}%</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="${canvasId}"></canvas>
+                    </div>
+                `;
+                grid.appendChild(card);
+
+                const chart = createChart(canvasId, (crypto.symbol || '').toUpperCase(), price);
+                if (chart) charts[id] = chart;
+            });
+
+            currentData = data;
+        }
+
+        // ===== ΔΗΜΙΟΥΡΓΙΑ MOCK UPDATE =====
+        function createMockUpdate(data) {
+            return data.map(c => {
+                const change = getRandomChange();
+                const newPrice = Math.max((c.current_price || c.price || 1) * (1 + change), 0.00000001);
+                const change24h = (c.price_change_percentage_24h || c.change || 0) + change * 5;
+                return {
+                    ...c,
+                    current_price: newPrice,
+                    price: newPrice,
+                    price_change_percentage_24h: Math.min(Math.max(change24h, -30), 30)
+                };
+            });
+        }
+
+        // ===== ΚΥΡΙΑ ΕΚΚΙΝΗΣΗ =====
+        async function init() {
+            const statusBar = document.getElementById('statusBar');
+
+            // Προσπάθεια από CoinGecko με proxy
+            statusBar.innerHTML = '⏳ Σύνδεση με CoinGecko μέσω proxy...';
+            let data = await fetchFromCoinGecko();
+
+            if (data && data.length > 0) {
+                isLive = true;
+                statusBar.innerHTML = '🟢 <span class="online">Live</span> · ' + data.length +
+                    ' νομίσματα · <span class="badge badge-live">REAL DATA</span>';
+                buildGrid(data);
+            } else {
+                isLive = false;
+                statusBar.innerHTML = '🟠 <span class="offline">Offline</span> · Χρήση δοκιμαστικών δεδομένων · <span class="badge badge-mock">MOCK DATA</span>';
+
+                // Mock data με τυχαίες τιμές
+                const mockData = MOCK_DATA.map(c => ({
+                    ...c,
+                    current_price: c.price * (1 + (Math.random() - 0.5) * 0.05),
+                    price_change_percentage_24h: c.change + (Math.random() - 0.5) * 2
+                }));
+                buildGrid(mockData);
+            }
+
+            // Ανανέωση κάθε 5 δευτερόλεπτα
+            setInterval(async () => {
+                if (isLive) {
+                    const fresh = await fetchFromCoinGecko();
+                    if (fresh && fresh.length > 0) {
+                        updateCards(fresh);
+                        updateCharts(fresh);
+                        currentData = fresh;
+                        return;
+                    }
+                }
+
+                // Αν δεν είμαστε live ή απέτυχε το API, κάνε mock update
+                if (currentData.length > 0) {
+                    const mockUpdate = createMockUpdate(currentData);
+                    updateCards(mockUpdate);
+                    updateCharts(mockUpdate);
+                    currentData = mockUpdate;
+                }
+            }, UPDATE_INTERVAL);
+        }
+
+        // ===== ΕΚΚΙΝΗΣΗ =====
+        init();
+    </script>
+</body>
+</html>

