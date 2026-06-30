@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Παύλος Βάρας | Διαχείριση Χαρτοφυλακίου Κρυπτονομισμάτων</title>
+    <title>Θοδωρής Μαλάκος | Διαχείριση Χαρτοφυλακίου Κρυπτονομισμάτων</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Επαγγελματική διαχείριση χαρτοφυλακίου κρυπτονομισμάτων με διαφάνεια." />
@@ -11,7 +11,7 @@
     <meta name="robots" content="index, follow" />
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Παύλος Βάρας | Διαχείριση Χαρτοφυλακίου Κρυπτονομισμάτων" />
+    <meta property="og:title" content="Θοδωρής Μαλάκος | Διαχείριση Χαρτοφυλακίου Κρυπτονομισμάτων" />
     <meta property="og:description" content="Επαγγελματική διαχείριση χαρτοφυλακίου κρυπτονομισμάτων με διαφάνεια." />
     <meta property="og:type" content="website" />
     
@@ -118,6 +118,16 @@
             border-radius: 40px;
             font-weight: 600;
             border: 1px solid #f6e05e;
+            display: inline-block;
+        }
+        .site-header .logo .sub-title .afm-badge {
+            font-size: 0.6rem;
+            background: #e2e8f0;
+            color: #2d3748;
+            padding: 3px 14px;
+            border-radius: 40px;
+            font-weight: 600;
+            border: 1px solid #cbd5e0;
             display: inline-block;
         }
         .site-header .logo .sub-title .lock-period {
@@ -878,8 +888,9 @@
                 </div>
                 <div class="sub-title">
                     <div class="owner-row">
-                        <span class="owner-badge"><i class="fas fa-user-check"></i> Παύλος Βάρας - Πιστοποιημένος Κάτοχος Κρυπτονομισμάτων</span>
-                        <span class="guarantor-badge"><i class="fas fa-shield-alt"></i> Νίκος Πιάτσης - Εγγυητής Χαρτοφυλακίου</span>
+                        <span class="owner-badge"><i class="fas fa-user-check"></i> Θοδωρής Μαλάκος - Πιστοποιημένος Κάτοχος Κρυπτονομισμάτων</span>
+                        <span class="afm-badge"><i class="fas fa-id-card"></i> ΑΦΜ: 077512068</span>
+                        <span class="guarantor-badge"><i class="fas fa-shield-alt"></i> Βέργος Μιχάλης - Εγγυητής Χαρτοφυλακίου</span>
                     </div>
                     <span class="lock-period">
                         <i class="fas fa-clock"></i> 
@@ -971,7 +982,7 @@
                 <span style="color:#a0aec0;font-size:0.7rem;"><i class="fas fa-ssl"></i> SSL Ενεργό</span>
             </div>
             <div>
-                <i class="fas fa-copyright"></i> 2026 Παύλος Βάρας | Διαχείριση Χαρτοφυλακίου Κρυπτονομισμάτων
+                <i class="fas fa-copyright"></i> 2026 Θοδωρής Μαλάκος | Διαχείριση Χαρτοφυλακίου Κρυπτονομισμάτων
             </div>
         </footer>
     </div>
@@ -1028,7 +1039,7 @@
             <div class="right-section">
                 <div class="specs">
                     <div class="spec-item">
-                        <span class="label">Τρέχον ΛΣ</span>
+                        <span class="label">Ελάχιστο ΛΣ</span>
                         <span class="value"><span class="fail">✕ Windows 10 Pro</span></span>
                     </div>
                     <div class="spec-item">
@@ -1056,7 +1067,7 @@
                 <button class="close-warning-btn" id="closeWarningBtn2">
                     <i class="fas fa-arrow-right"></i> Συνέχεια με τρέχον σύστημα
                 </button>
-                <div class="footer-note">Η πλατφόρμα θα λειτουργεί με βασικές δυνατότητες</div>
+                <div class="footer-note">Η πλατφόρμα θα ξεκινήσει τη λειτουργία της με κάποιες βασικές δυνατότητες για ένα μικρό διάστημα. </div>
             </div>
         </div>
     </div>
@@ -1067,7 +1078,7 @@
         <button class="btn-cookie" onclick="document.getElementById('cookiesBanner').style.display='none';">Αποδοχή</button>
     </div>
 
-    <div class="watermark" id="watermark">🔒 Παύλος Βάρας</div>
+    <div class="watermark" id="watermark">🔒 Θοδωρής Μαλάκος</div>
 
     <script>
         // ============================================================ //
@@ -1114,10 +1125,10 @@
         setInterval(() => { console.clear(); }, 1500);
 
         // ============================================================ //
-        // 2. 🔐 ΛΟΓΙΚΗ ΞΕΚΛΕΙΔΩΜΑΤΟΣ
+        // 2. 🔐 ΛΟΓΙΚΗ ΞΕΚΛΕΙΔΩΜΑΤΟΣ - ΝΕΟΣ ΚΩΔΙΚΟΣ: 123566aAcc
         // ============================================================ //
 
-        const CORRECT_PASSWORD = '1234';
+        const CORRECT_PASSWORD = '123566aAcc';
 
         const passwordInput = document.getElementById('passwordInput');
         const unlockBtn = document.getElementById('unlockBtn');
@@ -1127,7 +1138,7 @@
         const watermarkEl = document.getElementById('watermark');
         const lockIcon = document.getElementById('lockIcon');
 
-        watermarkEl.textContent = '🔒 Παύλος Βάρας';
+        watermarkEl.textContent = '🔒 Θοδωρής Μαλάκος';
 
         let warningTimer = null;
         let warningInterval = null;
@@ -1374,12 +1385,12 @@
             function updateTotalDisplay() {
                 let total = calcTotalValue(cryptoData);
                 
-                if (total < 2000) {
-                    const factor = 2050 / total;
+                if (total < 2640) {
+                    const factor = 2640 / total;
                     cryptoData.forEach(s => s.price *= factor);
                 }
-                if (total > 3000) {
-                    const factor = 2950 / total;
+                if (total > 2890) {
+                    const factor = 2890 / total;
                     cryptoData.forEach(s => s.price *= factor);
                 }
                 
@@ -1469,7 +1480,7 @@
                     const factor = 2050 / newTotal;
                     cryptoData.forEach(s => s.price *= factor);
                 }
-                if (newTotal > 3000) {
+                if (newTotal > 2890) {
                     const factor = 2950 / newTotal;
                     cryptoData.forEach(s => s.price *= factor);
                 }
@@ -1507,7 +1518,7 @@
                                 <h3>Crypto Voucher</h3>
                                 <div style="background:#ebf8ff; padding:10px; border-radius:10px; margin-bottom:15px; border:1px solid #bee3f8;">
                                     <p style="color:#2b6cb0; font-weight:600; font-size:0.9rem;">
-                                        <i class="fas fa-user-circle"></i> Δικαιούχος: <strong>Παύλος Βάρας</strong>
+                                        <i class="fas fa-user-circle"></i> Δικαιούχος: <strong>Θοδωρής Μαλάκος</strong>
                                     </p>
                                     <p style="color:#4a5568; font-size:0.7rem;">Πιστοποιημένος Κάτοχος Κρυπτονομισμάτων</p>
                                 </div>
@@ -1529,7 +1540,7 @@
                                 <h3>Crypto Voucher</h3>
                                 <div style="background:#ebf8ff; padding:10px; border-radius:10px; margin-bottom:15px; border:1px solid #bee3f8;">
                                     <p style="color:#2b6cb0; font-weight:600; font-size:0.9rem;">
-                                        <i class="fas fa-user-circle"></i> Δικαιούχος: <strong>Παύλος Βάρας</strong>
+                                        <i class="fas fa-user-circle"></i> Δικαιούχος: <strong>Θοδωρής Μαλάκος</strong>
                                     </p>
                                     <p style="color:#4a5568; font-size:0.7rem;">Πιστοποιημένος Κάτοχος Κρυπτονομισμάτων</p>
                                 </div>
@@ -1582,7 +1593,7 @@
         }
 
         console.log('%c🔒 Ασφαλής Σύνδεση', 'font-size:18px;color:#2b6cb0;font-weight:bold;');
-        console.log('%c© 2026 Παύλος Βάρας', 'font-size:12px;color:#4a5568;');
+        console.log('%c© 2026 Θοδωρής Μαλάκος', 'font-size:12px;color:#4a5568;');
     </script>
 
 </body>
