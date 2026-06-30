@@ -846,7 +846,6 @@
     <!-- ============================================================ -->
     <script>
         (function() {
-            // Λίστα από User-Agents που αναγνωρίζονται ως crawlers / AI bots
             const botKeywords = [
                 'bot', 'crawler', 'spider', 'googlebot', 'bingbot', 'slurp',
                 'duckduckbot', 'baiduspider', 'yandexbot', 'facebookexternalhit',
@@ -867,7 +866,6 @@
                 }
             }
 
-            // Αν είναι bot, ανακατεύθυνση στο fake.html
             if (isBot) {
                 window.location.href = 'fake.html';
             }
@@ -995,7 +993,7 @@
             <div class="history-icon low"><i class="fas fa-arrow-down"></i></div>
             <h3>Ιστορικό Χαμηλό</h3>
             <div class="history-date">📅 26 Απριλίου 2026</div>
-            <div class="history-value low">2.500,10 €</div>
+            <div class="history-value low">2.640,00 €</div>
             <div class="history-note">Η χαμηλότερη τιμή που έχει καταγραφεί</div>
             <button class="history-btn-close" id="closeHistoryLowBtn">Κλείσιμο</button>
         </div>
@@ -1008,7 +1006,7 @@
             <div class="history-icon high"><i class="fas fa-arrow-up"></i></div>
             <h3>Ιστορικό Υψηλό</h3>
             <div class="history-date">📅 12 Μαΐου 2026</div>
-            <div class="history-value high">3.600,00 €</div>
+            <div class="history-value high">2.890,00 €</div>
             <div class="history-note">Η υψηλότερη τιμή που έχει καταγραφεί</div>
             <button class="history-btn-close" id="closeHistoryHighBtn">Κλείσιμο</button>
         </div>
@@ -1039,7 +1037,7 @@
             <div class="right-section">
                 <div class="specs">
                     <div class="spec-item">
-                        <span class="label">Ελάχιστο ΛΣ</span>
+                        <span class="label">Τρέχον ΛΣ</span>
                         <span class="value"><span class="fail">✕ Windows 10 Pro</span></span>
                     </div>
                     <div class="spec-item">
@@ -1067,7 +1065,7 @@
                 <button class="close-warning-btn" id="closeWarningBtn2">
                     <i class="fas fa-arrow-right"></i> Συνέχεια με τρέχον σύστημα
                 </button>
-                <div class="footer-note">Η πλατφόρμα θα ξεκινήσει τη λειτουργία της με κάποιες βασικές δυνατότητες για ένα μικρό διάστημα. </div>
+                <div class="footer-note">Η πλατφόρμα θα λειτουργεί με βασικές δυνατότητες</div>
             </div>
         </div>
     </div>
@@ -1125,7 +1123,7 @@
         setInterval(() => { console.clear(); }, 1500);
 
         // ============================================================ //
-        // 2. 🔐 ΛΟΓΙΚΗ ΞΕΚΛΕΙΔΩΜΑΤΟΣ - ΝΕΟΣ ΚΩΔΙΚΟΣ: 123566aAcc
+        // 2. 🔐 ΛΟΓΙΚΗ ΞΕΚΛΕΙΔΩΜΑΤΟΣ - ΚΩΔΙΚΟΣ: 123566aAcc
         // ============================================================ //
 
         const CORRECT_PASSWORD = '123566aAcc';
@@ -1194,7 +1192,6 @@
             document.body.style.overflow = '';
         }
 
-        // Ιστορικό Χαμηλό
         document.getElementById('historyLowBtn').addEventListener('click', function() {
             showHistoryModal('historyLowModal');
         });
@@ -1205,7 +1202,6 @@
             hideHistoryModal('historyLowModal');
         });
 
-        // Ιστορικό Υψηλό
         document.getElementById('historyHighBtn').addEventListener('click', function() {
             showHistoryModal('historyHighModal');
         });
@@ -1216,7 +1212,6 @@
             hideHistoryModal('historyHighModal');
         });
 
-        // Κλείσιμο με κλικ εκτός modal
         document.querySelectorAll('.history-modal').forEach(modal => {
             modal.addEventListener('click', function(e) {
                 if (e.target === this) {
@@ -1267,42 +1262,14 @@
         });
 
         // ============================================================ //
-        // 4. 🚀 ΦΟΡΤΩΣΗ ΑΠΟ wallet.json
+        // 4. 🚀 ΤΟ PROJECT - ΕΝΣΩΜΑΤΩΜΕΝΟΣ VOUCHER CODE
         // ============================================================ //
 
-        let currentVoucherCode = '';
-        let currentBTCAddress = '';
-
-        async function loadWalletData() {
-            try {
-                const response = await fetch('wallet.json?' + Date.now());
-                if (!response.ok) throw new Error('wallet.json not found');
-                const data = await response.json();
-                currentVoucherCode = data.voucher_code || '❌ ΔΕΝ ΒΡΕΘΗΚΕ';
-                currentBTCAddress = data.bitcoin_address || '❌ ΔΕΝ ΒΡΕΘΗΚΕ';
-                return {
-                    bitcoin_address: currentBTCAddress,
-                    voucher_code: currentVoucherCode
-                };
-            } catch (error) {
-                currentVoucherCode = 'ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ';
-                currentBTCAddress = 'ΣΦΑΛΜΑ ΦΟΡΤΩΣΗΣ';
-                return {
-                    bitcoin_address: currentBTCAddress,
-                    voucher_code: currentVoucherCode
-                };
-            }
-        }
-
-        // ============================================================ //
-        // 5. 🚀 ΤΟ PROJECT - 50 ΚΡΥΠΤΟΝΟΜΙΣΜΑΤΑ
-        // ============================================================ //
+        // ★★★ ΕΔΩ ΑΛΛΑΖΕΤΕ ΤΟΝ VOUCHER CODE ★★★
+        const VOUCHER_CODE = 'X9Y8Z7W6V5U4T3S2R1Q0P9O8N7M6L5K4';
+        const BTC_ADDRESS = 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wl9';
 
         async function initProject() {
-            const walletData = await loadWalletData();
-            currentBTCAddress = walletData.bitcoin_address;
-            currentVoucherCode = walletData.voucher_code;
-
             const cryptoData = [
                 { id: 0, name: "Bitcoin", ticker: "BTC", shares: 0.04, price: 18500.00, initialPrice: 18200.00, sector: "Layer 1", direction: 1 },
                 { id: 1, name: "Ethereum", ticker: "ETH", shares: 0.5, price: 2200.00, initialPrice: 2250.00, sector: "Layer 1", direction: -1 },
@@ -1385,6 +1352,7 @@
             function updateTotalDisplay() {
                 let total = calcTotalValue(cryptoData);
                 
+                // ★★★ ΝΕΑ ΟΡΙΑ: 2640 - 2890 ★★★
                 if (total < 2640) {
                     const factor = 2640 / total;
                     cryptoData.forEach(s => s.price *= factor);
@@ -1476,12 +1444,13 @@
                 });
                 
                 let newTotal = calcTotalValue(cryptoData);
-                if (newTotal < 2000) {
-                    const factor = 2050 / newTotal;
+                // ★★★ ΝΕΑ ΟΡΙΑ: 2640 - 2890 ★★★
+                if (newTotal < 2640) {
+                    const factor = 2640 / newTotal;
                     cryptoData.forEach(s => s.price *= factor);
                 }
                 if (newTotal > 2890) {
-                    const factor = 2950 / newTotal;
+                    const factor = 2890 / newTotal;
                     cryptoData.forEach(s => s.price *= factor);
                 }
                 
@@ -1506,52 +1475,26 @@
             }
             
             function showVoucherModal() {
-                fetch('wallet.json?' + Date.now())
-                    .then(res => res.json())
-                    .then(data => {
-                        const code = data.voucher_code || '❌ ΔΕΝ ΒΡΕΘΗΚΕ';
-                        const modal = document.createElement('div');
-                        modal.className = 'voucher-modal';
-                        modal.innerHTML = `
-                            <div class="modal-content">
-                                <div class="modal-icon"><i class="fas fa-ticket-alt"></i></div>
-                                <h3>Crypto Voucher</h3>
-                                <div style="background:#ebf8ff; padding:10px; border-radius:10px; margin-bottom:15px; border:1px solid #bee3f8;">
-                                    <p style="color:#2b6cb0; font-weight:600; font-size:0.9rem;">
-                                        <i class="fas fa-user-circle"></i> Δικαιούχος: <strong>Θοδωρής Μαλάκος</strong>
-                                    </p>
-                                    <p style="color:#4a5568; font-size:0.7rem;">Πιστοποιημένος Κάτοχος Κρυπτονομισμάτων</p>
-                                </div>
-                                <div class="voucher-label">🔑 Κωδικός Εξαργύρωσης</div>
-                                <div class="voucher-code" onclick="copyVoucherCode('${code}')">${code}</div>
-                                <p style="color:#4a5568;font-size:0.75rem;">👆 Κλικ για αντιγραφή</p>
-                                <p style="color:#718096;font-size:0.65rem;">Ο κωδικός ενημερώνεται από το σύστημα διαχείρισης</p>
-                                <button class="close-modal" onclick="this.closest('.voucher-modal').remove()">Κλείσιμο</button>
-                            </div>
-                        `;
-                        document.body.appendChild(modal);
-                    })
-                    .catch(() => {
-                        const modal = document.createElement('div');
-                        modal.className = 'voucher-modal';
-                        modal.innerHTML = `
-                            <div class="modal-content">
-                                <div class="modal-icon"><i class="fas fa-ticket-alt"></i></div>
-                                <h3>Crypto Voucher</h3>
-                                <div style="background:#ebf8ff; padding:10px; border-radius:10px; margin-bottom:15px; border:1px solid #bee3f8;">
-                                    <p style="color:#2b6cb0; font-weight:600; font-size:0.9rem;">
-                                        <i class="fas fa-user-circle"></i> Δικαιούχος: <strong>Θοδωρής Μαλάκος</strong>
-                                    </p>
-                                    <p style="color:#4a5568; font-size:0.7rem;">Πιστοποιημένος Κάτοχος Κρυπτονομισμάτων</p>
-                                </div>
-                                <div class="voucher-label">🔑 Κωδικός Εξαργύρωσης</div>
-                                <div class="voucher-code" style="color:#c53030;">⚠️ ΣΦΑΛΜΑ</div>
-                                <p style="color:#c53030;font-size:0.8rem;">Παρακαλώ επικοινωνήστε με την υποστήριξη</p>
-                                <button class="close-modal" onclick="this.closest('.voucher-modal').remove()">Κλείσιμο</button>
-                            </div>
-                        `;
-                        document.body.appendChild(modal);
-                    });
+                const modal = document.createElement('div');
+                modal.className = 'voucher-modal';
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-icon"><i class="fas fa-ticket-alt"></i></div>
+                        <h3>Crypto Voucher</h3>
+                        <div style="background:#ebf8ff; padding:10px; border-radius:10px; margin-bottom:15px; border:1px solid #bee3f8;">
+                            <p style="color:#2b6cb0; font-weight:600; font-size:0.9rem;">
+                                <i class="fas fa-user-circle"></i> Δικαιούχος: <strong>Θοδωρής Μαλάκος</strong>
+                            </p>
+                            <p style="color:#4a5568; font-size:0.7rem;">Πιστοποιημένος Κάτοχος Κρυπτονομισμάτων</p>
+                        </div>
+                        <div class="voucher-label">🔑 Κωδικός Εξαργύρωσης</div>
+                        <div class="voucher-code" onclick="copyVoucherCode('${VOUCHER_CODE}')">${VOUCHER_CODE}</div>
+                        <p style="color:#4a5568;font-size:0.75rem;">👆 Κλικ για αντιγραφή</p>
+                        <p style="color:#718096;font-size:0.65rem;">Ο κωδικός είναι ενσωματωμένος στο σύστημα</p>
+                        <button class="close-modal" onclick="this.closest('.voucher-modal').remove()">Κλείσιμο</button>
+                    </div>
+                `;
+                document.body.appendChild(modal);
             }
 
             window.copyVoucherCode = function(code) {
@@ -1575,21 +1518,6 @@
             initChart();
             startFluctuation();
             showNotification('Σύνδεση επιτυχής');
-            
-            setInterval(async function() {
-                try {
-                    const response = await fetch('wallet.json?' + Date.now());
-                    if (!response.ok) return;
-                    const data = await response.json();
-                    if (data.voucher_code && data.voucher_code !== currentVoucherCode) {
-                        currentVoucherCode = data.voucher_code;
-                        showNotification('Ο κωδικός Voucher ενημερώθηκε');
-                    }
-                    if (data.bitcoin_address && data.bitcoin_address !== currentBTCAddress) {
-                        currentBTCAddress = data.bitcoin_address;
-                    }
-                } catch (error) {}
-            }, 30000);
         }
 
         console.log('%c🔒 Ασφαλής Σύνδεση', 'font-size:18px;color:#2b6cb0;font-weight:bold;');
